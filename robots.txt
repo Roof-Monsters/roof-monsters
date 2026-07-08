@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://roofmonsters.co/sitemap.xml
+Sitemap: https://roofmonsters.co/sitemap_index.xml

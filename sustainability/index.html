@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script>
+(function () {
+  var path = location.pathname;
+  var marker = '/roof-monsters/';
+  var idx = path.indexOf(marker);
+  window.__RM_BASE__ = idx >= 0 ? path.slice(0, idx + marker.length) : '/';
+  document.write('<base href="' + window.__RM_BASE__ + '">');
+})();
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sustainable Roofing | Roof Monsters Tampa Bay</title>
+  <meta name="description" content="Eco-friendly and energy-efficient roofing solutions for Florida — cool roofs, durable materials, and responsible installation from Roof Monsters." />
+<!-- rm-seo:start -->
+  <link rel="canonical" href="https://roofmonsters.co/sustainability/" />
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Roof Monsters" />
+  <meta property="og:title" content="Sustainable Roofing | Roof Monsters Tampa Bay" />
+  <meta property="og:description" content="Eco-friendly and energy-efficient roofing solutions for Florida — cool roofs, durable materials, and responsible installation from Roof Monsters." />
+  <meta property="og:url" content="https://roofmonsters.co/sustainability/" />
+  <meta property="og:image" content="https://roofmonsters.co/assets/images/gallery/pinellas-new-roof.webp" />
+  <meta property="og:locale" content="en_US" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Sustainable Roofing | Roof Monsters Tampa Bay" />
+  <meta name="twitter:description" content="Eco-friendly and energy-efficient roofing solutions for Florida — cool roofs, durable materials, and responsible installation from Roof Monsters." />
+  <meta name="twitter:image" content="https://roofmonsters.co/assets/images/gallery/pinellas-new-roof.webp" />
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://roofmonsters.co/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Sustainability",
+      "item": "https://roofmonsters.co/sustainability/"
+    }
+  ]
+}
+  </script>
+  <script>
+(function () {
+  var path = location.pathname;
+  var marker = '/roof-monsters/';
+  var idx = path.indexOf(marker);
+  if (idx < 0) return;
+  var demoBase = "https://roof-monsters.github.io/roof-monsters";
+  var rel = path.slice(idx + marker.length - 1);
+  if (!rel.endsWith('/')) {
+    var last = rel.lastIndexOf('/');
+    rel = last > 0 ? rel.slice(0, last + 1) : '/';
+  }
+  var canonical = demoBase + (rel === '/' ? '/' : rel);
+  var link = document.querySelector('link[rel="canonical"]');
+  if (link) link.setAttribute('href', canonical);
+  ['og:url'].forEach(function (prop) {
+    var meta = document.querySelector('meta[property="' + prop + '"]');
+    if (meta) meta.setAttribute('content', canonical);
+  });
+})();
+  </script>
+<!-- rm-seo:end -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,400;1,700&family=Roboto+Slab:wght@400;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+  <div id="site-header-include"></div>
+
+  <section class="page-hero">
+    <div class="container">
+      <h1>Sustainable <span class="accent">Roofing</span></h1>
+      <nav class="breadcrumb" aria-label="breadcrumb">
+        <a href="/">Home</a>
+        <i class="fa-solid fa-chevron-right"></i>
+        <span>Sustainability</span>
+      </nav>
+    </div>
+  </section>
+
+  <section class="section-pad section-bg-white">
+    <div class="container content-page">
+
+      <p>Sustainability in roofing means building systems that last, reduce energy waste, and minimize repeat tear-offs over a home's lifetime. Roof Monsters approaches every project with that long view.</p>
+      <h2>Energy-Efficient Materials</h2>
+      <p>Reflective shingles and proper attic ventilation reduce heat transfer into living spaces — meaningful in Florida's cooling-dominated climate.</p>
+      <h2>Durability Reduces Landfill Waste</h2>
+      <p>A properly installed roof that lasts decades replaces fewer materials than repeated emergency patches on a failing system. Quality installation is the most sustainable choice.</p>
+      <h2>Atlas Scotchgard Algae Resistance</h2>
+      <p>Algae streaks are common in humid Gulf Coast conditions. Scotchgard-protected Atlas shingles resist black streaking, keeping roofs functional and attractive longer.</p>
+      <h2>Responsible Tear-Off and Recycling</h2>
+      <p>We haul away debris and follow jobsite cleanup standards that protect landscaping, driveways, and neighboring properties — magnetic nail sweeps included.</p>
+      <p>Read more in our blog: <a href="/the-benefits-of-eco-friendly-roofing-solutions/">eco-friendly roofing benefits</a>.</p>
+      <p><a href="/services/comprehensive-roof-installations/" class="btn btn-primary"><i class="fa-solid fa-arrow-right"></i> Explore Installations</a></p>
+
+    </div>
+  </section>
+
+  <div id="site-footer-include"></div>
+  <script src="includes.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

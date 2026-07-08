@@ -1,0 +1,62 @@
+# Roof Monsters — llms.txt
+# https://roofmonsters.co
+# Family-owned Tampa Bay roofing contractor since 1988 (Dunedin, FL HQ)
+
+> Roof Monsters (DBA Terrance McKeever Enterprises, Inc.) provides residential and commercial roofing across Pasco, Pinellas, Hernando, Hillsborough, and Manatee County, Florida. Services include roof installation, repair, free inspections, storm damage, gutters, and skylights.
+
+## Primary site
+- Production: https://roofmonsters.co
+- Staging (GitHub Pages): https://roof-monsters.github.io/roof-monsters/
+
+## Contact
+- Phone: (727) 439-3869
+- Email: roofmonsters@icloud.com
+- Address: 1391 Robin Hood Ln, Dunedin, FL 34698
+
+## Key pages
+- Home: /
+- Contact: /contact-us/
+- Services hub: /services/
+- Service areas: /about-us/locations-we-serve/
+- Gallery: /gallery/
+- Blog: /blog/
+- Testimonials: /testimonials/
+
+## Services
+- /services/comprehensive-roof-installations/
+- /services/expert-roof-repairs-and-maintenance/
+- /services/free-roof-inspections-and-consultations/
+- /services/storm-damage-repair-specialists/
+- /services/gutter-installation-and-cleaning/
+- /services/skylight-installation-and-repair/
+
+## Location pages (14)
+- /about-us/locations-we-serve/roofing-company-dunedin-florida/
+- /about-us/locations-we-serve/roofing-company-tampa-florida/
+- /about-us/locations-we-serve/roofing-company-clearwater-florida/
+- /about-us/locations-we-serve/roofing-company-st-petersburg-florida/
+- /about-us/locations-we-serve/roofing-company-palm-harbor-florida/
+- /about-us/locations-we-serve/roofing-company-largo-florida/
+- /about-us/locations-we-serve/roofing-company-seminole-florida/
+- /about-us/locations-we-serve/roofing-company-safety-harbor-florida/
+- /about-us/locations-we-serve/roofing-company-new-port-richey-florida/
+- /about-us/locations-we-serve/roofing-company-pinellas-county-florida/
+- /about-us/locations-we-serve/roofing-company-hillsborough-county-florida/
+- /about-us/locations-we-serve/roofing-company-pasco-county-florida/
+- /about-us/locations-we-serve/roofing-company-hernando-county-florida/
+- /about-us/locations-we-serve/roofing-company-manatee-county-florida/
+
+## Blog posts
+- /october-roofing-season-in-tampa-bay-why-fall-is-the-best-time-to-schedule-your-roof-work/
+- /how-to-prepare-your-roof-for-floridas-hurricane-season/
+- /the-roof-monsters-way-what-sets-our-roofing-company-apart/
+
+## Build / deploy notes
+- Sitemap: regenerate with `python scripts/build-sitemap.py --base production` (or `--base demo` for GitHub Pages)
+- SEO meta: `python scripts/apply-seo.py` (canonical defaults to production; demo path auto-rewrites via head script)
+- Location pages: `python scripts/build-location-pages.py`
+- Blog index + expanded posts: `python scripts/build-blog.py`
+
+## Licensing
+- Roofing: CCC1335398, CCC052490
+- Building: CBC015719

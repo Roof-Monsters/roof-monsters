@@ -1,0 +1,86 @@
+{
+  "ratingValue": 5,
+  "reviewCount": 30,
+  "reviews": [
+    {
+      "name": "Jerry Edmonds",
+      "meta": "10 reviews",
+      "date": "37 weeks ago",
+      "text": "Rob, David, and the crew did a great job on our roof. They were prompt and courteous, and completed the job in one day with thorough cleanup.",
+      "stars": 5,
+      "avatarColor": "#1e6b2e"
+    },
+    {
+      "name": "David Saren",
+      "meta": "1 review",
+      "date": "45 weeks ago",
+      "text": "Rob and his team have done several roof repairs for me over the years and each time quickly and accurately diagnosed the issue. Professional from start to finish.",
+      "stars": 5,
+      "avatarColor": "#c0392b"
+    },
+    {
+      "name": "Marya Morrison",
+      "meta": "Local Guide · 47 reviews",
+      "date": "46 weeks ago",
+      "text": "Rob has done excellent work at many of my investment properties and personal home — he's my go-to roofer for Tampa Bay roof repair and replacement.",
+      "stars": 5,
+      "avatarColor": "#1a56c4"
+    },
+    {
+      "name": "Tim Bradshaw",
+      "meta": "14 reviews",
+      "date": "May 31, 2025",
+      "text": "These guys are terrific. They were punctual, thorough, and economical. They cleaned up their mess and use the same crew every job.",
+      "stars": 5,
+      "avatarColor": "#FBBC05"
+    },
+    {
+      "name": "Mary Paxton",
+      "meta": "1 review",
+      "date": "May 30, 2025",
+      "text": "Roof Monsters is a fabulous roofing company — had my roof done yesterday. Very polite, very reasonable, fast working. I would definitely recommend.",
+      "stars": 5,
+      "avatarColor": "#D4AF37"
+    },
+    {
+      "name": "Sharon Herman",
+      "meta": "8 reviews",
+      "date": "Apr 24, 2025",
+      "text": "Rob came out on time and replaced our missing shingles. He's friendly, professional and a pleasure to chat with.",
+      "stars": 5,
+      "avatarColor": "#8e44ad"
+    },
+    {
+      "name": "William Smith",
+      "meta": "2 reviews",
+      "date": "Apr 13, 2025",
+      "text": "Rob came out to the house the next day after calling. We discussed the issues we were having, he found the leak and fixed it promptly.",
+      "stars": 5,
+      "avatarColor": "#2c3e50"
+    },
+    {
+      "name": "Diana Andonian",
+      "meta": "4 reviews",
+      "date": "Sep 6, 2024",
+      "text": "Rob came out the same day as my call. He found my issue immediately. Even though it wasn't a roof issue, he helped point us in the right direction.",
+      "stars": 5,
+      "avatarColor": "#e67e22"
+    },
+    {
+      "name": "John Weston",
+      "meta": "9 reviews",
+      "date": "Feb 28, 2024",
+      "text": "I have done business with Terrance McKeever Roofing for years. Excellent work with fair prices — I've referred them to family and friends for over 30 years.",
+      "stars": 5,
+      "avatarColor": "#16a085"
+    },
+    {
+      "name": "Jackie Capo",
+      "meta": "4 reviews",
+      "date": "Jun 26, 2023",
+      "text": "What an amazing job — finished in no time. Friendly and courteous crew. Made sure everything was cleaned up afterwards.",
+      "stars": 5,
+      "avatarColor": "#d35400"
+    }
+  ]
+}

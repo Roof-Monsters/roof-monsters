@@ -1,0 +1,13 @@
+# Apache — clean URLs with trailing slashes (optional production deploy)
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # Redirect legacy .html URLs to clean paths
+  RewriteCond %{THE_REQUEST} \s/+(.+?)\.html[\s?] [NC]
+  RewriteRule ^ %1/ [R=301,L]
+
+  # Serve index.html for directory requests
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule ^(.+?)/?$ $1/index.html [L]
+</IfModule>
