@@ -8,6 +8,7 @@ import json
 from pathlib import Path
 
 from form_snippet import estimate_form_compact
+from icon_snippet import icon_head_html
 from location_content import guide_for
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -18,14 +19,6 @@ BASE = HUB
 HEAD = """<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>{title}</title>
-  <meta name="description" content="{description}" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,400;1,700&family=Roboto+Slab:wght@400;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <script>
 (function () {{
   var path = location.pathname;
@@ -35,6 +28,15 @@ HEAD = """<!DOCTYPE html>
   document.write('<base href="' + window.__RM_BASE__ + '">');
 }})();
   </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+{icon_head}
+  <title>{title}</title>
+  <meta name="description" content="{description}" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,400;1,700&family=Roboto+Slab:wght@400;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 <body>
@@ -316,7 +318,7 @@ def city_page(area: dict, config: dict) -> str:
     local_para = f"<p>{esc(local_detail)}</p>" if local_detail else ""
     intro_img = guide["intro_image"]
 
-    return HEAD.format(title=esc(title), description=esc(description)) + f"""
+    return HEAD.format(title=esc(title), description=esc(description), icon_head=icon_head_html()) + f"""
   <section class="page-hero">
     <div class="container">
       <h1>Roofing in <span class="accent">{esc(short)}</span></h1>
@@ -361,7 +363,7 @@ def county_page(area: dict, config: dict) -> str:
     )
     intro_img = guide["intro_image"]
 
-    return HEAD.format(title=esc(title), description=esc(description)) + f"""
+    return HEAD.format(title=esc(title), description=esc(description), icon_head=icon_head_html()) + f"""
   <section class="page-hero">
     <div class="container">
       <h1>Roofing in <span class="accent">{esc(short)}</span></h1>
@@ -424,6 +426,7 @@ def hub_page(config: dict, cities: list[dict], counties: list[dict]) -> str:
             f"Roof Monsters is headquartered in {hq['city']}, FL and serves all of Pasco, Pinellas, "
             "Hernando, Hillsborough, and Manatee County with expert roofing services."
         ),
+        icon_head=icon_head_html(),
     ) + f"""
   <section class="page-hero">
     <div class="container">

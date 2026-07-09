@@ -1,8 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script>
+(function () {
+  var path = location.pathname;
+  var marker = '/roof-monsters/';
+  var idx = path.indexOf(marker);
+  window.__RM_BASE__ = idx >= 0 ? path.slice(0, idx + marker.length) : '/';
+  document.write('<base href="' + window.__RM_BASE__ + '">');
+})();
+  </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<!-- rm-icons:start -->
+  <link rel="icon" href="favicon.ico" sizes="48x48" />
+  <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/icons/favicon-16x16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png" />
+  <link rel="apple-touch-icon" sizes="167x167" href="assets/icons/apple-touch-icon-167x167.png" />
+  <link rel="apple-touch-icon" sizes="152x152" href="assets/icons/apple-touch-icon-152x152.png" />
+  <link rel="apple-touch-icon" sizes="144x144" href="assets/icons/apple-touch-icon-144x144.png" />
+  <link rel="apple-touch-icon" sizes="120x120" href="assets/icons/apple-touch-icon-120x120.png" />
+  <link rel="apple-touch-icon" sizes="76x76" href="assets/icons/apple-touch-icon-76x76.png" />
+  <link rel="apple-touch-icon" sizes="57x57" href="assets/icons/apple-touch-icon-57x57.png" />
+  <link rel="mask-icon" href="assets/icons/safari-pinned-tab.svg" color="#c9a227" />
+  <link rel="manifest" href="assets/icons/site.webmanifest" />
+  <meta name="theme-color" content="#1a1a1a" />
+  <meta name="msapplication-TileColor" content="#1a1a1a" />
+  <meta name="msapplication-config" content="assets/icons/browserconfig.xml" />
+<!-- rm-icons:end -->
   <title>Roofing Company in Brooksville, FL | Roof Monsters</title>
   <meta name="description" content="Roof Monsters provides roof repair, replacement, inspections, and storm damage services in Brooksville, FL. Dunedin-based, family owned Tampa Bay roofing since 1988." />
 <!-- rm-seo:start -->
@@ -366,41 +393,6 @@
     }
   ]
 }
-  </script>
-  <script>
-(function () {
-  var path = location.pathname;
-  var marker = '/roof-monsters/';
-  var idx = path.indexOf(marker);
-  if (idx < 0) return;
-  var demoBase = "https://roof-monsters.github.io/roof-monsters";
-  var rel = path.slice(idx + marker.length - 1);
-  if (!rel.endsWith('/')) {
-    var last = rel.lastIndexOf('/');
-    rel = last > 0 ? rel.slice(0, last + 1) : '/';
-  }
-  var canonical = demoBase + (rel === '/' ? '/' : rel);
-  var link = document.querySelector('link[rel="canonical"]');
-  if (link) link.setAttribute('href', canonical);
-  ['og:url'].forEach(function (prop) {
-    var meta = document.querySelector('meta[property="' + prop + '"]');
-    if (meta) meta.setAttribute('content', canonical);
-  });
-})();
-  </script>
-<!-- rm-seo:end -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,400;1,700&family=Roboto+Slab:wght@400;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <script>
-(function () {
-  var path = location.pathname;
-  var marker = '/roof-monsters/';
-  var idx = path.indexOf(marker);
-  window.__RM_BASE__ = idx >= 0 ? path.slice(0, idx + marker.length) : '/';
-  document.write('<base href="' + window.__RM_BASE__ + '">');
-})();
   </script>
   <link rel="stylesheet" href="assets/css/style.css" />
 </head>

@@ -358,6 +358,12 @@ ul {
   image-rendering: auto;
 }
 
+.rm-brand-logo > picture {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
 .rm-brand-logo__monster {
   position: absolute;
   z-index: 10;

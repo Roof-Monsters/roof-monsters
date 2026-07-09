@@ -7,6 +7,7 @@ import html
 from pathlib import Path
 
 from form_snippet import estimate_form_compact
+from icon_snippet import icon_head_html
 
 ROOT = Path(__file__).resolve().parents[1]
 SERVICES = ROOT / "services"
@@ -1395,6 +1396,7 @@ def page_html(p: dict) -> str:
   </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+{icon_head_html()}
   <title>{esc(p["title"])}</title>
   <meta name="description" content="{esc(p["description"])}" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
