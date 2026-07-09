@@ -127,6 +127,16 @@ def json_ld_block(data: dict) -> str:
     return f'  <script type="application/ld+json">\n{payload}\n  </script>'
 
 
+def _absolute_url(href: str, page_url: str, base: str) -> str:
+    if href.startswith("/"):
+        return urljoin(base.rstrip("/") + "/", href.lstrip("/"))
+    if href.startswith("http"):
+        return href
+    if href in ("./", "../", "..", ""):
+        return base.rstrip("/") + "/"
+    return urljoin(page_url, href)
+
+
 def breadcrumb_schema(crumbs: list[dict[str, str]], page_url: str, base: str) -> dict | None:
     if len(crumbs) < 2:
         return None
@@ -138,15 +148,7 @@ def breadcrumb_schema(crumbs: list[dict[str, str]], page_url: str, base: str) ->
             "name": crumb["name"],
         }
         if crumb.get("url"):
-            href = crumb["url"]
-            if href.startswith("/"):
-                item["item"] = urljoin(base.rstrip("/") + "/", href.lstrip("/"))
-            elif href.startswith("http"):
-                item["item"] = href
-            elif href in ("./", "../", "..", ""):
-                item["item"] = base.rstrip("/") + "/"
-            else:
-                item["item"] = urljoin(page_url, href)
+            item["item"] = _absolute_url(crumb["url"], page_url, base)
         elif i == len(crumbs):
             item["item"] = page_url
         items.append(item)
@@ -155,6 +157,69 @@ def breadcrumb_schema(crumbs: list[dict[str, str]], page_url: str, base: str) ->
         "@type": "BreadcrumbList",
         "itemListElement": items,
     }
+
+
+def path_breadcrumbs(path: Path, page_url: str, title: str, config: dict) -> list[dict[str, str]]:
+    """Build breadcrumbs from URL path when HTML nav crumbs are missing/incomplete."""
+    base = config["canonicalBase"].rstrip("/")
+    rel = path.parent.relative_to(ROOT)
+    if rel == Path("."):
+        return []
+
+    crumbs: list[dict[str, str]] = [{"name": "Home", "url": "/"}]
+    parts = rel.parts
+    labels = {
+        "about-us": "About Us",
+        "locations-we-serve": "Service Areas",
+        "services": "Services",
+        "contact-us": "Contact",
+        "faqs": "FAQs",
+        "blog": "Blog",
+        "gallery": "Gallery",
+        "testimonials": "Reviews",
+        "special-offers": "Special Offers",
+        "warranty-guarantee": "Warranty",
+        "privacy-policy": "Privacy Policy",
+        "terms-of-service": "Terms of Service",
+        "sustainability": "Sustainability",
+        "category": "Blog Categories",
+    }
+
+    # Blog posts live at /{slug}/
+    blog_slugs = {p["slug"]: p for p in config.get("blogPosts", [])}
+    if len(parts) == 1 and parts[0] in blog_slugs:
+        crumbs.append({"name": "Blog", "url": "/blog/"})
+        crumbs.append({"name": title.split("|")[0].strip() or blog_slugs[parts[0]].get("title", parts[0]), "url": ""})
+        return crumbs
+
+    built = ""
+    for i, part in enumerate(parts):
+        built += f"/{part}"
+        is_last = i == len(parts) - 1
+        if part in labels:
+            name = labels[part]
+        elif part.startswith("roofing-company-"):
+            name = title.split("|")[0].replace("Roofing Company in", "").strip() or part.replace("-", " ").title()
+        elif parts[0] == "services" and i == 1:
+            service = next((s for s in config.get("services", []) if s["slug"] == part), None)
+            name = service["name"] if service else title.split("|")[0].strip()
+        elif parts[0] == "category" and i == 1:
+            name = part.replace("-", " ").title()
+        else:
+            name = part.replace("-", " ").title()
+        crumbs.append({"name": name, "url": "" if is_last else f"{built}/"})
+    # Ensure final crumb points at current page
+    if crumbs:
+        crumbs[-1]["url"] = ""
+        if not crumbs[-1]["name"]:
+            crumbs[-1]["name"] = title.split("|")[0].strip()
+    return crumbs
+
+
+def merge_breadcrumbs(html_crumbs: list[dict[str, str]], path_crumbs: list[dict[str, str]]) -> list[dict[str, str]]:
+    if len(html_crumbs) >= 2:
+        return html_crumbs
+    return path_crumbs
 
 
 def roofing_contractor_schema(config: dict) -> dict:
@@ -241,44 +306,87 @@ def website_schema(config: dict) -> dict:
     }
 
 
-def webpage_schema(config: dict, page_url: str, title: str, description: str) -> dict:
+def webpage_schema(
+    config: dict,
+    page_url: str,
+    title: str,
+    description: str,
+    *,
+    page_types: str | list[str] = "WebPage",
+) -> dict:
     base = config["canonicalBase"].rstrip("/")
     return {
         "@context": "https://schema.org",
-        "@type": "WebPage",
+        "@type": page_types,
         "@id": f"{page_url}#webpage",
         "url": page_url,
         "name": title,
         "description": description,
         "isPartOf": {"@id": f"{base}/#website"},
         "about": {"@id": f"{base}/#roofingcontractor"},
+        "publisher": {"@id": f"{base}/#roofingcontractor"},
         "inLanguage": "en-US",
+    }
+
+
+def organization_schema(config: dict) -> dict:
+    """Explicit Organization node (complements RoofingContractor for rich results)."""
+    b = config["business"]
+    base = config["canonicalBase"].rstrip("/")
+    return {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "@id": f"{base}/#organization",
+        "name": b["name"],
+        "legalName": b["legalName"],
+        "url": base,
+        "logo": b["logo"],
+        "image": b["image"],
+        "telephone": b["telephone"],
+        "email": b["email"],
+        "sameAs": b["sameAs"],
+        "foundingDate": b["foundingDate"],
     }
 
 
 def faq_schema_from_html(text: str) -> dict | None:
     items = []
-    for m in re.finditer(
+    # Primary pattern used across service/location/FAQ pages
+    patterns = [
         r'<article class="faq-item">\s*<h2>(.*?)</h2>\s*<p>(.*?)</p>\s*</article>',
-        text,
-        re.I | re.S,
-    ):
-        question = strip_tags(m.group(1))
-        answer = strip_tags(m.group(2))
-        if question and answer:
-            items.append(
-                {
-                    "@type": "Question",
-                    "name": question,
-                    "acceptedAnswer": {"@type": "Answer", "text": answer},
-                }
-            )
+        r'<article class="faq-item">\s*<h3>(.*?)</h3>\s*<p>(.*?)</p>\s*</article>',
+        r'<div class="faq-item">\s*<h2>(.*?)</h2>\s*<p>(.*?)</p>\s*</div>',
+        r'<details[^>]*>\s*<summary>(.*?)</summary>\s*<p>(.*?)</p>\s*</details>',
+    ]
+    for pat in patterns:
+        for m in re.finditer(pat, text, re.I | re.S):
+            question = strip_tags(m.group(1))
+            answer = strip_tags(m.group(2))
+            if question and answer and len(question) > 8 and len(answer) > 20:
+                items.append(
+                    {
+                        "@type": "Question",
+                        "name": question,
+                        "acceptedAnswer": {"@type": "Answer", "text": answer},
+                    }
+                )
+        if items:
+            break
     if not items:
         return None
+    # Dedupe by question name
+    seen: set[str] = set()
+    unique = []
+    for item in items:
+        key = item["name"].lower()
+        if key in seen:
+            continue
+        seen.add(key)
+        unique.append(item)
     return {
         "@context": "https://schema.org",
         "@type": "FAQPage",
-        "mainEntity": items,
+        "mainEntity": unique,
     }
 
 
@@ -292,40 +400,53 @@ def local_business_schema(config: dict, area_name: str, page_url: str) -> dict:
 
 
 def service_schema(config: dict, service: dict, page_url: str) -> dict:
+    base = config["canonicalBase"].rstrip("/")
     return {
         "@context": "https://schema.org",
         "@type": "Service",
         "@id": f"{page_url}#service",
         "name": service["name"],
         "description": service["description"],
-        "provider": {"@id": f"{config['canonicalBase']}/#roofingcontractor"},
+        "serviceType": "Roofing",
+        "provider": {"@id": f"{base}/#roofingcontractor"},
         "areaServed": config["business"]["areaServed"],
         "url": page_url,
+        "image": f"{base}/assets/images/gallery/quality-work.webp",
     }
 
 
 def article_schema(config: dict, post: dict, page_url: str, title: str, description: str) -> dict:
+    base = config["canonicalBase"].rstrip("/")
     return {
         "@context": "https://schema.org",
         "@type": "BlogPosting",
+        "@id": f"{page_url}#article",
         "headline": title,
         "description": description,
         "datePublished": post["datePublished"],
+        "dateModified": post.get("dateModified", post["datePublished"]),
         "author": {
             "@type": "Organization",
             "name": config["business"]["name"],
+            "@id": f"{base}/#roofingcontractor",
         },
         "publisher": {
             "@type": "Organization",
             "name": config["business"]["name"],
+            "@id": f"{base}/#roofingcontractor",
             "logo": {
                 "@type": "ImageObject",
                 "url": config["business"]["logo"],
             },
         },
-        "image": f"{config['canonicalBase']}/{post['image']}",
-        "mainEntityOfPage": page_url,
+        "image": f"{base}/{post['image']}",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": f"{page_url}#webpage",
+        },
         "url": page_url,
+        "inLanguage": "en-US",
+        "isPartOf": {"@id": f"{base}/#website"},
     }
 
 
@@ -351,32 +472,81 @@ def build_seo_head(path: Path, text: str, config: dict) -> str:
     og_image = og_image_for(path, config)
     page_type = classify_page(path)
     geo_meta = geo_meta_tags(config)
+    base = config["canonicalBase"].rstrip("/")
 
     schemas: list[dict] = []
-    if page_type in {"home", "contact"}:
-        schemas.append(roofing_contractor_schema(config))
     if page_type == "home":
+        schemas.append(organization_schema(config))
+        schemas.append(roofing_contractor_schema(config))
         schemas.append(website_schema(config))
-    if page_type == "service":
+        schemas.append(
+            webpage_schema(
+                config,
+                page_url,
+                title,
+                description,
+                page_types=["WebPage", "CollectionPage"],
+            )
+        )
+    elif page_type == "contact":
+        schemas.append(roofing_contractor_schema(config))
+        schemas.append(webpage_schema(config, page_url, title, description, page_types="ContactPage"))
+    elif page_type == "about":
+        schemas.append(webpage_schema(config, page_url, title, description, page_types="AboutPage"))
+    elif page_type == "faq":
+        schemas.append(webpage_schema(config, page_url, title, description))
+    elif page_type == "blog-index":
+        schemas.append(webpage_schema(config, page_url, title, description, page_types=["WebPage", "CollectionPage"]))
+    elif page_type == "services-hub":
+        schemas.append(webpage_schema(config, page_url, title, description, page_types=["WebPage", "CollectionPage"]))
+        # ItemList of services for hub discoverability
+        schemas.append(
+            {
+                "@context": "https://schema.org",
+                "@type": "ItemList",
+                "name": "Roof Monsters Roofing Services",
+                "itemListElement": [
+                    {
+                        "@type": "ListItem",
+                        "position": i,
+                        "name": s["name"],
+                        "url": f"{base}/services/{s['slug']}/",
+                    }
+                    for i, s in enumerate(config.get("services", []), start=1)
+                ],
+            }
+        )
+    elif page_type == "locations-hub":
+        schemas.append(webpage_schema(config, page_url, title, description, page_types=["WebPage", "CollectionPage"]))
+    elif page_type == "service":
         slug = path.parent.name
         service = next((s for s in config["services"] if s["slug"] == slug), None)
         if service:
             schemas.append(service_schema(config, service, page_url))
-    if page_type == "location":
+        schemas.append(webpage_schema(config, page_url, title, description))
+    elif page_type == "location":
         area_name = title.split("|")[0].replace("Roofing Company in", "").strip()
         schemas.append(local_business_schema(config, area_name, page_url))
-    if page_type == "blog-post":
+        schemas.append(webpage_schema(config, page_url, title, description))
+    elif page_type == "blog-post":
         slug = path.parent.name
         post = next((p for p in config["blogPosts"] if p["slug"] == slug), None)
         if post:
             schemas.append(article_schema(config, post, page_url, title, description))
-    if page_type in {"faq", "service", "location"}:
+        schemas.append(webpage_schema(config, page_url, title, description))
+    elif page_type in {"webpage", "category", "standard"}:
+        schemas.append(webpage_schema(config, page_url, title, description))
+
+    # FAQ schema from visible Q&A content (never invent FAQs)
+    if page_type in {"faq", "service", "location", "about", "contact", "webpage", "standard"}:
         faq = faq_schema_from_html(text)
         if faq:
             schemas.append(faq)
-    if page_type == "webpage":
-        schemas.append(webpage_schema(config, page_url, title, description))
-    crumbs = extract_breadcrumbs(text)
+
+    # Breadcrumbs: prefer HTML nav, fall back to path-derived trail
+    html_crumbs = extract_breadcrumbs(text)
+    path_crumbs = path_breadcrumbs(path, page_url, title, config)
+    crumbs = merge_breadcrumbs(html_crumbs, path_crumbs)
     crumb_schema = breadcrumb_schema(crumbs, page_url, config["canonicalBase"])
     if crumb_schema:
         schemas.append(crumb_schema)
