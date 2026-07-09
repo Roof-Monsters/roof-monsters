@@ -7,6 +7,7 @@ import html
 import json
 from pathlib import Path
 
+from base_head_script import BASE_HEAD_SCRIPT
 from form_snippet import estimate_form_compact
 from icon_snippet import icon_head_html
 from location_content import guide_for
@@ -19,15 +20,7 @@ BASE = HUB
 HEAD = """<!DOCTYPE html>
 <html lang="en">
 <head>
-  <script>
-(function () {{
-  var path = location.pathname;
-  var marker = '/roof-monsters/';
-  var idx = path.indexOf(marker);
-  window.__RM_BASE__ = idx >= 0 ? path.slice(0, idx + marker.length) : '/';
-  document.write('<base href="' + window.__RM_BASE__ + '">');
-}})();
-  </script>
+{base_head}
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 {icon_head}
@@ -318,7 +311,7 @@ def city_page(area: dict, config: dict) -> str:
     local_para = f"<p>{esc(local_detail)}</p>" if local_detail else ""
     intro_img = guide["intro_image"]
 
-    return HEAD.format(title=esc(title), description=esc(description), icon_head=icon_head_html()) + f"""
+    return HEAD.format(title=esc(title), description=esc(description), icon_head=icon_head_html(), base_head=BASE_HEAD_SCRIPT) + f"""
   <section class="page-hero">
     <div class="container">
       <h1>Roofing in <span class="accent">{esc(short)}</span></h1>
@@ -363,7 +356,7 @@ def county_page(area: dict, config: dict) -> str:
     )
     intro_img = guide["intro_image"]
 
-    return HEAD.format(title=esc(title), description=esc(description), icon_head=icon_head_html()) + f"""
+    return HEAD.format(title=esc(title), description=esc(description), icon_head=icon_head_html(), base_head=BASE_HEAD_SCRIPT) + f"""
   <section class="page-hero">
     <div class="container">
       <h1>Roofing in <span class="accent">{esc(short)}</span></h1>
@@ -427,6 +420,7 @@ def hub_page(config: dict, cities: list[dict], counties: list[dict]) -> str:
             "Hernando, Hillsborough, and Manatee County with expert roofing services."
         ),
         icon_head=icon_head_html(),
+        base_head=BASE_HEAD_SCRIPT,
     ) + f"""
   <section class="page-hero">
     <div class="container">

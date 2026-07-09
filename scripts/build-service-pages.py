@@ -6,6 +6,7 @@ from __future__ import annotations
 import html
 from pathlib import Path
 
+from base_head_script import BASE_HEAD_SCRIPT
 from form_snippet import estimate_form_compact
 from icon_snippet import icon_head_html
 
@@ -1385,15 +1386,7 @@ def page_html(p: dict) -> str:
     return f"""<!DOCTYPE html>
 <html lang="en">
 <head>
-  <script>
-(function () {{
-  var path = location.pathname;
-  var marker = '/roof-monsters/';
-  var idx = path.indexOf(marker);
-  window.__RM_BASE__ = idx >= 0 ? path.slice(0, idx + marker.length) : '/';
-  document.write('<base href="' + window.__RM_BASE__ + '">');
-}})();
-  </script>
+{BASE_HEAD_SCRIPT}
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 {icon_head_html()}
