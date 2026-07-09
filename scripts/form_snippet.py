@@ -26,13 +26,13 @@ def estimate_form_compact(*, address_placeholder: str = "Street, City, FL") -> s
               <input type="text" name="name" placeholder="Your name" required autocomplete="name" />
             </div>
             <div class="form-group">
-              <label>Email</label>
-              <input type="email" name="email" placeholder="you@email.com" required autocomplete="email" />
+              <label>Email <span class="form-hint">(email or phone required)</span></label>
+              <input type="email" name="email" placeholder="you@email.com" autocomplete="email" inputmode="email" />
             </div>
           </div>
           <div class="form-group">
-            <label>Phone</label>
-            <input type="tel" name="phone" placeholder="(727) 000-0000" autocomplete="tel" />
+            <label>Phone <span class="form-hint">(email or phone required)</span></label>
+            <input type="tel" name="phone" placeholder="(727) 000-0000" autocomplete="tel" inputmode="tel" />
           </div>
           <div class="form-group">
             <label>Property Address</label>

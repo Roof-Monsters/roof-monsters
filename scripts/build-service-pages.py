@@ -1186,16 +1186,16 @@ def mini_stats_block() -> str:
   <div class="mini-stats-banner" data-countup>
     <div class="container mini-stats-inner">
       <div>
-        <div class="mini-stat-num" data-target="3000" data-suffix=" +">3,000 +</div>
-        <div class="mini-stat-label">Roofs Installed</div>
+        <div class="mini-stat-num" data-target="40" data-suffix=" Years">40 Years</div>
+        <div class="mini-stat-label">Roofing Experience</div>
       </div>
       <div>
-        <div class="mini-stat-num" data-target="5000" data-suffix=" +">5,000 +</div>
-        <div class="mini-stat-label">Satisfied Customers</div>
+        <div class="mini-stat-num" data-target="5">5</div>
+        <div class="mini-stat-label">Counties Served</div>
       </div>
       <div>
-        <div class="mini-stat-num" data-target="10" data-suffix=" K +">10 K +</div>
-        <div class="mini-stat-label">5-Star Reviews</div>
+        <div class="mini-stat-num" data-target="30" data-suffix=" +" data-rm-live-review-count data-rm-live-review-suffix=" +">30 +</div>
+        <div class="mini-stat-label">Google Reviews</div>
       </div>
     </div>
   </div>"""

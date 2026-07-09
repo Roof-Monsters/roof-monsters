@@ -104,7 +104,7 @@
   ],
   "aggregateRating": {
     "@type": "AggregateRating",
-    "ratingValue": "5.0",
+    "ratingValue": "4.4",
     "reviewCount": "30"
   },
   "openingHoursSpecification": [
@@ -472,21 +472,21 @@
             <div class="form-row">
               <div class="form-group">
                 <label>Full Name <span class="form-required">*</span></label>
-                <input type="text" name="name" name="name" name="name" name="name" placeholder="Your name" required autocomplete="name" required autocomplete="name" required autocomplete="name" required autocomplete="name" required />
+                <input type="text" name="name" placeholder="Your name" required autocomplete="name" />
               </div>
               <div class="form-group">
-                <label>Email Address <span class="form-required">*</span></label>
-                <input type="email" name="email" name="email" name="email" name="email" placeholder="you@email.com" required autocomplete="email" required autocomplete="email" required autocomplete="email" required autocomplete="email" required />
+                <label>Email <span class="form-hint">(email or phone required)</span></label>
+                <input type="email" name="email" placeholder="you@email.com" autocomplete="email" inputmode="email" />
               </div>
             </div>
             <div class="form-row">
               <div class="form-group">
-                <label>Phone Number</label>
-                <input type="tel" name="phone" name="phone" name="phone" name="phone" placeholder="(727) 000-0000" autocomplete="tel" autocomplete="tel" autocomplete="tel" autocomplete="tel" />
+                <label>Phone Number <span class="form-hint">(email or phone required)</span></label>
+                <input type="tel" name="phone" placeholder="(727) 000-0000" autocomplete="tel" inputmode="tel" />
               </div>
               <div class="form-group">
                 <label>Property Address</label>
-                <input type="text" name="address" name="address" name="address" name="address" placeholder="Street, City, FL" autocomplete="street-address" autocomplete="street-address" autocomplete="street-address" autocomplete="street-address" />
+                <input type="text" name="address" placeholder="Street, City, FL" autocomplete="street-address" />
               </div>
             </div>
             <div class="form-group">
@@ -498,7 +498,7 @@
             </div>
             <div class="form-group">
               <label>Service Needed</label>
-              <select class="service-select" name="service" name="service" name="service" name="service" aria-label="Service needed">
+              <select class="service-select" name="service" aria-label="Service needed">
                 <option value="">— Select a service —</option>
                 <option value="Installation">Roof Installation / Replacement</option>
                 <option value="Repair">Roof Repair</option>
@@ -511,7 +511,7 @@
             </div>
             <div class="form-group">
               <label>Message</label>
-              <textarea name="message" name="message" name="message" name="message" rows="4" placeholder="Tell us about your roofing needs"></textarea>
+              <textarea name="message" rows="4" placeholder="Tell us about your roofing needs"></textarea>
             </div>
             <button type="submit" class="btn-submit btn-submit--spaced">Send Message <i class="fa-solid fa-paper-plane"></i></button>
           <p class="form-success" hidden>Thank you — we received your request and will respond soon.</p>
@@ -523,8 +523,6 @@
     </div>
   </section>
 
-  <!-- WHY CHOOSE SECTION -->
-  <section 
   <!-- rm-content-expand:start -->
   <section class="section-pad section-bg-white">
     <div class="container content-page service-rich-content">
@@ -556,7 +554,8 @@
   </section>
   <!-- rm-content-expand:end -->
 
-class="why-choose-section section-pad section-bg-white">
+  <!-- WHY CHOOSE SECTION -->
+  <section class="why-choose-section section-pad section-bg-white">
     <div class="container">
       <div class="section-header">
         <span class="section-eyebrow">Why Roof Monsters</span>

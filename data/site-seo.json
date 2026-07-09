@@ -54,7 +54,7 @@
     "logo": "https://roofmonsters.co/assets/images/brand/logo-bg.webp",
     "image": "https://roofmonsters.co/assets/images/gallery/pinellas-new-roof.webp",
     "aggregateRating": {
-      "ratingValue": "5.0",
+      "ratingValue": "4.4",
       "reviewCount": "30"
     }
   },
@@ -102,7 +102,7 @@
     {
       "slug": "emergency-roof-repair",
       "name": "Emergency Roof Repair",
-      "description": "24/7 emergency roof repair and tarping for active leaks and storm damage — private-pay response from Dunedin-based crews."
+      "description": "24/7 emergency roof repair and tarping for active leaks and storm damage \u2014 private-pay response from Dunedin-based crews."
     },
     {
       "slug": "roof-leak-repair",
@@ -112,7 +112,7 @@
     {
       "slug": "residential-roofing",
       "name": "Residential Roofing",
-      "description": "Family-owned residential roofing — installations, repairs, and inspections for Tampa Bay homeowners since 1988."
+      "description": "Family-owned residential roofing \u2014 installations, repairs, and inspections for Tampa Bay homeowners since 1988."
     },
     {
       "slug": "commercial-roofing",
@@ -142,7 +142,7 @@
     {
       "slug": "tpo-roofing",
       "name": "TPO Roofing",
-      "description": "TPO roofing for Florida commercial and low-slope buildings — reflective, durable, and built for heat and storms."
+      "description": "TPO roofing for Florida commercial and low-slope buildings \u2014 reflective, durable, and built for heat and storms."
     },
     {
       "slug": "roof-maintenance",
@@ -152,7 +152,7 @@
     {
       "slug": "roof-ventilation",
       "name": "Roof Ventilation",
-      "description": "Roof ventilation upgrades that reduce attic heat and moisture — protecting shingles and improving comfort."
+      "description": "Roof ventilation upgrades that reduce attic heat and moisture \u2014 protecting shingles and improving comfort."
     }
   ],
   "categories": [
@@ -181,7 +181,7 @@
     {
       "slug": "october-roofing-season-in-tampa-bay-why-fall-is-the-best-time-to-schedule-your-roof-work",
       "title": "October Roofing Season in Tampa Bay: Why Fall Is the Best Time to Schedule Your Roof Work",
-      "description": "Why October is the best time to schedule roof work in Tampa Bay — cooler temps, post-storm inspections, and pre-holiday planning.",
+      "description": "Why October is the best time to schedule roof work in Tampa Bay \u2014 cooler temps, post-storm inspections, and pre-holiday planning.",
       "datePublished": "2025-10-07",
       "category": "Roof Maintenance",
       "categorySlug": "roof-maintenance",
@@ -190,7 +190,7 @@
     {
       "slug": "the-roof-monsters-way-what-sets-our-roofing-company-apart",
       "title": "The Roof Monsters Way: What Sets Our Roofing Company Apart",
-      "description": "What makes Roof Monsters different — family ownership since 1988, Atlas warranties, same crew quality, and Tampa Bay local expertise.",
+      "description": "What makes Roof Monsters different \u2014 family ownership since 1988, Atlas warranties, same crew quality, and Tampa Bay local expertise.",
       "datePublished": "2025-04-26",
       "category": "Roof Monsters News",
       "categorySlug": "roof-monsters-news",
@@ -199,7 +199,7 @@
     {
       "slug": "how-to-prepare-your-roof-for-floridas-hurricane-season",
       "title": "How to Prepare Your Roof for Florida's Hurricane Season",
-      "description": "Practical steps Tampa Bay homeowners can take to prepare roofs for hurricane season — inspections, maintenance, and when to call a roofer.",
+      "description": "Practical steps Tampa Bay homeowners can take to prepare roofs for hurricane season \u2014 inspections, maintenance, and when to call a roofer.",
       "datePublished": "2025-04-23",
       "category": "Roof Maintenance",
       "categorySlug": "roof-maintenance",
@@ -217,7 +217,7 @@
     {
       "slug": "5-signs-its-time-to-replace-your-roof-in-florida",
       "title": "5 Signs It's Time to Replace Your Roof in Florida",
-      "description": "Five warning signs Florida homeowners should watch for — curling shingles, leaks, age, storm damage, and rising energy bills.",
+      "description": "Five warning signs Florida homeowners should watch for \u2014 curling shingles, leaks, age, storm damage, and rising energy bills.",
       "datePublished": "2025-04-17",
       "category": "Roof Repair",
       "categorySlug": "roof-repair",
@@ -226,7 +226,7 @@
     {
       "slug": "how-to-choose-the-right-roofing-contractor",
       "title": "How to Choose the Right Roofing Contractor",
-      "description": "What to look for when hiring a Tampa Bay roofer — licensing, insurance, warranties, local references, and written estimates.",
+      "description": "What to look for when hiring a Tampa Bay roofer \u2014 licensing, insurance, warranties, local references, and written estimates.",
       "datePublished": "2024-05-14",
       "category": "Roof Monsters News",
       "categorySlug": "roof-monsters-news",
@@ -235,7 +235,7 @@
     {
       "slug": "how-to-prepare-your-roof-for-storm-season",
       "title": "How to Prepare Your Roof for Storm Season",
-      "description": "Storm-season roof prep for Florida homes — tree trimming, inspections, documentation, and emergency planning before severe weather.",
+      "description": "Storm-season roof prep for Florida homes \u2014 tree trimming, inspections, documentation, and emergency planning before severe weather.",
       "datePublished": "2024-05-14",
       "category": "Roof Maintenance",
       "categorySlug": "roof-maintenance",
@@ -244,7 +244,7 @@
     {
       "slug": "the-benefits-of-eco-friendly-roofing-solutions",
       "title": "The Benefits of Eco-Friendly Roofing Solutions",
-      "description": "Energy-efficient and sustainable roofing options for Florida — cool roofs, durable materials, and long-term savings.",
+      "description": "Energy-efficient and sustainable roofing options for Florida \u2014 cool roofs, durable materials, and long-term savings.",
       "datePublished": "2024-05-14",
       "category": "Roof Monsters News",
       "categorySlug": "roof-monsters-news",
@@ -253,7 +253,7 @@
     {
       "slug": "advancements-in-roofing-technology-what-homeowners-need-to-know",
       "title": "Advancements in Roofing Technology: What Homeowners Need to Know",
-      "description": "Modern roofing technology — improved underlayment, ventilation, impact-resistant materials, and smarter inspection tools.",
+      "description": "Modern roofing technology \u2014 improved underlayment, ventilation, impact-resistant materials, and smarter inspection tools.",
       "datePublished": "2024-05-14",
       "category": "Roof Monsters News",
       "categorySlug": "roof-monsters-news",
@@ -262,7 +262,7 @@
     {
       "slug": "choosing-the-right-roofing-material-for-your-home",
       "title": "Choosing the Right Roofing Material for Your Home",
-      "description": "Compare asphalt shingles, metal, tile, and flat-roof systems for Florida homes — durability, cost, and hurricane performance.",
+      "description": "Compare asphalt shingles, metal, tile, and flat-roof systems for Florida homes \u2014 durability, cost, and hurricane performance.",
       "datePublished": "2024-05-14",
       "category": "Roof Installation",
       "categorySlug": "roof-installation",
@@ -271,7 +271,7 @@
     {
       "slug": "the-importance-of-regular-roof-maintenance",
       "title": "The Importance of Regular Roof Maintenance",
-      "description": "Why annual roof maintenance extends roof life in Florida — catching small issues before they become expensive repairs.",
+      "description": "Why annual roof maintenance extends roof life in Florida \u2014 catching small issues before they become expensive repairs.",
       "datePublished": "2024-05-14",
       "category": "Roof Maintenance",
       "categorySlug": "roof-maintenance",

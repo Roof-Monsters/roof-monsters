@@ -91,8 +91,8 @@ FOOT = """
         <a href="/contact-us/" class="btn btn-primary u-mt-20">Get A Free Estimate</a>
       </div>
       <div class="atlas-stat">
-        <div class="atlas-num">10,000 +</div>
-        <div class="atlas-label">Happy Clients All Over The Bay Area!</div>
+        <div class="atlas-num" data-rm-live-review-count data-rm-live-review-suffix=" +">30 +</div>
+        <div class="atlas-label">Google Reviews Across Tampa Bay</div>
       </div>
     </div>
   </section>

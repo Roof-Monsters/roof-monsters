@@ -12,7 +12,7 @@ SUCCESS = '<p class="form-success" hidden>Thank you — we received your request
 
 FIELD_FIXES = [
     (r'<input([^>]*type="text"[^>]*)placeholder="(?:John Smith|Your name|First and last name)"([^>]*)>', r'<input\1name="name" placeholder="Your name" required autocomplete="name"\2>'),
-    (r'<input([^>]*type="email"[^>]*)placeholder="(?:you@email\.com|Your email)"([^>]*)>', r'<input\1name="email" placeholder="you@email.com" required autocomplete="email"\2>'),
+    (r'<input([^>]*type="email"[^>]*)placeholder="(?:you@email\.com|Your email)"([^>]*)>', r'<input\1name="email" placeholder="you@email.com" autocomplete="email"\2>'),
     (r'<input([^>]*type="tel"[^>]*)placeholder="(?:\(727\) 000-0000|\(727\) 000-0000)"([^>]*)>', r'<input\1name="phone" placeholder="(727) 000-0000" autocomplete="tel"\2>'),
     (r'<input([^>]*type="text"[^>]*)placeholder="(?:Street, City, FL|Street address|Street, City, FL)"([^>]*)>', r'<input\1name="address" placeholder="Street, City, FL" autocomplete="street-address"\2>'),
     (r'<textarea([^>]*)rows="[^"]*"([^>]*)placeholder="[^"]*"([^>]*)>', r'<textarea\1name="message" rows="4"\2placeholder="Tell us about your roofing needs"\3>'),

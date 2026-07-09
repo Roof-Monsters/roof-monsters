@@ -142,19 +142,21 @@
   <div class="mini-stats-banner" data-countup>
     <div class="container mini-stats-inner">
       <div>
-        <div class="mini-stat-num" data-target="3000" data-suffix=" +">3,000 +</div>
-        <div class="mini-stat-label">Roofs Inspected</div>
+        <div class="mini-stat-num" data-target="40" data-suffix=" Years">40 Years</div>
+        <div class="mini-stat-label">Roofing Experience</div>
       </div>
       <div>
-        <div class="mini-stat-num" data-target="5000" data-suffix=" +">5,000 +</div>
-        <div class="mini-stat-label">Satisfied Customers</div>
+        <div class="mini-stat-num" data-target="5">5</div>
+        <div class="mini-stat-label">Counties Served</div>
       </div>
       <div>
-        <div class="mini-stat-num" data-target="10" data-suffix=" K +">10 K +</div>
-        <div class="mini-stat-label">5-Star Reviews</div>
+        <div class="mini-stat-num" data-target="30" data-suffix=" +" data-rm-live-review-count data-rm-live-review-suffix=" +">30 +</div>
+        <div class="mini-stat-label">Google Reviews</div>
       </div>
     </div>
   </div>
+
+  
 
   <!-- WHY CHOOSE SECTION -->
   <section class="why-choose-section section-pad">
@@ -276,12 +278,15 @@
         <form novalidate class="estimate-form" action="https://formspree.io/f/mbdvvbnp" method="POST">
           <input type="text" name="_gotcha" class="form-honey" tabindex="-1" autocomplete="off" aria-hidden="true" />
           <div class="form-row">
-            <div class="form-group"><label>Name</label><input type="text" name="name" name="name" name="name" name="name" placeholder="Your name" required autocomplete="name" required autocomplete="name" required autocomplete="name" required autocomplete="name" required /></div>
-            <div class="form-group"><label>Email</label><input type="email" name="email" name="email" name="email" name="email" placeholder="you@email.com" required autocomplete="email" required autocomplete="email" required autocomplete="email" required autocomplete="email" required /></div>
+            <div class="form-group"><label>Name</label><input type="text" name="name" placeholder="Your name" required autocomplete="name" /></div>
+            <div class="form-group">
+                <label>Email <span class="form-hint">(email or phone required)</span></label>
+                <input type="email" name="email" placeholder="you@email.com" autocomplete="email" inputmode="email" />
+              </div>
           </div>
           <div class="form-row">
-            <div class="form-group"><label>Phone Number</label><input type="tel" name="phone" name="phone" name="phone" name="phone" placeholder="(727) 000-0000" autocomplete="tel" autocomplete="tel" autocomplete="tel" autocomplete="tel" /></div>
-            <div class="form-group"><label>Your Address</label><input type="text" name="address" name="address" name="address" name="address" placeholder="Street, City, FL" autocomplete="street-address" autocomplete="street-address" autocomplete="street-address" autocomplete="street-address" /></div>
+            <div class="form-group"><label>Phone Number <span class="form-hint">(email or phone required)</span></label><input type="tel" name="phone" placeholder="(727) 000-0000" autocomplete="tel" inputmode="tel" /></div>
+            <div class="form-group"><label>Your Address</label><input type="text" name="address" placeholder="Street, City, FL" autocomplete="street-address" /></div>
           </div>
           <div class="form-group">
             <label>Type Of Property</label>
@@ -290,7 +295,7 @@
               <label class="radio-label"><input type="radio" name="property" value="Commercial" /> Commercial</label>
             </div>
           </div>
-          <div class="form-group"><label>Any Specific Concerns?</label><textarea name="message" name="message" name="message" name="message" rows="4" placeholder="Tell us about your roofing needs"></textarea></div>
+          <div class="form-group"><label>Any Specific Concerns?</label><textarea name="message" rows="4" placeholder="Tell us about your roofing needs"></textarea></div>
           <button type="submit" class="btn-submit">Book Inspection <i class="fa-solid fa-paper-plane"></i></button>
           <p class="form-success" hidden>Thank you — we received your request and will respond soon.</p>
         </form>

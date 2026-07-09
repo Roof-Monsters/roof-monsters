@@ -482,6 +482,38 @@ function initHeroParallax() {
   update();
 }
 
+function reviewsFeedUrl() {
+  const base = typeof window.__RM_BASE__ === 'string' ? window.__RM_BASE__ : '/';
+  const normalized = base.endsWith('/') ? base : `${base}/`;
+  return `${normalized}data/google-reviews.json`;
+}
+
+function applyLiveReviewCounts(count) {
+  const n = Number(count);
+  if (!Number.isFinite(n)) return;
+  document.querySelectorAll('[data-rm-live-review-count]').forEach((el) => {
+    const suffix = el.getAttribute('data-rm-live-review-suffix') || '';
+    el.textContent = `${n}${suffix}`;
+    if (el.hasAttribute('data-target')) {
+      el.setAttribute('data-target', String(n));
+    }
+  });
+}
+
+async function initRmLiveReviewCounts() {
+  if (!document.querySelector('[data-rm-live-review-count]')) return;
+  try {
+    const response = await fetch(reviewsFeedUrl(), { cache: 'no-store' });
+    if (!response.ok) return;
+    const payload = await response.json();
+    if (payload && payload.reviewCount != null) {
+      applyLiveReviewCounts(payload.reviewCount);
+    }
+  } catch (error) {
+    console.warn('Live review count fetch failed:', error);
+  }
+}
+
 function initRmGoogleReviews() {
   const carousels = document.querySelectorAll('[data-rm-review-carousel]');
   if (!carousels.length) return;
@@ -557,15 +589,23 @@ function initRmGoogleReviews() {
     }
 
     function applySummary(payload) {
-      const rating = Number(payload.ratingValue || 5).toFixed(1);
+      const ratingNum = Number(payload.ratingValue || 5);
+      const rating = ratingNum.toFixed(1);
       const count = Number(payload.reviewCount || reviews.length || 0);
+      const roundedStars = Math.max(1, Math.min(5, Math.round(ratingNum)));
       const label = count === 1 ? ' review' : ' reviews';
       const summaryText = `${rating} \u00b7 ${count}${label}`;
       if (summaryEl) summaryEl.textContent = summaryText;
+      const starsEl = showcase.querySelector('.rm-google-stars-display');
+      if (starsEl) {
+        starsEl.textContent = formatStars(roundedStars);
+        starsEl.setAttribute('aria-label', `${rating} out of 5 stars`);
+      }
       if (mapRatingEl) {
-        mapRatingEl.textContent = `${formatStars(payload.ratingValue || 5)} ${rating} \u00b7 ${count} Google review${count === 1 ? '' : 's'}`;
+        mapRatingEl.textContent = `${formatStars(roundedStars)} ${rating} \u00b7 ${count} Google review${count === 1 ? '' : 's'}`;
         mapRatingEl.setAttribute('aria-label', `${rating} out of 5 stars, ${count} Google reviews`);
       }
+      applyLiveReviewCounts(count);
     }
 
     function visibleCount() {
@@ -659,7 +699,7 @@ function initRmGoogleReviews() {
     async function loadReviews() {
       let payload = null;
       try {
-        const response = await fetch('./data/google-reviews.json', { cache: 'no-store' });
+        const response = await fetch(reviewsFeedUrl(), { cache: 'no-store' });
         if (response.ok) {
           payload = await response.json();
         }
@@ -925,6 +965,51 @@ function buildEstimatePayload(form, config) {
   return payload;
 }
 
+function isValidEmail(value) {
+  const email = String(value || '').trim();
+  if (!email || email.length > 254) return false;
+  // Practical RFC-ish check — rejects spaces and obvious fakes without being brittle.
+  return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i.test(email)
+    && !/(test@test\.|asdf@|noreply@|noemail@)/i.test(email);
+}
+
+function normalizePhoneDigits(value) {
+  return String(value || '').replace(/\D/g, '');
+}
+
+function isValidPhone(value) {
+  const digits = normalizePhoneDigits(value);
+  // US-focused: 10 digits, or 11 starting with 1.
+  if (digits.length === 10) return true;
+  if (digits.length === 11 && digits.startsWith('1')) return true;
+  return false;
+}
+
+function validateEstimateContact(form) {
+  const name = readEstimateField(form, 'name', 'input[type="text"], input[name="name"]');
+  const email = readEstimateField(form, 'email', 'input[type="email"]');
+  const phone = readEstimateField(form, 'phone', 'input[type="tel"]');
+  const emailOk = isValidEmail(email);
+  const phoneOk = isValidPhone(phone);
+
+  if (!name) {
+    return { ok: false, message: 'Please enter your name.' };
+  }
+  if (!emailOk && !phoneOk) {
+    return {
+      ok: false,
+      message: 'Please enter a valid email address or a valid phone number (at least one is required).',
+    };
+  }
+  if (email && !emailOk) {
+    return { ok: false, message: 'Please enter a valid email address, or clear the email field and use phone instead.' };
+  }
+  if (phone && !phoneOk) {
+    return { ok: false, message: 'Please enter a valid 10-digit phone number, or clear the phone field and use email instead.' };
+  }
+  return { ok: true, name, email: emailOk ? email : '', phone: phoneOk ? phone : '' };
+}
+
 async function submitEstimateForm(form) {
   if (form.dataset.rmSubmitting === 'true' || form.dataset.rmSubmitting === 'success') {
     return;
@@ -940,13 +1025,31 @@ async function submitEstimateForm(form) {
     return;
   }
 
-  const payload = buildEstimatePayload(form, config);
-  const name = payload.get('name');
-  const email = payload.get('email');
-  if (!name || !email) {
+  const contact = validateEstimateContact(form);
+  if (!contact.ok) {
     delete form.dataset.rmSubmitting;
-    showFormError(form, 'Please enter your name and email.');
+    showFormError(form, contact.message);
     return;
+  }
+
+  const payload = buildEstimatePayload(form, config);
+  // Prefer validated contact values (empty invalid optional field if the other is valid).
+  payload.set('name', contact.name);
+  if (contact.email) {
+    payload.set('email', contact.email);
+    payload.set('_replyto', contact.email);
+  } else {
+    // Formspree expects an email field — use a clearly labeled phone-only placeholder.
+    const digits = normalizePhoneDigits(contact.phone);
+    const phoneEmail = `phone-${digits}@no-email.roofmonsters.co`;
+    payload.set('email', phoneEmail);
+    payload.delete('_replyto');
+    payload.set('contact_method', 'phone-only');
+  }
+  if (contact.phone) {
+    payload.set('phone', contact.phone);
+  } else {
+    payload.delete('phone');
   }
 
   const submitBtn = form.querySelector('[type="submit"]');
@@ -1031,6 +1134,7 @@ function initPageFeatures() {
     initHeroSlider();
     initTestimonialCarousel();
     initRmGoogleReviews();
+    initRmLiveReviewCounts();
     initCountUp();
   } catch (error) {
     console.error('Roof Monsters page feature init error:', error);
