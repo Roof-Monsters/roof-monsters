@@ -1670,6 +1670,52 @@ ul {
   transform: scale(1);
 }
 
+/* Real <img> LCP candidate (same visual as CSS background slides) */
+img.hero-slide-bg.hero-lcp-img {
+  width: calc(100% + 16%);
+  height: calc(100% + 16%);
+  object-fit: cover;
+  object-position: center;
+  inset: -8%;
+  border: 0;
+  max-width: none;
+}
+
+/* Reserve chrome space before header/footer includes inject (CLS) */
+.site-chrome-slot--header {
+  min-height: 88px;
+}
+
+.site-chrome-slot--footer {
+  min-height: 320px;
+}
+
+/* Reserve space for JS-injected homepage sections (CLS) */
+[data-partial="partials/home/about-contact-form.html"] {
+  min-height: 420px;
+}
+[data-partial="partials/home/atlas-banner.html"] {
+  min-height: 520px;
+}
+[data-partial="partials/home/services.html"] {
+  min-height: 640px;
+}
+[data-partial="partials/home/about-stats-section.html"] {
+  min-height: 360px;
+}
+[data-partial="partials/home/gallery.html"] {
+  min-height: 520px;
+}
+[data-partial="partials/home/special-offers.html"] {
+  min-height: 360px;
+}
+[data-partial="partials/home/team.html"] {
+  min-height: 420px;
+}
+[data-partial="partials/home/blog.html"] {
+  min-height: 480px;
+}
+
 /* When the slide becomes active, start the zoom */
 .hero-slide.active .hero-slide-bg {
   animation: kenBurns 7s ease-out forwards;
@@ -5460,7 +5506,7 @@ html.rm-js [data-rm-reveal].is-visible {
   padding: 12px 16px;
   border: 1.5px solid #e0e0e0;
   border-radius: 8px;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-size: 15px;
   color: var(--text);
   background: #fafafa;

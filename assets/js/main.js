@@ -1118,6 +1118,33 @@ function initEstimateForms() {
 
 window.rmInitEstimateForms = initEstimateForms;
 
+function initLazyMaps() {
+  const frames = document.querySelectorAll('iframe[data-src]');
+  if (!frames.length) return;
+
+  const activate = (frame) => {
+    const src = frame.getAttribute('data-src');
+    if (!src || frame.getAttribute('src')) return;
+    frame.setAttribute('src', src);
+    frame.removeAttribute('data-src');
+  };
+
+  if (!('IntersectionObserver' in window)) {
+    frames.forEach(activate);
+    return;
+  }
+
+  const observer = new IntersectionObserver((entries, obs) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      activate(entry.target);
+      obs.unobserve(entry.target);
+    });
+  }, { rootMargin: '200px 0px' });
+
+  frames.forEach((frame) => observer.observe(frame));
+}
+
 function initSiteChrome() {
   initCurrentYear();
   initHeaderScroll();
@@ -1134,6 +1161,7 @@ function initPageFeatures() {
     initRmGoogleReviews();
     initRmLiveReviewCounts();
     initCountUp();
+    initLazyMaps();
   } catch (error) {
     console.error('Roof Monsters page feature init error:', error);
   } finally {

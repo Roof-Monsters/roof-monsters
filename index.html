@@ -344,12 +344,14 @@
 <!-- rm-seo:end -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,400;1,700&family=Roboto+Slab:wght@400;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,400;1,700&family=Roboto+Slab:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" media="print" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" /></noscript>
   <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="preload" as="image" href="assets/images/gallery/atlas-install-01.webp" type="image/webp" fetchpriority="high" />
 </head>
 <body>
-  <div id="site-header-include"></div>
+  <div id="site-header-include" class="site-chrome-slot site-chrome-slot--header" aria-hidden="true"></div>
 
   <!-- Crawler-visible primary content (partials load via JS for interactive experience) -->
   <noscript>
@@ -368,7 +370,111 @@
   </noscript>
 
   <main class="home-page">
-    <div data-partial="partials/home/hero-slider.html"></div>
+    <section class="hero" id="hero">
+      <div class="hero-slides">
+        <div class="hero-slide active">
+          <img class="hero-slide-bg ken-burns hero-lcp-img" src="assets/images/gallery/atlas-install-01.webp" alt="" width="1600" height="1067" fetchpriority="high" decoding="async" />
+          <div class="hero-overlay"></div>
+        </div>
+        <div class="hero-slide">
+          <div class="hero-slide-bg ken-burns bg-hero-slide-2"></div>
+          <div class="hero-overlay"></div>
+        </div>
+        <div class="hero-slide">
+          <div class="hero-slide-bg ken-burns bg-hero-slide-3"></div>
+          <div class="hero-overlay"></div>
+        </div>
+      </div>
+
+      <div class="container hero-inner">
+        <div class="hero-content">
+          <p class="hero-eyebrow">Your Tampa Bay Area Roofing Company</p>
+          <h1>Your Roof Is Our <span class="accent">Proof</span></h1>
+          <p class="hero-sub">At Roof Monsters, your roof is our proof of excellence. We deliver top-quality, reliable, and aesthetically pleasing roofing solutions tailored to your unique needs. Trust our expert team for unmatched craftsmanship and durability. Your satisfaction is guaranteed. Family owned and operated by Florida natives serving Florida for almost 40 years!</p>
+          <a href="tel:7274393869" class="btn btn-primary hero-call-link">
+            <i class="fa-solid fa-phone"></i> Call (727) 439-3869
+          </a>
+        </div>
+
+        <aside class="hero-form-card" id="estimate" aria-label="Request a free roofing estimate">
+          <div class="hero-form-header">
+            <span class="hero-form-kicker">Free local estimate</span>
+            <h2>Let's <span class="accent">Book</span> Now &amp; Get A Discount!</h2>
+          </div>
+
+          <form class="estimate-form hero-estimate-form" id="estimateForm" action="https://formspree.io/f/mbdvvbnp" method="POST" novalidate>
+            <div class="estimate-form-fields">
+            <div class="form-honey-wrap" aria-hidden="true">
+              <input id="rm-gotcha-hero" type="text" name="_gotcha" class="form-honey" tabindex="-1" autocomplete="off" aria-label="Company website" />
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="fname">Full Name <span class="form-required">*</span></label>
+                <input type="text" id="fname" name="name" placeholder="First and last name" required autocomplete="name" />
+              </div>
+              <div class="form-group">
+                <label for="femail">Email <span class="form-hint">(email or phone required)</span></label>
+                <input type="email" id="femail" name="email" placeholder="you@email.com" autocomplete="email" inputmode="email" />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="fphone">Phone <span class="form-hint">(email or phone required)</span></label>
+                <input type="tel" id="fphone" name="phone" placeholder="(727) 000-0000" autocomplete="tel" inputmode="tel" />
+              </div>
+              <div class="form-group">
+                <label for="faddress">Address</label>
+                <input type="text" id="faddress" name="address" placeholder="Street, City, FL" autocomplete="street-address" />
+              </div>
+            </div>
+            <fieldset class="form-group form-group--inline form-fieldset">
+              <legend>Type Of Property</legend>
+              <div class="radio-group">
+                <label class="radio-label">
+                  <input type="radio" name="property" value="Residential" checked /> Residential
+                </label>
+                <label class="radio-label">
+                  <input type="radio" name="property" value="Commercial" /> Commercial
+                </label>
+              </div>
+            </fieldset>
+            <div class="form-group">
+              <label for="fmessage">Message</label>
+              <textarea id="fmessage" name="message" placeholder="Tell us about your roofing needs!" rows="2"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary btn-full hero-form-submit">Send My Request</button>
+            </div>
+            <p class="form-success" hidden>
+              <i class="fa-solid fa-circle-check" aria-hidden="true"></i>
+              <span>Thank you — we received your request and will respond soon.</span>
+            </p>
+          </form>
+        </aside>
+      </div>
+
+      <aside class="hero-license-bar" aria-label="Licensing and contracting information">
+        <div class="container hero-license-bar__inner">
+          <p class="hero-license-bar__primary">
+            <strong class="hero-license-bar__name">Roof Monsters</strong>
+            <span class="hero-license-bar__sep" aria-hidden="true">·</span>
+            <span>A DBA of Terrance McKeever Enterprises, Inc.</span>
+          </p>
+          <p class="hero-license-bar__licenses">
+            <span>Florida Certified Roofing Contractor Licenses: CCC1335398, CCC052490</span>
+            <span class="hero-license-bar__sep" aria-hidden="true">·</span>
+            <span>Florida Certified Building Contractor License: CBC015719</span>
+          </p>
+          <p class="hero-license-bar__badges">Licensed • Insured • Family Owned • Serving Tampa Bay Since 1988</p>
+          <p class="hero-license-bar__hoa">
+            <span>HOA &amp; Property Manager Roofing Support</span>
+            <span class="hero-license-bar__sep" aria-hidden="true">·</span>
+            <span>CAM Experience Since 2018</span>
+            <span class="hero-license-bar__sep" aria-hidden="true">·</span>
+            <span>Melissa Ferguson, CAM50788</span>
+          </p>
+        </div>
+      </aside>
+    </section>
     <div data-partial="partials/home/about-contact-form.html"></div>
     <div data-partial="partials/home/atlas-banner.html"></div>
     <div data-partial="partials/home/services.html"></div>
@@ -419,9 +525,9 @@
     <div data-partial="partials/home/blog.html"></div>
   </main>
 
-  <div id="site-footer-include"></div>
+  <div id="site-footer-include" class="site-chrome-slot site-chrome-slot--footer" aria-hidden="true"></div>
 
-  <script src="includes.js"></script>
-  <script src="assets/js/main.js"></script>
+  <script src="includes.js" defer></script>
+  <script src="assets/js/main.js" defer></script>
 </body>
 </html>

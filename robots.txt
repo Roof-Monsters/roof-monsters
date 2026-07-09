@@ -12,4 +12,7 @@ Disallow: /xmlrpc.php
 Disallow: /readme.html
 Disallow: /license.txt
 
+# Machine-readable site summary for AI agents (Agentic Browsing / llms.txt)
+# https://roofmonsters.co/llms.txt
+
 Sitemap: https://roofmonsters.co/sitemap.xml

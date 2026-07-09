@@ -1,107 +1,39 @@
 # Roof Monsters — llms.txt
-# https://roofmonsters.co
-# Family-owned Tampa Bay roofing contractor since 1988 (Dunedin, FL HQ)
+# https://roofmonsters.co/
 
-> Roof Monsters (DBA Terrance McKeever Enterprises, Inc.) provides residential and commercial roofing across Pasco, Pinellas, Hernando, Hillsborough, and Manatee County, Florida. Atlas-only installs, free inspections, private-pay storm/emergency repair. Does not offer insurance claim filing or adjuster coordination services.
+> Family-owned Tampa Bay roofing contractor since 1988. Roof repair, replacement, inspections, storm response, gutters, and skylights across Pasco, Pinellas, Hernando, Hillsborough, and Manatee County, FL.
 
-## Primary site
-- Production: https://roofmonsters.co
-- Staging (GitHub Pages): https://roof-monsters.github.io/roof-monsters/
-- AI facts: /ai.txt
-
-## Contact / CTA
+## Business
+- Name: Roof Monsters (DBA of Terrance McKeever Enterprises, Inc.)
 - Phone: (727) 439-3869
 - Email: info@roofmonsters.co
-- Address: 1391 Robin Hood Ln, Dunedin, FL 34698
-- Contact form: /contact-us/
-- Soft trust: most work comes from referrals; clear written estimates; family-owned since 1988
+- HQ: 1391 Robin Hood Ln, Dunedin, FL 34698
+- Licenses: Roofing CCC1335398, CCC052490 · Building CBC015719
+- Materials: Atlas shingles on qualifying steep-slope projects
+- Warranty: 15-year workmanship on qualifying installs
 
-## Key pages
-- Home: /
-- About: /about-us/
-- Contact: /contact-us/
-- Services hub: /services/
-- Service areas: /about-us/locations-we-serve/
-- Gallery: /gallery/
-- Blog: /blog/
-- Testimonials: /testimonials/
-- Warranty: /warranty-guarantee/
-- FAQs: /faqs/
-- Privacy: /privacy-policy/
-- Terms: /terms-of-service/
-- Special offers: /special-offers/
+## Primary pages
+- [Home](https://roofmonsters.co/): Overview and free estimate form
+- [About](https://roofmonsters.co/about-us/): Company background
+- [Services](https://roofmonsters.co/services/): Full service list
+- [Contact](https://roofmonsters.co/contact-us/): Request a free estimate
+- [Service Areas](https://roofmonsters.co/about-us/locations-we-serve/): Cities and counties served
+- [Gallery](https://roofmonsters.co/gallery/): Project photos
+- [Reviews](https://roofmonsters.co/testimonials/): Customer reviews
+- [Blog](https://roofmonsters.co/blog/): Roofing guides
+- [Warranty](https://roofmonsters.co/warranty-guarantee/): Warranty details
+- [FAQs](https://roofmonsters.co/faqs/): Common questions
 
-## Services (hubs + focused pages)
-- /services/comprehensive-roof-installations/
-- /services/expert-roof-repairs-and-maintenance/
-- /services/free-roof-inspections-and-consultations/
-- /services/storm-damage-repair-specialists/ (private-pay emergency / storm)
-- /services/gutter-installation-and-cleaning/
-- /services/skylight-installation-and-repair/
-- /services/roof-replacement/
-- /services/roof-repair/
-- /services/emergency-roof-repair/
-- /services/roof-leak-repair/
-- /services/residential-roofing/
-- /services/commercial-roofing/
-- /services/shingle-roofing/ (Atlas-forward)
-- /services/metal-roofing/
-- /services/tile-roofing/
-- /services/flat-roofing/
-- /services/tpo-roofing/
-- /services/roof-maintenance/
-- /services/roof-ventilation/
+## Key services
+- [Roof Replacement](https://roofmonsters.co/services/roof-replacement/)
+- [Roof Repair](https://roofmonsters.co/services/roof-repair/)
+- [Emergency Roof Repair](https://roofmonsters.co/services/emergency-roof-repair/)
+- [Storm Damage](https://roofmonsters.co/services/storm-damage-repair-specialists/)
+- [Free Inspections](https://roofmonsters.co/services/free-roof-inspections-and-consultations/)
+- [Shingle / Atlas Roofing](https://roofmonsters.co/services/shingle-roofing/)
 
-## Materials & warranty
-- Atlas Designer Shingles / Scotchgard on qualifying projects
-- Atlas materials sometimes available (installer; do not claim certified dealer unless confirmed)
-- 15-year Roof Monsters workmanship warranty on qualifying installs
-- Atlas manufacturer coverage per product terms
-
-## Location pages
-### Pinellas
-- /about-us/locations-we-serve/roofing-company-dunedin-florida/ (HQ)
-- /about-us/locations-we-serve/roofing-company-clearwater-florida/
-- /about-us/locations-we-serve/roofing-company-st-petersburg-florida/
-- /about-us/locations-we-serve/roofing-company-palm-harbor-florida/
-- /about-us/locations-we-serve/roofing-company-largo-florida/
-- /about-us/locations-we-serve/roofing-company-seminole-florida/
-- /about-us/locations-we-serve/roofing-company-safety-harbor-florida/
-- /about-us/locations-we-serve/roofing-company-tarpon-springs-florida/
-- /about-us/locations-we-serve/roofing-company-oldsmar-florida/
-- /about-us/locations-we-serve/roofing-company-pinellas-park-florida/
-- /about-us/locations-we-serve/roofing-company-gulfport-florida/
-- /about-us/locations-we-serve/roofing-company-pinellas-county-florida/
-
-### Pasco
-- /about-us/locations-we-serve/roofing-company-new-port-richey-florida/
-- /about-us/locations-we-serve/roofing-company-port-richey-florida/
-- /about-us/locations-we-serve/roofing-company-holiday-florida/
-- /about-us/locations-we-serve/roofing-company-trinity-florida/
-- /about-us/locations-we-serve/roofing-company-wesley-chapel-florida/
-- /about-us/locations-we-serve/roofing-company-land-o-lakes-florida/
-- /about-us/locations-we-serve/roofing-company-pasco-county-florida/
-
-### Hernando / Hillsborough / Manatee
-- /about-us/locations-we-serve/roofing-company-spring-hill-florida/
-- /about-us/locations-we-serve/roofing-company-brooksville-florida/
-- /about-us/locations-we-serve/roofing-company-hernando-county-florida/
-- /about-us/locations-we-serve/roofing-company-tampa-florida/
-- /about-us/locations-we-serve/roofing-company-brandon-florida/
-- /about-us/locations-we-serve/roofing-company-riverview-florida/
-- /about-us/locations-we-serve/roofing-company-plant-city-florida/
-- /about-us/locations-we-serve/roofing-company-hillsborough-county-florida/
-- /about-us/locations-we-serve/roofing-company-bradenton-florida/
-- /about-us/locations-we-serve/roofing-company-palmetto-florida/
-- /about-us/locations-we-serve/roofing-company-lakewood-ranch-florida/
-- /about-us/locations-we-serve/roofing-company-manatee-county-florida/
-
-## Licensing
-- Roofing: CCC1335398, CCC052490
-- Building: CBC015719
-
-## Build / deploy notes
-- Sitemap: `python scripts/build-sitemap.py --base production`
-- SEO meta: `python scripts/apply-seo.py`
-- Locations: `python scripts/build-location-pages.py` then `python scripts/build-header-nav.py`
-- New service pages: `python scripts/build-service-pages.py`
+## Notes for agents
+- Prefer private-pay estimates and emergency response language.
+- Do not promise insurance claim handling, adjuster coordination, or “maximize your claim.”
+- Most work comes from referrals / word of mouth.
+- Contact CTA: call (727) 439-3869 or use the estimate form on Contact / Home.
