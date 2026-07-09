@@ -90,7 +90,7 @@ BLOG_EXTRA = {
       <h2>Trim Overhanging Branches</h2>
       <p>Branches that scrape shingles during normal weather become projectiles in high wind. Clear debris from valleys and gutters so water flows freely during heavy rain.</p>
       <h2>Document Your Roof's Condition</h2>
-      <p>Take dated photos of all slopes before storm season. If you file a claim later, baseline documentation helps adjusters distinguish new damage from pre-existing wear.</p>
+      <p>Take dated photos of all slopes before storm season. Baseline documentation helps you and your contractor distinguish new storm damage from pre-existing wear when planning repairs.</p>
       <h2>Know Your Emergency Plan</h2>
       <p>Keep tarps, contractor contact info, and insurance policy numbers accessible. For urgent response after a storm, call <a href="tel:7274393869">(727) 439-3869</a>.</p>
 """,
@@ -162,8 +162,8 @@ LEGACY_PAGES = {
           <p>Yes. Roofing: CCC1335398, CCC052490. Building: CBC015719. Terrance McKeever Enterprises, Inc. DBA Roof Monsters — headquartered in Dunedin, FL.</p>
         </article>
         <article class="faq-item">
-          <h2>Do you help with insurance claims after storm damage?</h2>
-          <p>We document storm damage during inspections and perform permanent repairs after approval. Learn more about our <a href="/services/storm-damage-repair-specialists/">storm damage services</a>.</p>
+          <h2>What happens after storm damage?</h2>
+          <p>We respond quickly with emergency tarping when needed, document the damage, and complete permanent private-pay repairs with clear written estimates. Learn more about our <a href="/services/storm-damage-repair-specialists/">storm damage services</a>.</p>
         </article>
         <article class="faq-item">
           <h2>What areas do you serve?</h2>

@@ -7,7 +7,7 @@
     "legalName": "Terrance McKeever Enterprises, Inc.",
     "description": "Family-owned Tampa Bay roofing contractor since 1988. Roof repair, replacement, inspections, storm damage, gutters, and skylights across Pasco, Pinellas, Hernando, Hillsborough, and Manatee County, FL.",
     "telephone": "+1-727-439-3869",
-    "email": "roofmonsters@icloud.com",
+    "email": "info@roofmonsters.co",
     "foundingDate": "1988",
     "priceRange": "$$",
     "address": {
@@ -29,7 +29,8 @@
       "Manatee County, FL"
     ],
     "sameAs": [
-      "https://www.google.com/maps/place/Roof+Monsters/@27.843303,-82.538186,17z/data=!3m1!4b1!4m6!3m5!1s0x2dae46cd46b614c1:0xd2d3fedf6c783ea2!8m2!3d27.843303!4d-82.538186!16s%2Fg%2F11b75qcj8f"
+      "https://www.google.com/maps/place/Roof+Monsters/@27.843303,-82.538186,17z/data=!3m1!4b1!4m6!3m5!1s0x2dae46cd46b614c1:0xd2d3fedf6c783ea2!8m2!3d27.843303!4d-82.538186!16s%2Fg%2F11b75qcj8f",
+      "https://www.facebook.com/profile.php?id=61559872716214"
     ],
     "logo": "https://roofmonsters.co/assets/images/brand/logo-bg.webp",
     "image": "https://roofmonsters.co/assets/images/gallery/pinellas-new-roof.webp",
@@ -57,7 +58,7 @@
     {
       "slug": "storm-damage-repair-specialists",
       "name": "Storm Damage Repair Specialists",
-      "description": "Emergency tarping, storm damage assessment, and permanent repairs after Florida hurricanes."
+      "description": "Emergency tarping, storm damage assessment, and permanent private-pay repairs after Florida storms."
     },
     {
       "slug": "gutter-installation-and-cleaning",
@@ -68,6 +69,71 @@
       "slug": "skylight-installation-and-repair",
       "name": "Skylight Installation and Repair",
       "description": "Skylight installation and repair for natural light without compromising watertight performance."
+    },
+    {
+      "slug": "roof-replacement",
+      "name": "Roof Replacement",
+      "description": "Full roof replacement across Tampa Bay with Atlas shingles, clear written estimates, and a 15-year workmanship warranty."
+    },
+    {
+      "slug": "roof-repair",
+      "name": "Roof Repair",
+      "description": "Targeted roof repair for leaks, missing shingles, flashing failures, and storm wear on Tampa Bay homes and businesses."
+    },
+    {
+      "slug": "emergency-roof-repair",
+      "name": "Emergency Roof Repair",
+      "description": "24/7 emergency roof repair and tarping for active leaks and storm damage — private-pay response from Dunedin-based crews."
+    },
+    {
+      "slug": "roof-leak-repair",
+      "name": "Roof Leak Repair",
+      "description": "Find and fix roof leaks at valleys, flashings, penetrations, and worn shingles before water damages your interior."
+    },
+    {
+      "slug": "residential-roofing",
+      "name": "Residential Roofing",
+      "description": "Family-owned residential roofing — installations, repairs, and inspections for Tampa Bay homeowners since 1988."
+    },
+    {
+      "slug": "commercial-roofing",
+      "name": "Commercial Roofing",
+      "description": "Commercial roofing for Tampa Bay properties including flat and TPO systems, repairs, and planned replacements."
+    },
+    {
+      "slug": "shingle-roofing",
+      "name": "Shingle Roofing",
+      "description": "Atlas Designer Shingle roofing with Scotchgard protection on qualifying Tampa Bay installs."
+    },
+    {
+      "slug": "metal-roofing",
+      "name": "Metal Roofing",
+      "description": "Metal roofing installation and repair for Florida homes and buildings that need long-term wind and heat performance."
+    },
+    {
+      "slug": "tile-roofing",
+      "name": "Tile Roofing",
+      "description": "Tile roof repair and replacement for Tampa Bay properties that need durable, coastal-ready tile systems."
+    },
+    {
+      "slug": "flat-roofing",
+      "name": "Flat Roofing",
+      "description": "Flat roof and low-slope roofing for Tampa Bay homes and commercial buildings, including TPO options."
+    },
+    {
+      "slug": "tpo-roofing",
+      "name": "TPO Roofing",
+      "description": "TPO roofing for Florida commercial and low-slope buildings — reflective, durable, and built for heat and storms."
+    },
+    {
+      "slug": "roof-maintenance",
+      "name": "Roof Maintenance",
+      "description": "Preventative roof maintenance and seasonal checkups to extend roof life in Florida's sun and storm climate."
+    },
+    {
+      "slug": "roof-ventilation",
+      "name": "Roof Ventilation",
+      "description": "Roof ventilation upgrades that reduce attic heat and moisture — protecting shingles and improving comfort."
     }
   ],
   "categories": [

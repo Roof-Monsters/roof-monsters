@@ -102,6 +102,10 @@ def classify_page(path: Path) -> str:
         return "about"
     if parts == ("blog",):
         return "blog-index"
+    if parts == ("faqs",):
+        return "faq"
+    if parts in {("privacy-policy",), ("terms-of-service",), ("warranty-guarantee",), ("gallery",), ("testimonials",)}:
+        return "webpage"
     if len(parts) == 2 and parts[0] == "category":
         return "category"
     blog_slugs = {p["slug"] for p in load_config()["blogPosts"]}
@@ -155,13 +159,25 @@ def breadcrumb_schema(crumbs: list[dict[str, str]], page_url: str, base: str) ->
 
 def roofing_contractor_schema(config: dict) -> dict:
     b = config["business"]
-    return {
+    base = config["canonicalBase"].rstrip("/")
+    offer_items = [
+        {
+            "@type": "Offer",
+            "itemOffered": {
+                "@type": "Service",
+                "name": s["name"],
+                "url": f"{base}/services/{s['slug']}/",
+            },
+        }
+        for s in config.get("services", [])
+    ]
+    schema: dict = {
         "@context": "https://schema.org",
         "@type": "RoofingContractor",
-        "@id": f"{config['canonicalBase']}/#roofingcontractor",
+        "@id": f"{base}/#roofingcontractor",
         "name": b["name"],
         "legalName": b["legalName"],
-        "url": config["canonicalBase"],
+        "url": base,
         "telephone": b["telephone"],
         "email": b["email"],
         "description": b["description"],
@@ -179,11 +195,85 @@ def roofing_contractor_schema(config: dict) -> dict:
         },
         "areaServed": b["areaServed"],
         "sameAs": b["sameAs"],
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": b["telephone"],
+            "email": b["email"],
+            "contactType": "customer service",
+            "areaServed": "US-FL",
+            "availableLanguage": ["English"],
+        },
+        "identifier": [
+            {"@type": "PropertyValue", "name": "Florida Roofing License", "value": "CCC1335398"},
+            {"@type": "PropertyValue", "name": "Florida Roofing License", "value": "CCC052490"},
+            {"@type": "PropertyValue", "name": "Florida Building License", "value": "CBC015719"},
+        ],
         "aggregateRating": {
             "@type": "AggregateRating",
             "ratingValue": b["aggregateRating"]["ratingValue"],
             "reviewCount": b["aggregateRating"]["reviewCount"],
         },
+    }
+    if offer_items:
+        schema["hasOfferCatalog"] = {
+            "@type": "OfferCatalog",
+            "name": "Roofing Services",
+            "itemListElement": offer_items,
+        }
+    return schema
+
+
+def website_schema(config: dict) -> dict:
+    base = config["canonicalBase"].rstrip("/")
+    return {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "@id": f"{base}/#website",
+        "name": config["business"]["name"],
+        "url": base,
+        "publisher": {"@id": f"{base}/#roofingcontractor"},
+        "inLanguage": "en-US",
+    }
+
+
+def webpage_schema(config: dict, page_url: str, title: str, description: str) -> dict:
+    base = config["canonicalBase"].rstrip("/")
+    return {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "@id": f"{page_url}#webpage",
+        "url": page_url,
+        "name": title,
+        "description": description,
+        "isPartOf": {"@id": f"{base}/#website"},
+        "about": {"@id": f"{base}/#roofingcontractor"},
+        "inLanguage": "en-US",
+    }
+
+
+def faq_schema_from_html(text: str) -> dict | None:
+    items = []
+    for m in re.finditer(
+        r'<article class="faq-item">\s*<h2>(.*?)</h2>\s*<p>(.*?)</p>\s*</article>',
+        text,
+        re.I | re.S,
+    ):
+        question = strip_tags(m.group(1))
+        answer = strip_tags(m.group(2))
+        if question and answer:
+            items.append(
+                {
+                    "@type": "Question",
+                    "name": question,
+                    "acceptedAnswer": {"@type": "Answer", "text": answer},
+                }
+            )
+    if not items:
+        return None
+    return {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": items,
     }
 
 
@@ -244,6 +334,8 @@ def build_seo_head(path: Path, text: str, config: dict) -> str:
     schemas: list[dict] = []
     if page_type in {"home", "contact"}:
         schemas.append(roofing_contractor_schema(config))
+    if page_type == "home":
+        schemas.append(website_schema(config))
     if page_type == "service":
         slug = path.parent.name
         service = next((s for s in config["services"] if s["slug"] == slug), None)
@@ -257,6 +349,12 @@ def build_seo_head(path: Path, text: str, config: dict) -> str:
         post = next((p for p in config["blogPosts"] if p["slug"] == slug), None)
         if post:
             schemas.append(article_schema(config, post, page_url, title, description))
+    if page_type == "faq":
+        faq = faq_schema_from_html(text)
+        if faq:
+            schemas.append(faq)
+    if page_type == "webpage":
+        schemas.append(webpage_schema(config, page_url, title, description))
     crumbs = extract_breadcrumbs(text)
     crumb_schema = breadcrumb_schema(crumbs, page_url, config["canonicalBase"])
     if crumb_schema:

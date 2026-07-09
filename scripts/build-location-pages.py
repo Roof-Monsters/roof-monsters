@@ -65,8 +65,8 @@ def cta_block(short: str) -> str:
         <p>Contact Roof Monsters today for a free estimate. We'll inspect your roof, explain your options clearly, and help you protect your property with confidence.</p>
         <div class="cta-features">
           <div class="cta-feature"><i class="fa-solid fa-check-circle"></i> Free roof inspections</div>
-          <div class="cta-feature"><i class="fa-solid fa-check-circle"></i> 15-year workmanship warranty</div>
-          <div class="cta-feature"><i class="fa-solid fa-check-circle"></i> Storm damage specialists</div>
+          <div class="cta-feature"><i class="fa-solid fa-check-circle"></i> Atlas materials · 15-year workmanship warranty</div>
+          <div class="cta-feature"><i class="fa-solid fa-check-circle"></i> Family-owned since 1988 · referral-trusted</div>
         </div>
         <a href="tel:7274393869" class="btn btn-primary u-mt-20"><i class="fa-solid fa-phone"></i> Call (727) 439-3869</a>
       </div>
@@ -108,12 +108,14 @@ def services_block(short: str) -> str:
         <!-- rm-cross-links:start -->
         <h3>Roofing Services in {esc(short)}</h3>
         <ul class="rm-cross-links-inline">
-          <li><a href="/services/comprehensive-roof-installations/">Roof Installation &amp; Replacement</a></li>
-          <li><a href="/services/expert-roof-repairs-and-maintenance/">Roof Repairs &amp; Maintenance</a></li>
+          <li><a href="/services/roof-replacement/">Roof Replacement</a></li>
+          <li><a href="/services/roof-repair/">Roof Repair</a></li>
+          <li><a href="/services/emergency-roof-repair/">Emergency Roof Repair</a></li>
+          <li><a href="/services/shingle-roofing/">Atlas Shingle Roofing</a></li>
           <li><a href="/services/storm-damage-repair-specialists/">Storm &amp; Emergency Response</a></li>
           <li><a href="/services/free-roof-inspections-and-consultations/">Free Roof Inspections</a></li>
-          <li><a href="/services/gutter-installation-and-cleaning/">Gutter Installation &amp; Cleaning</a></li>
-          <li><a href="/services/skylight-installation-and-repair/">Skylight Installation &amp; Repair</a></li>
+          <li><a href="/services/residential-roofing/">Residential Roofing</a></li>
+          <li><a href="/services/commercial-roofing/">Commercial Roofing</a></li>
         </ul>
         <!-- rm-cross-links:end -->
 """
@@ -138,7 +140,7 @@ WHY_VARIANTS: dict[str, list[tuple[str, str, str]]] = {
     "roofing-company-st-petersburg-florida": [
         ("Historic & Modern Homes", "St. Pete's mix of older districts and newer builds requires flexible flashing, ventilation, and drainage strategies."),
         ("Bay Humidity Performance", "We prioritize underlayment and ventilation details that reduce moisture buildup common near Tampa Bay."),
-        ("Insurance Documentation", "When storm damage qualifies, we help St. Petersburg owners capture photos and scope for adjusters."),
+        ("Storm Response Ready", "When storms hit St. Petersburg, we tarp, document damage, and complete permanent private-pay repairs with clear written estimates."),
     ],
     "roofing-company-palm-harbor-florida": [
         ("Gulf-Side Wind Design", "Palm Harbor waterfront and golf-community homes need systems rated for coastal wind zones — we install to Florida code and manufacturer specs."),
