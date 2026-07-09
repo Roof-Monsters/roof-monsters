@@ -582,11 +582,11 @@ ul {
 
 .site-nav > a,
 .site-nav .nav-dropdown-btn {
-  font-size: clamp(0.5rem, 1.15cqi, 0.74rem);
+  font-size: clamp(0.62rem, 1.2cqi, 0.8rem);
   font-weight: 600;
   letter-spacing: clamp(0.01em, 0.04cqi, 0.06em);
   text-transform: uppercase;
-  color: #bbb;
+  color: #e5e5e5;
   white-space: nowrap;
   line-height: 1.25;
   display: inline-flex;
@@ -1400,7 +1400,7 @@ ul {
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 10px;
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba(255, 255, 255, 0.9);
   transition: background var(--transition), border-color var(--transition), color var(--transition), transform var(--transition);
 }
 
@@ -2301,11 +2301,11 @@ html.rm-js .hero-license-bar.is-visible {
 .about-stat-chip__label {
   display: block;
   margin-top: 4px;
-  font-size: 0.68rem;
-  font-weight: 600;
+  font-size: 0.8125rem;
+  font-weight: 700;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.68);
+  color: rgba(255, 255, 255, 0.9);
 }
 
 .about-trust-row {
@@ -3048,8 +3048,8 @@ html.rm-js [data-rm-reveal].is-visible {
 }
 
 .rm-google-reviews-summary {
-  font-size: 0.82rem;
-  color: rgba(255, 255, 255, 0.82);
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.92);
   font-weight: 600;
 }
 
@@ -3818,18 +3818,20 @@ html.rm-js [data-rm-reveal].is-visible {
 }
 
 .testimonial-meta .stars {
-  color: var(--orange);
-  font-size: 13px;
+  color: #7a5f00;
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
   margin-bottom: 4px;
 }
 
 .testimonial-meta .review-title {
-  font-size: 13px;
+  font-size: 15px;
   color: var(--text-mid);
 }
 
 .testimonial-card p {
-  font-size: 14px;
+  font-size: 15px;
   color: var(--text-mid);
   line-height: 1.8;
   font-style: italic;
@@ -3866,7 +3868,7 @@ html.rm-js [data-rm-reveal].is-visible {
 }
 
 .testimonial-counter {
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 600;
   color: var(--text-mid);
 }
@@ -4018,6 +4020,20 @@ html.rm-js [data-rm-reveal].is-visible {
   color: var(--dark);
   margin-bottom: 10px;
   line-height: 1.4;
+}
+
+.blog-body h2 {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--dark);
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+
+.blog-cat a {
+  color: inherit;
+  text-decoration: none;
+  font-weight: inherit;
 }
 
 .blog-body h3 a:hover {
@@ -4312,8 +4328,8 @@ html.rm-js [data-rm-reveal].is-visible {
 }
 
 .footer-links a {
-  color: rgba(255, 255, 255, 0.78);
-  font-size: 0.84rem;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.92rem;
   font-weight: 600;
   text-decoration: none;
   transition: color var(--transition);
@@ -4330,8 +4346,8 @@ html.rm-js [data-rm-reveal].is-visible {
 }
 
 .footer-copy {
-  font-size: 0.8rem;
-  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.8);
   margin: 0;
 }
 
@@ -4653,10 +4669,13 @@ html.rm-js [data-rm-reveal].is-visible {
   align-items: center;
   justify-content: center;
   gap: 10px;
-  font-size: 14px;
-  color: rgba(255,255,255,0.6);
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.9);
 }
-.breadcrumb a { color: var(--orange); }
+.breadcrumb a {
+  color: #ffe9a0;
+  font-weight: 700;
+}
 .breadcrumb a:hover { text-decoration: underline; }
 
 /* =============================================
@@ -5025,14 +5044,14 @@ html.rm-js [data-rm-reveal].is-visible {
   font-family: 'Roboto Slab', serif;
   font-size: 44px;
   font-weight: 900;
-  color: var(--orange);
+  color: #ffe9a0;
   line-height: 1;
   margin-bottom: 8px;
 }
 .mini-stat-label {
-  color: rgba(255,255,255,0.75);
-  font-size: 15px;
-  font-weight: 500;
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 16px;
+  font-weight: 600;
 }
 
 /* Why choose grid */
@@ -5108,7 +5127,7 @@ html.rm-js [data-rm-reveal].is-visible {
   color: var(--dark);
   margin-bottom: 10px;
 }
-.why-card p { color: var(--text-mid); font-size: 14px; margin: 0; }
+.why-card p { color: var(--text-mid); font-size: 15px; margin: 0; }
 
 /* Process steps */
 .process-section { background: var(--bg); }
@@ -5146,7 +5165,7 @@ html.rm-js [data-rm-reveal].is-visible {
   color: var(--dark);
   margin-bottom: 10px;
 }
-.process-step p { color: var(--text-mid); font-size: 14px; margin: 0; }
+.process-step p { color: var(--text-mid); font-size: 15px; margin: 0; }
 
 /* CTA / booking form section (dark bg) */
 .service-cta-section { background: var(--dark); padding: 90px 0; }
@@ -5504,9 +5523,9 @@ html.rm-js [data-rm-reveal].is-visible {
   display: inline-block;
   background: var(--orange);
   color: var(--white);
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 700;
-  letter-spacing: 2px;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   padding: 6px 16px;
   border-radius: 30px;
@@ -5516,7 +5535,7 @@ html.rm-js [data-rm-reveal].is-visible {
   font-family: 'Roboto Slab', serif;
   font-size: 80px;
   font-weight: 900;
-  color: var(--orange);
+  color: #8f7006;
   line-height: 1;
   margin-bottom: 4px;
 }
@@ -5587,7 +5606,7 @@ html.rm-js [data-rm-reveal].is-visible {
   color: var(--dark);
   margin-bottom: 12px;
 }
-.offer-card p { color: var(--text-mid); font-size: 14px; line-height: 1.7; }
+.offer-card p { color: var(--text-mid); font-size: 15px; line-height: 1.7; }
 
 /* ── Testimonials page ───────────────────── */
 .reviews-grid {
@@ -5617,8 +5636,8 @@ html.rm-js [data-rm-reveal].is-visible {
   background: #eee;
 }
 .review-meta strong { display: block; font-size: 16px; color: var(--dark); margin-bottom: 4px; }
-.review-stars { color: var(--gold); font-size: 14px; margin-bottom: 4px; }
-.review-title { font-size: 13px; font-weight: 600; color: var(--text-mid); }
+.review-stars { color: #7a5f00; font-size: 1.1rem; font-weight: 700; margin-bottom: 4px; }
+.review-title { font-size: 15px; font-weight: 600; color: var(--text-mid); }
 .review-card > p {
   color: var(--text-mid);
   font-size: 15px;
@@ -5934,4 +5953,41 @@ html.rm-js .home-static-intro {
 .rm-map-overlay a,
 .rm-map-card a {
   color: #ffe9a0;
+}
+
+/* ── Sitewide contrast harmonization (inner pages) ── */
+.page-hero h1 .accent {
+  color: #ffe9a0;
+}
+
+.section-bg-white .section-eyebrow,
+.section-bg-white .section-header .section-eyebrow,
+.content-page .section-eyebrow,
+.service-intro-section:not(.rm-parallax-section) .section-eyebrow,
+.why-choose-section:not(.rm-parallax-section) .section-eyebrow,
+.location-guide .section-eyebrow,
+.blog-section.section-bg-white .section-eyebrow,
+.testimonials-section .section-eyebrow {
+  color: #8f7006;
+  -webkit-text-stroke: 0.35px rgba(0, 0, 0, 0.45);
+  text-shadow:
+    0 0 1px rgba(0, 0, 0, 0.3),
+    0.5px 0.5px 0 rgba(0, 0, 0, 0.25);
+}
+
+.section-bg-white h1 .accent,
+.section-bg-white h2 .accent,
+.section-bg-white h3 .accent,
+.content-page h2 .accent,
+.blog-section.section-bg-white h2 .accent {
+  color: #8f7006;
+}
+
+.rm-map-overlay span {
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 0.875rem;
+}
+
+.rm-map-overlay strong {
+  font-size: 0.9rem;
 }
