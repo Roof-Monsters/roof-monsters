@@ -1,5 +1,15 @@
 User-agent: *
 Allow: /
 
+# Legacy WordPress paths from the prior site — do not index.
+# These should stay 404 (or host-level 410) after cutover; do NOT 301 them to the homepage.
+Disallow: /wp-admin/
+Disallow: /wp-content/
+Disallow: /wp-includes/
+Disallow: /wp-json/
+Disallow: /*.php$
+Disallow: /xmlrpc.php
+Disallow: /readme.html
+Disallow: /license.txt
+
 Sitemap: https://roofmonsters.co/sitemap.xml
-Sitemap: https://roofmonsters.co/sitemap_index.xml

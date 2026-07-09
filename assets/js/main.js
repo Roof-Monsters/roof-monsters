@@ -559,9 +559,7 @@ function initRmGoogleReviews() {
       return (
         '<article class="rm-review-card">'
         + '<div class="rm-review-card-header">'
-        + '<span class="rm-review-avatar" style="background:'
-        + escapeHtml(review.avatarColor || '#1a56c4')
-        + ';" aria-hidden="true">'
+        + '<span class="rm-review-avatar" aria-hidden="true">'
         + escapeHtml(getInitial(review.name))
         + '</span>'
         + '<div>'

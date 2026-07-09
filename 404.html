@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script>
+(function () {
+  var path = location.pathname;
+  var marker = '/roof-monsters';
+  var idx = path.indexOf(marker);
+  var base = idx >= 0 ? path.slice(0, idx + marker.length) + '/' : '/';
+  window.__RM_BASE__ = base;
+  document.write('<base href="' + base + '">');
+})();
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Page Not Found | Roof Monsters</title>
+  <meta name="robots" content="noindex, follow" />
+  <meta name="description" content="That page is not available. Visit Roof Monsters for Tampa Bay roofing services, or contact us for a free estimate." />
+  <link rel="icon" href="favicon.ico" sizes="48x48" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+  <main class="section-pad" style="min-height:60vh;display:flex;align-items:center;">
+    <div class="container content-page" style="max-width:720px;margin:0 auto;text-align:center;">
+      <p class="section-eyebrow" style="justify-content:center;">404</p>
+      <h1>Page not found</h1>
+      <p>That URL is not part of the current Roof Monsters site. If you followed an old WordPress or plugin link, use one of the pages below.</p>
+      <p style="margin-top:1.5rem;display:flex;flex-wrap:wrap;gap:12px;justify-content:center;">
+        <a class="btn btn-primary" href="./">Home</a>
+        <a class="btn btn-primary" href="services/">Services</a>
+        <a class="btn btn-primary" href="/contact-us/">Contact</a>
+        <a class="btn btn-primary" href="/about-us/locations-we-serve/">Service Areas</a>
+      </p>
+      <p style="margin-top:1.25rem;">Or call <a href="tel:7274393869">(727) 439-3869</a>.</p>
+    </div>
+  </main>
+</body>
+</html>

@@ -32,16 +32,18 @@
 
       <form class="estimate-form hero-estimate-form" id="estimateForm" action="https://formspree.io/f/mbdvvbnp" method="POST" novalidate>
         <div class="estimate-form-fields">
-        <input type="text" name="_gotcha" class="form-honey" tabindex="-1" autocomplete="off" aria-hidden="true" />
+        <div class="form-honey-wrap" aria-hidden="true">
+          <input id="rm-gotcha-hero" type="text" name="_gotcha" class="form-honey" tabindex="-1" autocomplete="off" aria-label="Company website" />
+        </div>
         <div class="form-row">
           <div class="form-group">
             <label for="fname">Full Name <span class="form-required">*</span></label>
             <input type="text" id="fname" name="name" placeholder="First and last name" required autocomplete="name" />
           </div>
           <div class="form-group">
-                <label for="femail">Email <span class="form-hint">(email or phone required)</span></label>
+            <label for="femail">Email <span class="form-hint">(email or phone required)</span></label>
             <input type="email" id="femail" name="email" placeholder="you@email.com" autocomplete="email" inputmode="email" />
-              </div>
+          </div>
         </div>
         <div class="form-row">
           <div class="form-group">
@@ -53,8 +55,8 @@
             <input type="text" id="faddress" name="address" placeholder="Street, City, FL" autocomplete="street-address" />
           </div>
         </div>
-        <div class="form-group form-group--inline">
-          <label>Type Of Property</label>
+        <fieldset class="form-group form-group--inline form-fieldset">
+          <legend>Type Of Property</legend>
           <div class="radio-group">
             <label class="radio-label">
               <input type="radio" name="property" value="Residential" checked /> Residential
@@ -63,7 +65,7 @@
               <input type="radio" name="property" value="Commercial" /> Commercial
             </label>
           </div>
-        </div>
+        </fieldset>
         <div class="form-group">
           <label for="fmessage">Message</label>
           <textarea id="fmessage" name="message" placeholder="Tell us about your roofing needs!" rows="2"></textarea>

@@ -10,7 +10,9 @@ def esc(text: str) -> str:
 
 
 HONEYPOT = """
-          <input type="text" name="_gotcha" class="form-honey" tabindex="-1" autocomplete="off" aria-hidden="true" />"""
+          <div class="form-honey-wrap" aria-hidden="true">
+            <input id="rm-gotcha" type="text" name="_gotcha" class="form-honey" tabindex="-1" autocomplete="off" aria-label="Company website" />
+          </div>"""
 
 FORM_ACTION = "https://formspree.io/f/mbdvvbnp"
 
@@ -22,25 +24,25 @@ def estimate_form_compact(*, address_placeholder: str = "Street, City, FL") -> s
 {HONEYPOT}
           <div class="form-row">
             <div class="form-group">
-              <label>Name</label>
-              <input type="text" name="name" placeholder="Your name" required autocomplete="name" />
+              <label for="rm-name">Name</label>
+              <input id="rm-name" type="text" name="name" placeholder="Your name" required autocomplete="name" />
             </div>
             <div class="form-group">
-              <label>Email <span class="form-hint">(email or phone required)</span></label>
-              <input type="email" name="email" placeholder="you@email.com" autocomplete="email" inputmode="email" />
+              <label for="rm-email">Email <span class="form-hint">(email or phone required)</span></label>
+              <input id="rm-email" type="email" name="email" placeholder="you@email.com" autocomplete="email" inputmode="email" />
             </div>
           </div>
           <div class="form-group">
-            <label>Phone <span class="form-hint">(email or phone required)</span></label>
-            <input type="tel" name="phone" placeholder="(727) 000-0000" autocomplete="tel" inputmode="tel" />
+            <label for="rm-phone">Phone <span class="form-hint">(email or phone required)</span></label>
+            <input id="rm-phone" type="tel" name="phone" placeholder="(727) 000-0000" autocomplete="tel" inputmode="tel" />
           </div>
           <div class="form-group">
-            <label>Property Address</label>
-            <input type="text" name="address" placeholder="{esc(address_placeholder)}" autocomplete="street-address" />
+            <label for="rm-address">Property Address</label>
+            <input id="rm-address" type="text" name="address" placeholder="{esc(address_placeholder)}" autocomplete="street-address" />
           </div>
           <div class="form-group">
-            <label>Message</label>
-            <textarea name="message" rows="3" placeholder="Tell us about your roofing needs"></textarea>
+            <label for="rm-message">Message</label>
+            <textarea id="rm-message" name="message" rows="3" placeholder="Tell us about your roofing needs"></textarea>
           </div>
           <button type="submit" class="btn-submit">Send Request</button>
           </div>
