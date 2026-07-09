@@ -723,24 +723,299 @@ function initParallaxBanners() {
   update();
 }
 
+const RM_FORMSPREE_ENDPOINT = 'https://formspree.io/f/mbdvvbnp';
+const HERO_FORM_SUCCESS_RESET_MS = 3000;
+
+const formSuccessResetTimers = new WeakMap();
+
+const RM_FORM_DEFAULTS = {
+  provider: 'formspree',
+  formspreeId: 'mbdvvbnp',
+  endpoint: RM_FORMSPREE_ENDPOINT,
+  recipientEmail: 'info@roofmonsters.co',
+  subjectPrefix: 'Roof Monsters website lead',
+  fallbackEmail: 'info@roofmonsters.co',
+  fallbackPhone: '(727) 439-3869',
+};
+
+let rmFormConfig = null;
+
+function formspreeEndpoint(config) {
+  if (config.endpoint) return config.endpoint;
+  const id = config.formspreeId;
+  if (id && id !== 'PLACEHOLDER') return `https://formspree.io/f/${id}`;
+  return RM_FORMSPREE_ENDPOINT;
+}
+
+function ensureFormStatus(form) {
+  let status = form.querySelector('.form-status');
+  if (!status) {
+    status = document.createElement('p');
+    status.className = 'form-status';
+    status.setAttribute('role', 'status');
+    status.setAttribute('aria-live', 'polite');
+    status.hidden = true;
+    form.appendChild(status);
+  }
+  return status;
+}
+
+function escapeFormHtml(value) {
+  return String(value || '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
+
+function getFormFieldsWrap(form) {
+  return form.querySelector('.estimate-form-fields');
+}
+
+function setFormFieldsVisible(form, visible) {
+  const fields = getFormFieldsWrap(form);
+  if (fields) {
+    fields.hidden = !visible;
+    return;
+  }
+  form.querySelectorAll(':scope > *').forEach((el) => {
+    if (el.classList.contains('form-success') || el.classList.contains('form-status')) return;
+    el.hidden = !visible;
+  });
+}
+
+function setFormSubmitting(form, isSubmitting, submitBtn, originalText) {
+  form.classList.toggle('is-sending', isSubmitting);
+  if (!submitBtn) return;
+  submitBtn.disabled = isSubmitting;
+  submitBtn.setAttribute('aria-busy', String(isSubmitting));
+  submitBtn.textContent = isSubmitting ? 'Sending...' : originalText;
+}
+
+function clearFormSuccessReset(form) {
+  const timer = formSuccessResetTimers.get(form);
+  if (!timer) return;
+  clearTimeout(timer);
+  formSuccessResetTimers.delete(form);
+}
+
+function resetEstimateFormAfterSuccess(form) {
+  const submitBtn = form.querySelector('[type="submit"]');
+  const originalText = submitBtn?.dataset.rmOriginalText || submitBtn?.textContent?.trim() || 'Send';
+  const existingSuccess = form.querySelector('.form-success');
+  const status = form.querySelector('.form-status');
+
+  clearFormSuccessReset(form);
+  form.classList.remove('is-submitted', 'is-sending');
+  delete form.dataset.rmSubmitting;
+  form.removeAttribute('aria-label');
+  setFormFieldsVisible(form, true);
+  if (existingSuccess) existingSuccess.hidden = true;
+  if (status) {
+    status.hidden = true;
+    status.textContent = '';
+  }
+  form.reset();
+  if (submitBtn) {
+    submitBtn.disabled = false;
+    submitBtn.textContent = originalText;
+    submitBtn.removeAttribute('aria-busy');
+  }
+}
+
+function scheduleHeroFormReset(form) {
+  if (!form.classList.contains('hero-estimate-form')) return;
+  clearFormSuccessReset(form);
+  formSuccessResetTimers.set(
+    form,
+    window.setTimeout(() => resetEstimateFormAfterSuccess(form), HERO_FORM_SUCCESS_RESET_MS),
+  );
+}
+function showFormError(form, message) {
+  clearFormSuccessReset(form);
+  const status = ensureFormStatus(form);
+  const existingSuccess = form.querySelector('.form-success');
+  if (!message) {
+    status.hidden = true;
+    status.textContent = '';
+    return;
+  }
+
+  form.classList.remove('is-submitted', 'is-sending');
+  delete form.dataset.rmSubmitting;
+  setFormFieldsVisible(form, true);
+  if (existingSuccess) existingSuccess.hidden = true;
+
+  status.className = 'form-status form-status--error';
+  status.textContent = message;
+  status.hidden = false;
+}
+
+function showEstimateFormSuccess(form) {
+  const existingSuccess = form.querySelector('.form-success');
+  const status = ensureFormStatus(form);
+  const message = existingSuccess?.textContent?.trim()
+    || 'Thank you — we received your request and will respond soon.';
+
+  form.classList.remove('is-sending');
+  form.classList.add('is-submitted');
+  form.dataset.rmSubmitting = 'success';
+  setFormFieldsVisible(form, false);
+
+  if (existingSuccess) {
+    if (!existingSuccess.querySelector('.fa-circle-check')) {
+      existingSuccess.innerHTML = `<i class="fa-solid fa-circle-check" aria-hidden="true"></i><span>${escapeFormHtml(message)}</span>`;
+    }
+    existingSuccess.hidden = false;
+    status.hidden = true;
+  } else {
+    status.className = 'form-status form-status--success';
+    status.innerHTML = `<i class="fa-solid fa-circle-check" aria-hidden="true"></i><span>${escapeFormHtml(message)}</span>`;
+    status.hidden = false;
+  }
+
+  form.setAttribute('aria-label', 'Estimate request sent');
+  scheduleHeroFormReset(form);
+}
+
+async function loadFormConfig() {
+  if (rmFormConfig) return rmFormConfig;
+  try {
+    const base = window.__RM_BASE__ || '/';
+    const res = await fetch(`${base}data/site-forms.json`, { cache: 'no-store' });
+    if (res.ok) {
+      rmFormConfig = { ...RM_FORM_DEFAULTS, ...(await res.json()) };
+      return rmFormConfig;
+    }
+  } catch {
+    /* use defaults */
+  }
+  rmFormConfig = { ...RM_FORM_DEFAULTS };
+  return rmFormConfig;
+}
+
+function readEstimateField(form, name, fallbackSelector) {
+  const field = form.querySelector(`[name="${name}"]`) || form.querySelector(fallbackSelector);
+  return field?.value?.trim() || '';
+}
+
+function buildEstimatePayload(form, config) {
+  const payload = new FormData();
+  const assign = (key, value) => {
+    if (value) payload.append(key, value);
+  };
+
+  assign('name', readEstimateField(form, 'name', 'input[type="text"]'));
+  const email = readEstimateField(form, 'email', 'input[type="email"]');
+  assign('email', email);
+  if (email) payload.append('_replyto', email);
+  assign('phone', readEstimateField(form, 'phone', 'input[type="tel"]'));
+  assign('address', readEstimateField(form, 'address', 'input[placeholder*="Street"], input[placeholder*="address"]'));
+  assign('message', readEstimateField(form, 'message', 'textarea'));
+
+  const service = form.querySelector('[name="service"]');
+  if (service?.value) payload.append('service', service.value);
+
+  const property = form.querySelector('[name="property"]:checked');
+  if (property?.value) payload.append('property', property.value);
+
+  payload.append('_subject', `${config.subjectPrefix} — ${document.title}`);
+  payload.append('page', `${window.location.pathname}${window.location.search}`);
+  payload.append('source', form.id || form.className || 'estimate-form');
+  return payload;
+}
+
+async function submitEstimateForm(form) {
+  if (form.dataset.rmSubmitting === 'true' || form.dataset.rmSubmitting === 'success') {
+    return;
+  }
+  clearFormSuccessReset(form);
+  form.dataset.rmSubmitting = 'true';
+
+  const config = await loadFormConfig();
+  const endpoint = formspreeEndpoint(config);
+  if (!endpoint) {
+    delete form.dataset.rmSubmitting;
+    showFormError(form, `Online forms are not configured yet. Please call ${config.fallbackPhone} or email ${config.fallbackEmail}.`);
+    return;
+  }
+
+  const payload = buildEstimatePayload(form, config);
+  const name = payload.get('name');
+  const email = payload.get('email');
+  if (!name || !email) {
+    delete form.dataset.rmSubmitting;
+    showFormError(form, 'Please enter your name and email.');
+    return;
+  }
+
+  const submitBtn = form.querySelector('[type="submit"]');
+  const originalText = submitBtn?.textContent?.trim() || 'Send';
+  if (submitBtn) submitBtn.dataset.rmOriginalText = originalText;
+  setFormSubmitting(form, true, submitBtn, originalText);
+  showFormError(form, '');
+
+  try {
+    const res = await fetch(endpoint, {
+      method: 'POST',
+      body: payload,
+      headers: { Accept: 'application/json' },
+    });
+    let data = {};
+    try {
+      data = await res.json();
+    } catch {
+      data = {};
+    }
+
+    if (res.ok) {
+      showEstimateFormSuccess(form);
+      return;
+    }
+
+    const fieldErrors = Array.isArray(data.errors)
+      ? data.errors.map((entry) => entry.message).filter(Boolean).join(' ')
+      : '';
+    const reason = fieldErrors || data.error || `Request failed (${res.status})`;
+    throw new Error(reason);
+  } catch (error) {
+    delete form.dataset.rmSubmitting;
+    const message = error instanceof Error && error.message
+      ? error.message
+      : 'Could not send right now.';
+    showFormError(
+      form,
+      `${message} Please call ${config.fallbackPhone} or email ${config.fallbackEmail}.`,
+    );
+    setFormSubmitting(form, false, submitBtn, originalText);
+  }
+}
+
 function initEstimateForms() {
   document.querySelectorAll('.estimate-form').forEach((form) => {
+    const formNotes = form.querySelectorAll('.form-note');
+    formNotes.forEach((note, index) => {
+      if (index > 0) note.remove();
+    });
+
     if (form.dataset.bound === 'true') return;
     form.dataset.bound = 'true';
 
+    if (!form.getAttribute('action')) {
+      form.setAttribute('action', RM_FORMSPREE_ENDPOINT);
+    }
+    if (!form.getAttribute('method')) {
+      form.setAttribute('method', 'POST');
+    }
+
     form.addEventListener('submit', (e) => {
       e.preventDefault();
-      const name = form.querySelector('[name="name"]')?.value.trim();
-      const email = form.querySelector('[name="email"]')?.value.trim();
-      if (!name || !email) {
-        alert('Please enter your name and email.');
-        return;
-      }
-      alert(`Thank you, ${name}! We'll be in touch shortly.`);
-      form.reset();
+      void submitEstimateForm(form);
     });
   });
 }
+
+window.rmInitEstimateForms = initEstimateForms;
 
 function initSiteChrome() {
   initCurrentYear();
@@ -749,14 +1024,19 @@ function initSiteChrome() {
 }
 
 function initPageFeatures() {
-  initEnterAnimations();
-  initHeroParallax();
-  initParallaxBanners();
-  initHeroSlider();
-  initTestimonialCarousel();
-  initRmGoogleReviews();
-  initCountUp();
-  initEstimateForms();
+  try {
+    initEnterAnimations();
+    initHeroParallax();
+    initParallaxBanners();
+    initHeroSlider();
+    initTestimonialCarousel();
+    initRmGoogleReviews();
+    initCountUp();
+  } catch (error) {
+    console.error('Roof Monsters page feature init error:', error);
+  } finally {
+    initEstimateForms();
+  }
 }
 
 function initApp() {
@@ -765,6 +1045,10 @@ function initApp() {
 }
 
 document.addEventListener('site:includes-loaded', initApp, { once: true });
+
+if (document.querySelector('.estimate-form')) {
+  initEstimateForms();
+}
 
 if (document.querySelector('.site-header') && !document.getElementById('site-header-include')) {
   initApp();

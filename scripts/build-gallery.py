@@ -80,7 +80,8 @@ FOOT = """
   </section>
 
   <!-- CTA BANNER -->
-  <section class="atlas-banner bg-atlas-banner-shingles">
+  <section class="atlas-banner atlas-banner--parallax">
+    <div class="atlas-banner-bg bg-atlas-banner-gallery" aria-hidden="true"></div>
     <div class="atlas-overlay"></div>
     <div class="container atlas-inner">
       <div class="atlas-content">
@@ -106,7 +107,8 @@ FOOT = """
 
 def item_html(file: str, size: str, alt: str, city: str, meta: str) -> str:
     cls = f'gallery-page-item{" tall" if size else ""}'
-    team_path = "assets/images/team/" if file == "rob-lewis-square.webp" else "assets/images/gallery/"
+    team_files = {"rob-lewis-square.webp", "crew-01.webp"}
+    team_path = "assets/images/team/" if file in team_files else "assets/images/gallery/"
     return f"""
         <figure class="{cls}">
           <img src="{team_path}{file}" alt="{alt}" loading="lazy" />

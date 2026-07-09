@@ -7,6 +7,9 @@ import html
 import json
 from pathlib import Path
 
+from form_snippet import estimate_form_compact
+from location_content import guide_for
+
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data" / "service-areas.json"
 HUB = ROOT / "about-us" / "locations-we-serve"
@@ -72,31 +75,70 @@ def cta_block(short: str) -> str:
       </div>
       <div class="cta-form-card">
         <h3>Request a Free Estimate</h3>
-        <form class="estimate-form">
-          <div class="form-row">
-            <div class="form-group">
-              <label>Name</label>
-              <input type="text" name="name" placeholder="Your name" required />
-            </div>
-            <div class="form-group">
-              <label>Email</label>
-              <input type="email" name="email" placeholder="you@email.com" required />
-            </div>
-          </div>
-          <div class="form-group">
-            <label>Phone</label>
-            <input type="tel" name="phone" placeholder="(727) 000-0000" />
-          </div>
-          <div class="form-group">
-            <label>Property Address</label>
-            <input type="text" name="address" placeholder="{esc(short)} address" />
-          </div>
-          <div class="form-group">
-            <label>Message</label>
-            <textarea name="message" rows="3" placeholder="Tell us about your roofing needs"></textarea>
-          </div>
-          <button type="submit" class="btn-submit">Send Request</button>
-        </form>
+        {estimate_form_compact(address_placeholder=short + " address")}
+      </div>
+    </div>
+  </section>
+"""
+
+
+def local_faq_block(short: str, name: str, faqs: list[tuple[str, str]]) -> str:
+    items = "".join(
+        f"""
+        <article class="faq-item">
+          <h2>{esc(question)}</h2>
+          <p>{esc(answer)}</p>
+        </article>"""
+        for question, answer in faqs
+    )
+    return f"""
+  <section class="section-pad section-bg-white">
+    <div class="container content-page">
+      <div class="section-header">
+        <span class="section-eyebrow">{esc(short)} Roofing</span>
+        <h2>Local <span class="accent">Questions</span></h2>
+        <p class="section-desc">Answers for property owners in {esc(name)} before you request an estimate.</p>
+      </div>
+      <div class="faq-list">
+        {items}
+      </div>
+      <p class="u-mt-20">Call <a href="tel:7274393869">(727) 439-3869</a> or email <a href="mailto:info@roofmonsters.co">info@roofmonsters.co</a> — headquartered at 1391 Robin Hood Ln, Dunedin, FL 34698.</p>
+    </div>
+  </section>
+"""
+
+
+def local_guide_block(area: dict, guide: dict) -> str:
+    short = area["shortName"]
+    sections = "".join(
+        f"""
+      <h3>{esc(title)}</h3>
+      <p>{esc(body)}</p>"""
+        for title, body in guide["sections"]
+    )
+    signs = "".join(f"\n          <li>{esc(sign)}</li>" for sign in guide["signs"])
+    secondary = guide["secondary_image"]
+    return f"""
+  <section class="section-pad">
+    <div class="container content-page location-guide">
+      <div class="section-header">
+        <span class="section-eyebrow">{esc(short)} Roofing Guide</span>
+        <h2>{esc(guide["headline"])}</h2>
+        <p class="section-desc">Practical local detail for {esc(area["name"])} — climate, common repairs, process, and what to expect from a Dunedin-based Tampa Bay contractor.</p>
+      </div>
+      <div class="location-guide-layout">
+        <div class="location-guide-copy">
+          {sections}
+          <h3>Signs You May Need Roofing Work in {esc(short)}</h3>
+          <ul class="service-signs-list">
+            {signs}
+          </ul>
+          <p class="u-mt-20">Explore <a href="/services/">roofing services</a>, browse the <a href="/gallery/">project gallery</a>, or request a free inspection for your {esc(short)} property.</p>
+        </div>
+        <figure class="location-guide-media">
+          <img src="assets/images/gallery/{secondary}" alt="Roofing work related to {esc(short)} by Roof Monsters" loading="lazy" />
+          <figcaption>Licensed Tampa Bay roofing — Atlas materials on qualifying projects · Family-owned since 1988</figcaption>
+        </figure>
       </div>
     </div>
   </section>
@@ -248,6 +290,7 @@ def city_page(area: dict, config: dict) -> str:
     name = area["name"]
     short = area["shortName"]
     hq = config["headquarters"]
+    guide = guide_for(area)
     title = f"Roofing Company in {name} | Roof Monsters"
     description = (
         f"Roof Monsters provides roof repair, replacement, inspections, and storm damage "
@@ -271,6 +314,7 @@ def city_page(area: dict, config: dict) -> str:
 
     local_detail = area.get("localDetail", "")
     local_para = f"<p>{esc(local_detail)}</p>" if local_detail else ""
+    intro_img = guide["intro_image"]
 
     return HEAD.format(title=esc(title), description=esc(description)) + f"""
   <section class="page-hero">
@@ -298,22 +342,24 @@ def city_page(area: dict, config: dict) -> str:
         {services_block(short)}
       </div>
       <div class="service-intro-img">
-        <img src="/assets/images/gallery/completed-03.webp" alt="Completed roofing project in {esc(short)}" />
+        <img src="assets/images/gallery/{intro_img}" alt="Completed roofing project serving {esc(short)}" />
       </div>
     </div>
   </section>
-""" + why_block(short, name, area["slug"]) + cta_block(short) + FOOT
+""" + local_guide_block(area, guide) + why_block(short, name, area["slug"]) + local_faq_block(short, name, guide["faqs"]) + cta_block(short) + FOOT
 
 
 def county_page(area: dict, config: dict) -> str:
     name = area["name"]
     short = area["shortName"]
     hq = config["headquarters"]
+    guide = guide_for(area)
     title = f"Roofing Company in {name} | Roof Monsters"
     description = (
         f"Roof Monsters serves all of {name} with roof repair, replacement, inspections, and storm damage services. "
         f"Headquartered in {hq['city']}, FL. Family owned since 1988."
     )
+    intro_img = guide["intro_image"]
 
     return HEAD.format(title=esc(title), description=esc(description)) + f"""
   <section class="page-hero">
@@ -339,11 +385,11 @@ def county_page(area: dict, config: dict) -> str:
         {services_block(short)}
       </div>
       <div class="service-intro-img">
-        <img src="/assets/images/gallery/completed-03.webp" alt="Completed roofing project in {esc(short)}" />
+        <img src="assets/images/gallery/{intro_img}" alt="Completed roofing project serving {esc(short)}" />
       </div>
     </div>
   </section>
-""" + featured_cities_html(area) + why_block(short, name, area["slug"]) + cta_block(short) + FOOT
+""" + featured_cities_html(area) + local_guide_block(area, guide) + why_block(short, name, area["slug"]) + local_faq_block(short, name, guide["faqs"]) + cta_block(short) + FOOT
 
 
 def hub_page(config: dict, cities: list[dict], counties: list[dict]) -> str:
@@ -409,7 +455,7 @@ def hub_page(config: dict, cities: list[dict], counties: list[dict]) -> str:
         </div>
       </div>
       <div class="service-intro-img">
-        <img src="/assets/images/gallery/completed-01.webp" alt="Roof Monsters crew serving Tampa Bay from Dunedin" />
+        <img src="assets/images/gallery/pinellas-new-roof.webp" alt="Completed roof project by Roof Monsters serving Tampa Bay from Dunedin" />
       </div>
     </div>
   </section>
@@ -440,7 +486,8 @@ def hub_page(config: dict, cities: list[dict], counties: list[dict]) -> str:
     </div>
   </section>
 
-  <section class="atlas-banner bg-atlas-banner-shingles">
+  <section class="atlas-banner atlas-banner--parallax">
+    <div class="atlas-banner-bg bg-atlas-banner-locations" aria-hidden="true"></div>
     <div class="atlas-overlay"></div>
     <div class="container atlas-inner">
       <div class="atlas-content">

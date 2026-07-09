@@ -17,6 +17,10 @@
 <!-- rm-seo:start -->
   <link rel="canonical" href="https://roofmonsters.co/contact-us/" />
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large" />
+  <meta name="geo.region" content="US-FL" />
+  <meta name="geo.placename" content="Dunedin, FL" />
+  <meta name="geo.position" content="28.0197;-82.7718" />
+  <meta name="ICBM" content="28.0197, -82.7718" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Roof Monsters" />
   <meta property="og:title" content="Contact Us | Roof Monsters — Tampa Bay Roofing" />
@@ -65,7 +69,11 @@
   ],
   "sameAs": [
     "https://www.google.com/maps/place/Roof+Monsters/@27.843303,-82.538186,17z/data=!3m1!4b1!4m6!3m5!1s0x2dae46cd46b614c1:0xd2d3fedf6c783ea2!8m2!3d27.843303!4d-82.538186!16s%2Fg%2F11b75qcj8f",
-    "https://www.facebook.com/profile.php?id=61559872716214"
+    "https://www.facebook.com/profile.php?id=61559872716214",
+    "https://www.instagram.com/roof_monsters/",
+    "https://www.linkedin.com/company/roof-monsters/",
+    "https://x.com/RoofMonsters",
+    "https://nextdoor.com/page/roof-monsters-dunedin-fl"
   ],
   "contactPoint": {
     "@type": "ContactPoint",
@@ -99,6 +107,21 @@
     "ratingValue": "5.0",
     "reviewCount": "30"
   },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday"
+      ],
+      "opens": "07:00",
+      "closes": "19:00"
+    }
+  ],
   "hasOfferCatalog": {
     "@type": "OfferCatalog",
     "name": "Roofing Services",
@@ -345,11 +368,67 @@
           </div>
 
           <div class="contact-info-item">
+            <div class="contact-info-icon"><i class="fa-solid fa-envelope"></i></div>
+            <div class="contact-info-content">
+              <h4>Email Us</h4>
+              <a href="mailto:info@roofmonsters.co">info@roofmonsters.co</a>
+              <p>Send project photos and questions — we respond during business hours and monitor for emergencies.</p>
+            </div>
+          </div>
+
+          <div class="contact-info-item">
+            <div class="contact-info-icon"><i class="fa-solid fa-building"></i></div>
+            <div class="contact-info-content">
+              <h4>Headquarters</h4>
+              <p><strong>Roof Monsters</strong><br />1391 Robin Hood Ln<br />Dunedin, FL 34698</p>
+              <a href="https://www.google.com/maps/search/?api=1&amp;query=1391+Robin+Hood+Ln,+Dunedin,+FL+34698" target="_blank" rel="noopener noreferrer">Get directions</a>
+            </div>
+          </div>
+
+          <div class="contact-info-item">
+            <div class="contact-info-icon"><i class="fa-brands fa-instagram"></i></div>
+            <div class="contact-info-content">
+              <h4>Follow On Instagram</h4>
+              <a href="https://www.instagram.com/roof_monsters/" target="_blank" rel="noopener noreferrer">@roof_monsters</a>
+              <p>Project photos, crew updates, and roofing tips from our Tampa Bay team.</p>
+            </div>
+          </div>
+
+          <div class="contact-info-item">
             <div class="contact-info-icon"><i class="fa-brands fa-facebook"></i></div>
             <div class="contact-info-content">
               <h4>Find Us On Facebook</h4>
               <a href="https://www.facebook.com/profile.php?id=61559872716214" target="_blank" rel="noopener">Roof Monsters on Facebook</a>
               <p>Message us on Facebook for quick questions and project photos.</p>
+            </div>
+          </div>
+
+          <div class="contact-info-item">
+            <div class="contact-info-icon"><i class="fa-brands fa-linkedin-in"></i></div>
+            <div class="contact-info-content">
+              <h4>Connect On LinkedIn</h4>
+              <a href="https://www.linkedin.com/company/roof-monsters/" target="_blank" rel="noopener noreferrer">Roof Monsters on LinkedIn</a>
+              <p>Company updates, services, and Tampa Bay roofing expertise.</p>
+            </div>
+          </div>
+
+          <div class="contact-info-item">
+            <div class="contact-info-icon"><i class="fa-brands fa-x-twitter"></i></div>
+            <div class="contact-info-content">
+              <h4>Follow On X</h4>
+              <a href="https://x.com/RoofMonsters" target="_blank" rel="noopener noreferrer">@RoofMonsters</a>
+              <p>News, tips, and project highlights from our team.</p>
+            </div>
+          </div>
+
+          <div class="contact-info-item">
+            <div class="contact-info-icon" aria-hidden="true">
+              <svg class="contact-info-icon-svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" focusable="false"><path fill="currentColor" d="M12 2.4 2 9.6V22h7.2v-6h5.6v6H22V9.6L12 2.4zm0 2.77 6.8 5.1V20h-2.4v-5.6H7.6V20H5.2v-9.73L12 5.17z"/></svg>
+            </div>
+            <div class="contact-info-content">
+              <h4>Find Us On Nextdoor</h4>
+              <a href="https://nextdoor.com/page/roof-monsters-dunedin-fl" target="_blank" rel="noopener noreferrer">Roof Monsters on Nextdoor</a>
+              <p>Local recommendations and neighborhood updates from Dunedin and Tampa Bay.</p>
             </div>
           </div>
 
@@ -388,25 +467,26 @@
         <div class="contact-form-panel">
           <h3>Request A Free Estimate</h3>
           <p>Fill out the form below and a Roof Monsters expert will contact you within 1 business hour.</p>
-          <form class="estimate-form">
+          <form novalidate class="estimate-form" action="https://formspree.io/f/mbdvvbnp" method="POST">
+          <input type="text" name="_gotcha" class="form-honey" tabindex="-1" autocomplete="off" aria-hidden="true" />
             <div class="form-row">
               <div class="form-group">
                 <label>Full Name <span class="form-required">*</span></label>
-                <input type="text" placeholder="John Smith" required />
+                <input type="text" name="name" name="name" name="name" name="name" placeholder="Your name" required autocomplete="name" required autocomplete="name" required autocomplete="name" required autocomplete="name" required />
               </div>
               <div class="form-group">
                 <label>Email Address <span class="form-required">*</span></label>
-                <input type="email" placeholder="you@email.com" required />
+                <input type="email" name="email" name="email" name="email" name="email" placeholder="you@email.com" required autocomplete="email" required autocomplete="email" required autocomplete="email" required autocomplete="email" required />
               </div>
             </div>
             <div class="form-row">
               <div class="form-group">
                 <label>Phone Number</label>
-                <input type="tel" placeholder="(727) 000-0000" />
+                <input type="tel" name="phone" name="phone" name="phone" name="phone" placeholder="(727) 000-0000" autocomplete="tel" autocomplete="tel" autocomplete="tel" autocomplete="tel" />
               </div>
               <div class="form-group">
                 <label>Property Address</label>
-                <input type="text" placeholder="Street, City, FL" />
+                <input type="text" name="address" name="address" name="address" name="address" placeholder="Street, City, FL" autocomplete="street-address" autocomplete="street-address" autocomplete="street-address" autocomplete="street-address" />
               </div>
             </div>
             <div class="form-group">
@@ -418,7 +498,7 @@
             </div>
             <div class="form-group">
               <label>Service Needed</label>
-              <select class="service-select" aria-label="Service needed">
+              <select class="service-select" name="service" name="service" name="service" name="service" aria-label="Service needed">
                 <option value="">— Select a service —</option>
                 <option value="Installation">Roof Installation / Replacement</option>
                 <option value="Repair">Roof Repair</option>
@@ -431,9 +511,10 @@
             </div>
             <div class="form-group">
               <label>Message</label>
-              <textarea rows="4" placeholder="Tell us about your project or roofing needs…"></textarea>
+              <textarea name="message" name="message" name="message" name="message" rows="4" placeholder="Tell us about your roofing needs"></textarea>
             </div>
             <button type="submit" class="btn-submit btn-submit--spaced">Send Message <i class="fa-solid fa-paper-plane"></i></button>
+          <p class="form-success" hidden>Thank you — we received your request and will respond soon.</p>
             <p class="form-note">We will never share your information. Licensed &amp; Insured.</p>
           </form>
         </div>
@@ -443,7 +524,39 @@
   </section>
 
   <!-- WHY CHOOSE SECTION -->
-  <section class="why-choose-section section-pad section-bg-white">
+  <section 
+  <!-- rm-content-expand:start -->
+  <section class="section-pad section-bg-white">
+    <div class="container content-page service-rich-content">
+      <div class="section-header">
+        <span class="section-eyebrow">Before You Call</span>
+        <h2>What Helps Us Help You Faster</h2>
+      </div>
+      <h2>Share the Basics</h2>
+      <p>Property address, whether the issue is an active leak, and any photos of stains or missing shingles help us prioritize. If water is entering now, say so up front — emergency tarping and dry-in are private-pay storm response available when a roof is open. Routine estimate requests can include preferred days and any HOA or closing deadlines.</p>
+      <p>Reach us at <a href="tel:7274393869">(727) 439-3869</a> or <a href="mailto:info@roofmonsters.co">info@roofmonsters.co</a>. Headquarters: 1391 Robin Hood Ln, Dunedin, FL 34698. Hours for routine estimates: Monday–Saturday, 7 AM–7 PM. Emergency response for active openings is available 24/7.</p>
+      <p>Buyers and sellers should mention inspection deadlines so we can schedule accordingly. Property managers can note unit counts, access instructions, and whether work must be phased around tenants. The more context you share, the faster we can put the right crew and materials on the calendar.</p>
+      <h2>Service Area</h2>
+      <p>We serve all of Pasco, Pinellas, Hernando, Hillsborough, and Manatee County. Browse <a href="/about-us/locations-we-serve/">locations we serve</a> for city and county pages. Coverage includes incorporated cities and unincorporated areas — if you are unsure which page fits, call and we will confirm.</p>
+      <p>Most work still comes from neighbors who recommend us. That referral culture means we show up with clear written estimates, Atlas materials on qualifying steep-slope projects, and the same licensing standards everywhere we work: CCC1335398, CCC052490, CBC015719.</p>
+      <p>Dunedin is home base, but crews travel the bay area daily for replacements, repairs, inspections, gutters, and skylight work. Distance within our five-county territory is not a barrier to scheduling a free inspection.</p>
+      <h2>What Happens After You Reach Out</h2>
+      <p>We confirm details, schedule a free inspection when applicable, photograph conditions, and provide a written estimate. No pressure tactics — clear scopes, Atlas materials on qualifying projects, and licensed crews. You will know materials, labor expectations, and warranty language before work begins.</p>
+      <p>If the visit shows a lasting repair is enough, we say so. If replacement is the honest path, we explain why with photos of decking, flashings, and wear patterns. Storm openings get temporary protection first, then permanent private-pay repairs — we do not manage insurance claims or promise payout outcomes.</p>
+      <p>Questions before you call? Read our <a href="/faqs/">FAQs</a>, <a href="/warranty-guarantee/">warranty page</a>, and <a href="/services/">services hub</a>. Then reach out — family-owned since 1988, still answering from Dunedin.</p>
+      <h2>What to Expect on Inspection Day</h2>
+      <p>Wear comfortable shoes if you want to walk the property with us; attic access helps when available. We look at shingle or membrane condition, flashings, valleys, penetrations, ventilation, and signs of prior repairs. Findings are explained in plain language, not jargon meant to rush a signature.</p>
+      <p>After the walkthrough you receive written options. Compare them at your pace. When you are ready, we schedule tear-off or repair windows around weather and your household needs. Final walkthroughs on qualifying projects review workmanship warranty paperwork and Atlas registration steps when applicable.</p>
+      <p>If you need to cancel or reschedule, call as early as you can so another neighbor can take the slot. Referral-driven calendars stay full across Tampa Bay, and clear communication keeps everyone moving.</p>
+      <h2>Emergency vs. Routine Contact</h2>
+      <p>Active water intrusion, missing sections after wind, or a roof opening you can see from the yard — call (727) 439-3869 and say it is an emergency. Private-pay tarping and dry-in come first; permanent repairs are scoped after conditions are safe to assess fully.</p>
+      <p>Routine replacement planning, maintenance questions, and HOA paperwork can use the same number or info@roofmonsters.co during estimate hours. Either way, you reach the Dunedin team — licenses CCC1335398, CCC052490, CBC015719 — not a national call center reading a script.</p>
+
+    </div>
+  </section>
+  <!-- rm-content-expand:end -->
+
+class="why-choose-section section-pad section-bg-white">
     <div class="container">
       <div class="section-header">
         <span class="section-eyebrow">Why Roof Monsters</span>

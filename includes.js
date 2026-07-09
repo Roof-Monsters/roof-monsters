@@ -113,11 +113,13 @@ function applyNavActive() {
   });
 }
 
+const INCLUDE_VERSION = '20260709b';
+
 async function fetchInclude(path) {
   const url = path.startsWith('http')
     ? path
-    : `${getIncludeBase()}${path.replace(/^\//, '')}`;
-  const response = await fetch(url, { cache: 'no-cache' });
+    : `${getIncludeBase()}${path.replace(/^\//, '')}?v=${INCLUDE_VERSION}`;
+  const response = await fetch(url, { cache: 'no-store' });
   if (!response.ok) {
     throw new Error(`Failed to load ${url} (${response.status})`);
   }
@@ -167,6 +169,9 @@ async function loadSiteIncludes() {
 
   applyNavActive();
   document.dispatchEvent(new CustomEvent('site:includes-loaded'));
+  if (typeof window.rmInitEstimateForms === 'function') {
+    window.rmInitEstimateForms();
+  }
 }
 
 function initSiteIncludes() {

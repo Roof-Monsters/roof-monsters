@@ -17,6 +17,10 @@
 <!-- rm-seo:start -->
   <link rel="canonical" href="https://roofmonsters.co/services/expert-roof-repairs-and-maintenance/" />
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large" />
+  <meta name="geo.region" content="US-FL" />
+  <meta name="geo.placename" content="Dunedin, FL" />
+  <meta name="geo.position" content="28.0197;-82.7718" />
+  <meta name="ICBM" content="28.0197, -82.7718" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Roof Monsters" />
   <meta property="og:title" content="Roof Repair &amp; Maintenance | Roof Monsters — Tampa Bay" />
@@ -222,7 +226,37 @@
     </div>
   </section>
 
-  <!-- CTA FORM -->
+  
+  <!-- rm-content-expand:start -->
+  <section class="section-pad section-bg-white">
+    <div class="container content-page service-rich-content">
+      <div class="section-header">
+        <span class="section-eyebrow">Service Guide</span>
+        <h2>Roof Repair and Maintenance That Lasts</h2>
+      </div>
+      <h2>Find the Source, Not Just the Stain</h2>
+      <p>Water travels. We trace leaks at flashings, valleys, and penetrations instead of only patching ceiling stains. Compatible Atlas or system-matched materials keep repairs performing with the rest of the roof so a fix in one area does not create a weak seam next to older shingles.</p>
+      <p>Free inspections include photos and plain-language explanations. You should understand whether the issue is a failed pipe boot, lifted tabs after wind, clogged valley debris, or something that points toward broader replacement. Written estimates list the repair scope before work begins.</p>
+      <p>Active openings get private-pay emergency tarping first. Temporary dry-in stops intrusion; lasting repairs follow when weather allows. We do not manage insurance claims — we focus on licensed, durable roofing work.</p>
+      <h2>Maintenance Before Storm Season</h2>
+      <p>Seasonal checks catch lifted tabs, dried sealant, and debris in valleys. Honest reports explain what to fix now versus monitor — without automatic upsells to full replacement. Tampa Bay pollen and oak litter can clog drainage paths quickly after spring and fall storms.</p>
+      <p>Property managers benefit from scheduled walkthroughs across multiple units so small flashing issues do not become unit-to-unit interior claims. Homeowners preparing to list a property get documentation that supports disclosures and buyer confidence.</p>
+      <p>Call (727) 439-3869 to book a maintenance inspection from our Dunedin team. Licenses CCC1335398, CCC052490, CBC015719. Family-owned since 1988 — most work still comes from neighbors who recommend us.</p>
+      <h2>When Repair Is Not Enough</h2>
+      <p>If age, decking, or widespread wear make patches short-lived, we say so in writing and compare replacement options. Pushing another year of caulk on a failing plane often costs more in drywall and flooring than a planned re-roof.</p>
+      <p>Atlas materials on qualifying steep-slope replacements and our 15-year workmanship warranty on qualifying labor support the long-term path when repair no longer makes sense. You will see both options side by side before you decide.</p>
+      <p>Email info@roofmonsters.co with photos if you want a preliminary read, then schedule an on-site inspection for a definitive written recommendation.</p>
+      <h2>Repair Scopes Homeowners Should Expect in Writing</h2>
+      <p>A solid repair estimate names the detail being fixed — pipe boot, step flashing, valley weave, ridge vent transition — plus materials that match the existing system. Vague “fix leak” line items leave too much room for disappointment when water returns after the next downpour.</p>
+      <p>Ask whether temporary dry-in is separate from permanent work. After storms, private-pay tarping stops intrusion; the lasting repair is a second scope with its own pricing. Keeping those steps distinct protects your budget and your expectations.</p>
+      <p>If multiple leaks appear in different planes on an aging roof, the written recommendation may shift toward replacement. That is not an upsell tactic — it is an honest reading of remaining service life under Florida UV and wind-driven rain. Atlas options on qualifying steep-slope projects get explained when that path is on the table.</p>
+      <p>Schedule repair or maintenance visits at (727) 439-3869. Licenses CCC1335398, CCC052490, CBC015719. Most neighbors who send us referrals already saw how we document the source instead of only painting over a stain.</p>
+
+    </div>
+  </section>
+  <!-- rm-content-expand:end -->
+
+<!-- CTA FORM -->
   <section class="service-cta-section">
     <div class="container service-cta-grid">
       <div class="service-cta-content">
@@ -238,14 +272,15 @@
       </div>
       <div class="cta-form-card">
         <h3>Request a Free Estimate</h3>
-        <form class="estimate-form">
+        <form novalidate class="estimate-form" action="https://formspree.io/f/mbdvvbnp" method="POST">
+          <input type="text" name="_gotcha" class="form-honey" tabindex="-1" autocomplete="off" aria-hidden="true" />
           <div class="form-row">
-            <div class="form-group"><label>Name</label><input type="text" placeholder="Your name" required /></div>
-            <div class="form-group"><label>Email</label><input type="email" placeholder="Your email" required /></div>
+            <div class="form-group"><label>Name</label><input type="text" name="name" name="name" name="name" name="name" placeholder="Your name" required autocomplete="name" required autocomplete="name" required autocomplete="name" required autocomplete="name" required /></div>
+            <div class="form-group"><label>Email</label><input type="email" name="email" name="email" name="email" name="email" placeholder="you@email.com" required autocomplete="email" required autocomplete="email" required autocomplete="email" required autocomplete="email" required /></div>
           </div>
           <div class="form-row">
-            <div class="form-group"><label>Phone Number</label><input type="tel" placeholder="(727) 000-0000" /></div>
-            <div class="form-group"><label>Your Address</label><input type="text" placeholder="Street address" /></div>
+            <div class="form-group"><label>Phone Number</label><input type="tel" name="phone" name="phone" name="phone" name="phone" placeholder="(727) 000-0000" autocomplete="tel" autocomplete="tel" autocomplete="tel" autocomplete="tel" /></div>
+            <div class="form-group"><label>Your Address</label><input type="text" name="address" name="address" name="address" name="address" placeholder="Street, City, FL" autocomplete="street-address" autocomplete="street-address" autocomplete="street-address" autocomplete="street-address" /></div>
           </div>
           <div class="form-group">
             <label>Type Of Property</label>
@@ -254,8 +289,9 @@
               <label class="radio-label"><input type="radio" name="property" value="Commercial" /> Commercial</label>
             </div>
           </div>
-          <div class="form-group"><label>Message</label><textarea rows="3" placeholder="Describe the issue…"></textarea></div>
+          <div class="form-group"><label>Message</label><textarea name="message" name="message" name="message" name="message" rows="4" placeholder="Tell us about your roofing needs"></textarea></div>
           <button type="submit" class="btn-submit">Send <i class="fa-solid fa-paper-plane"></i></button>
+          <p class="form-success" hidden>Thank you — we received your request and will respond soon.</p>
         </form>
       </div>
     </div>

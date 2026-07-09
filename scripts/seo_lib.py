@@ -214,6 +214,11 @@ def roofing_contractor_schema(config: dict) -> dict:
             "reviewCount": b["aggregateRating"]["reviewCount"],
         },
     }
+    hours = b.get("openingHoursSpecification") or []
+    if hours:
+        schema["openingHoursSpecification"] = [
+            {"@type": "OpeningHoursSpecification", **spec} for spec in hours
+        ]
     if offer_items:
         schema["hasOfferCatalog"] = {
             "@type": "OfferCatalog",
@@ -324,12 +329,28 @@ def article_schema(config: dict, post: dict, page_url: str, title: str, descript
     }
 
 
+def geo_meta_tags(config: dict) -> str:
+    b = config["business"]
+    addr = b["address"]
+    geo = b["geo"]
+    lat = geo["latitude"]
+    lng = geo["longitude"]
+    placename = f"{addr['addressLocality']}, {addr['addressRegion']}"
+    return (
+        f'  <meta name="geo.region" content="US-{html.escape(addr["addressRegion"], quote=True)}" />\n'
+        f'  <meta name="geo.placename" content="{html.escape(placename, quote=True)}" />\n'
+        f'  <meta name="geo.position" content="{lat};{lng}" />\n'
+        f'  <meta name="ICBM" content="{lat}, {lng}" />\n'
+    )
+
+
 def build_seo_head(path: Path, text: str, config: dict) -> str:
     page_url = page_path_to_url(path, config["canonicalBase"])
     title = extract_title(text)
     description = extract_description(text)
     og_image = og_image_for(path, config)
     page_type = classify_page(path)
+    geo_meta = geo_meta_tags(config)
 
     schemas: list[dict] = []
     if page_type in {"home", "contact"}:
@@ -349,7 +370,7 @@ def build_seo_head(path: Path, text: str, config: dict) -> str:
         post = next((p for p in config["blogPosts"] if p["slug"] == slug), None)
         if post:
             schemas.append(article_schema(config, post, page_url, title, description))
-    if page_type == "faq":
+    if page_type in {"faq", "service", "location"}:
         faq = faq_schema_from_html(text)
         if faq:
             schemas.append(faq)
@@ -364,7 +385,7 @@ def build_seo_head(path: Path, text: str, config: dict) -> str:
     return f"""{SEO_MARKER_START}
   <link rel="canonical" href="{html.escape(page_url, quote=True)}" />
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large" />
-  <meta property="og:type" content="{'website' if page_type == 'home' else 'article' if page_type == 'blog-post' else 'website'}" />
+{geo_meta}  <meta property="og:type" content="{'website' if page_type == 'home' else 'article' if page_type == 'blog-post' else 'website'}" />
   <meta property="og:site_name" content="Roof Monsters" />
   <meta property="og:title" content="{html.escape(title, quote=True)}" />
   <meta property="og:description" content="{html.escape(description, quote=True)}" />

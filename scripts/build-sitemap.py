@@ -22,10 +22,10 @@ def resolve_base(value: str | None) -> str:
     return value.rstrip("/")
 
 
-def collect_urls(base: str) -> list[str]:
-    urls = []
+def collect_urls(base: str) -> list[tuple[str, str]]:
+    urls: list[tuple[str, str]] = []
     if (ROOT / "index.html").exists():
-        urls.append(f"{base}/")
+        urls.append((f"{base}/", _lastmod(ROOT / "index.html")))
 
     for index in sorted(ROOT.rglob("index.html")):
         if index.parent == ROOT:
@@ -34,9 +34,14 @@ def collect_urls(base: str) -> list[str]:
         if rel.parts[0] in SKIP or any(p.startswith(".") for p in rel.parts):
             continue
         path = "/" + "/".join(rel.parts) + "/"
-        urls.append(f"{base}{path}")
+        urls.append((f"{base}{path}", _lastmod(index)))
 
-    return sorted(set(urls), key=lambda u: (u.count("/"), u))
+    return sorted(set(urls), key=lambda item: (item[0].count("/"), item[0]))
+
+
+def _lastmod(path: Path) -> str:
+    stamp = datetime.fromtimestamp(path.stat().st_mtime, tz=timezone.utc)
+    return stamp.strftime("%Y-%m-%dT%H:%M:%S+00:00")
 
 
 def write_sitemap_index(base: str) -> None:
@@ -63,8 +68,10 @@ def main() -> None:
     urls = collect_urls(base)
 
     urlset = ET.Element("urlset", xmlns=SITEMAP_NS)
-    for loc in urls:
-        ET.SubElement(ET.SubElement(urlset, "url"), "loc").text = loc
+    for loc, lastmod in urls:
+        url_el = ET.SubElement(urlset, "url")
+        ET.SubElement(url_el, "loc").text = loc
+        ET.SubElement(url_el, "lastmod").text = lastmod
 
     tree = ET.ElementTree(urlset)
     ET.indent(tree, space="  ")

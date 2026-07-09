@@ -17,6 +17,10 @@
 <!-- rm-seo:start -->
   <link rel="canonical" href="https://roofmonsters.co/services/" />
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large" />
+  <meta name="geo.region" content="US-FL" />
+  <meta name="geo.placename" content="Dunedin, FL" />
+  <meta name="geo.position" content="28.0197;-82.7718" />
+  <meta name="ICBM" content="28.0197, -82.7718" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Roof Monsters" />
   <meta property="og:title" content="Our Services | Roof Monsters — Tampa Bay Roofing" />
@@ -183,8 +187,38 @@
     </div>
   </section>
 
-  <!-- ATLAS BANNER -->
-  <section class="atlas-banner bg-atlas-banner-shingles">
+  
+  <!-- rm-content-expand:start -->
+  <section class="section-pad section-bg-white">
+    <div class="container content-page service-rich-content">
+      <div class="section-header">
+        <span class="section-eyebrow">Tampa Bay Roofing Services</span>
+        <h2>How to Choose the Right Roofing Service</h2>
+        <p class="section-desc">A practical guide for homeowners comparing repair, replacement, inspections, and storm response.</p>
+      </div>
+      <h2>Start With the Problem, Not the Product</h2>
+      <p>Ceiling stains, missing shingles, and hot upstairs rooms point to different fixes. A free inspection from Roof Monsters documents the roof plane and attic so you are not sold a full replacement when a lasting repair still makes sense — or left patching a system that is past reliable service. Photos and written notes give you something concrete to compare when you talk with family or a property manager.</p>
+      <p>Age alone does not decide the path. A fifteen-year-old roof with sound decking and localized flashing failure may need targeted repair. A younger roof with soft sheathing, widespread granule loss, or repeated leaks in different planes may need replacement sooner. We explain those trade-offs in plain language before you spend money.</p>
+      <p>Our Dunedin headquarters serves all of Pasco, Pinellas, Hernando, Hillsborough, and Manatee County. Browse focused pages for <a href="/services/roof-replacement/">roof replacement</a>, <a href="/services/roof-repair/">roof repair</a>, <a href="/services/emergency-roof-repair/">emergency repair</a>, <a href="/services/shingle-roofing/">Atlas shingle roofing</a>, and more. Each page covers scope, materials, and what to expect on the job site.</p>
+      <h2>Residential, Commercial, and Specialty Work</h2>
+      <p>Family homes, multi-unit buildings, and light commercial properties need different scheduling and membrane choices. Steep-slope Atlas installs differ from low-slope TPO and flat systems. Gutters and skylights protect the roof edge and penetrations — weak details that cause leaks even on newer shingles. Bundling those details during a re-roof often costs less than fixing them as separate emergencies later.</p>
+      <p>Every qualifying project includes a written estimate covering materials, labor, and warranty language before work begins. Licenses CCC1335398, CCC052490, CBC015719. Fifteen-year workmanship warranty on qualifying installation labor. Atlas manufacturer coverage follows Atlas terms and registration on qualifying products.</p>
+      <p>Crews protect landscaping, haul tear-off debris, and complete magnetic nail sweeps on qualifying projects. Clean sites matter to neighbors and to the next referral. If you manage multiple properties, ask about phased scheduling so occupied units stay livable during the work window.</p>
+      <h2>Storm Season Without Claim Hype</h2>
+      <p>When tropical weather opens a roof, we prioritize tarping and dry-in, then schedule permanent private-pay repairs. Temporary protection stops water intrusion; it is not a finished roof. We document conditions for your records and put permanent repair or replacement options in writing once the weather clears enough to work safely.</p>
+      <p>We do not manage insurance claims or promise to maximize payouts. Clear pricing and licensed workmanship are the offer. Homeowners who want claim help should work directly with their carrier; our job is to stabilize the roof and restore it correctly under Florida Building Code and manufacturer specs.</p>
+      <p>Call <a href="tel:7274393869">(727) 439-3869</a> or request an estimate below. Most Tampa Bay work still comes from neighbors who recommend us — family-owned since 1988, answering from the same Dunedin headquarters at info@roofmonsters.co.</p>
+      <h2>How to Use This Services Hub</h2>
+      <p>Start with the service that matches your situation, then read the related specialty pages for materials and details. If you are unsure whether you need repair or replacement, begin with a free inspection — that visit is designed to answer the question with photos and a written recommendation.</p>
+      <p>Service-area pages under locations we serve confirm coverage for your city or county. Gallery photos show completed Atlas installs and craftsmanship standards. Warranty and FAQ pages explain what happens after the crew leaves. Use those resources, then call when you are ready to schedule.</p>
+
+    </div>
+  </section>
+  <!-- rm-content-expand:end -->
+
+<!-- ATLAS BANNER -->
+  <section class="atlas-banner atlas-banner--parallax">
+    <div class="atlas-banner-bg bg-atlas-banner-parallax" aria-hidden="true"></div>
     <div class="atlas-overlay"></div>
     <div class="container atlas-inner">
       <div class="atlas-content">
@@ -216,14 +250,15 @@
       </div>
       <div class="cta-form-card">
         <h3>Request a Free Estimate</h3>
-        <form class="estimate-form">
+        <form novalidate class="estimate-form" action="https://formspree.io/f/mbdvvbnp" method="POST">
+          <input type="text" name="_gotcha" class="form-honey" tabindex="-1" autocomplete="off" aria-hidden="true" />
           <div class="form-row">
-            <div class="form-group"><label>Name</label><input type="text" placeholder="Your name" required /></div>
-            <div class="form-group"><label>Email</label><input type="email" placeholder="Your email" required /></div>
+            <div class="form-group"><label>Name</label><input type="text" name="name" name="name" name="name" name="name" placeholder="Your name" required autocomplete="name" required autocomplete="name" required autocomplete="name" required autocomplete="name" required /></div>
+            <div class="form-group"><label>Email</label><input type="email" name="email" name="email" name="email" name="email" placeholder="you@email.com" required autocomplete="email" required autocomplete="email" required autocomplete="email" required autocomplete="email" required /></div>
           </div>
           <div class="form-row">
-            <div class="form-group"><label>Phone Number</label><input type="tel" placeholder="(727) 000-0000" /></div>
-            <div class="form-group"><label>Your Address</label><input type="text" placeholder="Street address" /></div>
+            <div class="form-group"><label>Phone Number</label><input type="tel" name="phone" name="phone" name="phone" name="phone" placeholder="(727) 000-0000" autocomplete="tel" autocomplete="tel" autocomplete="tel" autocomplete="tel" /></div>
+            <div class="form-group"><label>Your Address</label><input type="text" name="address" name="address" name="address" name="address" placeholder="Street, City, FL" autocomplete="street-address" autocomplete="street-address" autocomplete="street-address" autocomplete="street-address" /></div>
           </div>
           <div class="form-group">
             <label>Type Of Property</label>
@@ -232,8 +267,9 @@
               <label class="radio-label"><input type="radio" name="property" value="Commercial" /> Commercial</label>
             </div>
           </div>
-          <div class="form-group"><label>Message</label><textarea rows="3" placeholder="Tell us about your roofing needs…"></textarea></div>
+          <div class="form-group"><label>Message</label><textarea name="message" name="message" name="message" name="message" rows="4" placeholder="Tell us about your roofing needs"></textarea></div>
           <button type="submit" class="btn-submit">Send <i class="fa-solid fa-paper-plane"></i></button>
+          <p class="form-success" hidden>Thank you — we received your request and will respond soon.</p>
         </form>
       </div>
     </div>

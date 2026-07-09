@@ -30,7 +30,9 @@
         <h2>Let's <span class="accent">Book</span> Now &amp; Get A Discount!</h2>
       </div>
 
-      <form class="estimate-form hero-estimate-form" id="estimateForm" novalidate>
+      <form class="estimate-form hero-estimate-form" id="estimateForm" action="https://formspree.io/f/mbdvvbnp" method="POST" novalidate>
+        <div class="estimate-form-fields">
+        <input type="text" name="_gotcha" class="form-honey" tabindex="-1" autocomplete="off" aria-hidden="true" />
         <div class="form-row">
           <div class="form-group">
             <label for="fname">Full Name <span class="form-required">*</span></label>
@@ -67,6 +69,11 @@
           <textarea id="fmessage" name="message" placeholder="Tell us about your roofing needs!" rows="2"></textarea>
         </div>
         <button type="submit" class="btn btn-primary btn-full hero-form-submit">Send My Request</button>
+        </div>
+        <p class="form-success" hidden>
+          <i class="fa-solid fa-circle-check" aria-hidden="true"></i>
+          <span>Thank you — we received your request and will respond soon.</span>
+        </p>
       </form>
     </aside>
   </div>
