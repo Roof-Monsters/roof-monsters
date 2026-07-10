@@ -18,7 +18,7 @@ FA_RELIABLE = (
     '  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" as="style" />\n'
     '  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />'
 )
-STYLE_MARKER = '  <link rel="stylesheet" href="assets/css/style.css" />'
+STYLE_MARKER = '  <link rel="stylesheet" href="/assets/css/style.css" />'
 
 
 def main() -> None:

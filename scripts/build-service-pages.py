@@ -1396,7 +1396,7 @@ def page_html(p: dict) -> str:
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,400;1,700&family=Roboto+Slab:wght@400;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
 </head>
 <body>
   <div id="site-header-include"></div>
@@ -1440,7 +1440,7 @@ def page_html(p: dict) -> str:
         </ul>
       </div>
       <div class="service-intro-img">
-        <img src="assets/images/gallery/{SERVICE_IMAGES.get(p["slug"], "quality-work.webp")}" alt="{esc(p["eyebrow"])} by Roof Monsters in Tampa Bay" />
+        <img src="/assets/images/gallery/{SERVICE_IMAGES.get(p["slug"], "quality-work.webp")}" alt="{esc(p["eyebrow"])} by Roof Monsters in Tampa Bay" />
       </div>
     </div>
   </section>
@@ -1466,8 +1466,8 @@ def page_html(p: dict) -> str:
   </section>
 
   <div id="site-footer-include"></div>
-  <script src="includes.js"></script>
-  <script src="assets/js/main.js"></script>
+  <script src="/includes.js" defer></script>
+  <script src="/assets/js/main.js" defer></script>
 </body>
 </html>
 """

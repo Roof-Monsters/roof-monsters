@@ -17,8 +17,8 @@ FA_DEFERRED = (
     '  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" /></noscript>'
 )
 
-SCRIPTS_SYNC = '  <script src="includes.js"></script>\n  <script src="assets/js/main.js"></script>'
-SCRIPTS_DEFER = '  <script src="includes.js" defer></script>\n  <script src="assets/js/main.js" defer></script>'
+SCRIPTS_SYNC = '  <script src="/includes.js"></script>\n  <script src="/assets/js/main.js"></script>'
+SCRIPTS_DEFER = '  <script src="/includes.js" defer></script>\n  <script src="/assets/js/main.js" defer></script>'
 
 changed = 0
 for path in ROOT.rglob("*.html"):

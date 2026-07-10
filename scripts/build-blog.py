@@ -29,7 +29,7 @@ HEAD = """<!DOCTYPE html>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,400;1,700&family=Roboto+Slab:wght@400;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
 </head>
 <body>
   <div id="site-header-include"></div>
@@ -37,8 +37,8 @@ HEAD = """<!DOCTYPE html>
 
 FOOT = """
   <div id="site-footer-include"></div>
-  <script src="includes.js"></script>
-  <script src="assets/js/main.js"></script>
+  <script src="/includes.js" defer></script>
+  <script src="/assets/js/main.js" defer></script>
 </body>
 </html>
 """
@@ -132,7 +132,7 @@ def blog_cards() -> str:
         cards.append(f"""
       <article class="blog-card">
         <a href="/{post['slug']}/" class="blog-img-link">
-          <img src="assets/{post['image'].replace('assets/', '')}" alt="{post['title']}" loading="lazy" />
+          <img src="/assets/{post['image'].replace('assets/', '')}" alt="{post['title']}" loading="lazy" />
         </a>
         <div class="blog-body">
           <div class="blog-meta">
@@ -207,7 +207,7 @@ def expand_blog_post(slug: str, body: str) -> None:
   <section class="section-pad section-bg-white">
     <div class="container blog-article">
       <div class="blog-article-hero">
-        <img src="assets/{post['image'].replace('assets/', '')}" alt="{post['title']}" />
+        <img src="/assets/{post['image'].replace('assets/', '')}" alt="{post['title']}" />
       </div>{replacement}
     </div>
   </section>"""

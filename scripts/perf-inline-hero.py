@@ -15,7 +15,7 @@ HERO = HERO.replace(
       <div class="hero-overlay"></div>
     </div>""",
     """    <div class="hero-slide active">
-      <img class="hero-slide-bg ken-burns hero-lcp-img" src="assets/images/gallery/atlas-install-01.webp" alt="" width="1600" height="1067" fetchpriority="high" decoding="async" />
+      <img class="hero-slide-bg ken-burns hero-lcp-img" src="/assets/images/gallery/atlas-install-01.webp" alt="" width="1600" height="1067" fetchpriority="high" decoding="async" />
       <div class="hero-overlay"></div>
     </div>""",
 )
@@ -31,14 +31,14 @@ if "display=swap" not in index:
 
 # Add preload for LCP hero image after style.css link
 preload = (
-    '  <link rel="preload" as="image" href="assets/images/gallery/atlas-install-01.webp" '
+    '  <link rel="preload" as="image" href="/assets/images/gallery/atlas-install-01.webp" '
     'type="image/webp" fetchpriority="high" />\n'
 )
 if "atlas-install-01.webp" not in index.split("preload")[0] if "preload" in index else True:
-    if 'href="assets/css/style.css"' in index and "atlas-install-01.webp" not in index:
+    if 'href="/assets/css/style.css"' in index and "atlas-install-01.webp" not in index:
         index = index.replace(
-            '  <link rel="stylesheet" href="assets/css/style.css" />\n',
-            '  <link rel="stylesheet" href="assets/css/style.css" />\n' + preload,
+            '  <link rel="stylesheet" href="/assets/css/style.css" />\n',
+            '  <link rel="stylesheet" href="/assets/css/style.css" />\n' + preload,
         )
 
 # Defer Font Awesome (non-critical for first paint) — load async
@@ -61,8 +61,8 @@ index = index.replace(old_slot, hero_indented)
 
 # Defer scripts
 index = index.replace(
-    '  <script src="includes.js"></script>\n  <script src="assets/js/main.js"></script>\n',
-    '  <script src="includes.js" defer></script>\n  <script src="assets/js/main.js" defer></script>\n',
+    '  <script src="/includes.js"></script>\n  <script src="/assets/js/main.js"></script>\n',
+    '  <script src="/includes.js" defer></script>\n  <script src="/assets/js/main.js" defer></script>\n',
 )
 
 # Header/footer placeholders with reserved height classes

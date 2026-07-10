@@ -32,7 +32,7 @@ HEAD = """<!DOCTYPE html>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,400;1,700&family=Roboto+Slab:wght@400;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" as="style" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
 {analytics_head}
 </head>
 <body>
@@ -41,8 +41,8 @@ HEAD = """<!DOCTYPE html>
 
 FOOT = """
   <div id="site-footer-include"></div>
-  <script src="includes.js"></script>
-  <script src="assets/js/main.js"></script>
+  <script src="/includes.js" defer></script>
+  <script src="/assets/js/main.js" defer></script>
 </body>
 </html>
 """
@@ -134,7 +134,7 @@ def local_guide_block(area: dict, guide: dict) -> str:
           <p class="u-mt-20">Explore <a href="/services/">roofing services</a>, browse the <a href="/gallery/">project gallery</a>, or request a free inspection for your {esc(short)} property.</p>
         </div>
         <figure class="location-guide-media">
-          <img src="assets/images/gallery/{secondary}" alt="Roofing work related to {esc(short)} by Roof Monsters" loading="lazy" />
+          <img src="/assets/images/gallery/{secondary}" alt="Roofing work related to {esc(short)} by Roof Monsters" loading="lazy" />
           <figcaption>Licensed Tampa Bay roofing — Atlas materials on qualifying projects · Family-owned since 1988</figcaption>
         </figure>
       </div>
@@ -340,7 +340,7 @@ def city_page(area: dict, config: dict) -> str:
         {services_block(short)}
       </div>
       <div class="service-intro-img">
-        <img src="assets/images/gallery/{intro_img}" alt="Completed roofing project serving {esc(short)}" />
+        <img src="/assets/images/gallery/{intro_img}" alt="Completed roofing project serving {esc(short)}" />
       </div>
     </div>
   </section>
@@ -383,7 +383,7 @@ def county_page(area: dict, config: dict) -> str:
         {services_block(short)}
       </div>
       <div class="service-intro-img">
-        <img src="assets/images/gallery/{intro_img}" alt="Completed roofing project serving {esc(short)}" />
+        <img src="/assets/images/gallery/{intro_img}" alt="Completed roofing project serving {esc(short)}" />
       </div>
     </div>
   </section>
@@ -455,7 +455,7 @@ def hub_page(config: dict, cities: list[dict], counties: list[dict]) -> str:
         </div>
       </div>
       <div class="service-intro-img">
-        <img src="assets/images/gallery/pinellas-new-roof.webp" alt="Completed roof project by Roof Monsters serving Tampa Bay from Dunedin" />
+        <img src="/assets/images/gallery/pinellas-new-roof.webp" alt="Completed roof project by Roof Monsters serving Tampa Bay from Dunedin" />
       </div>
     </div>
   </section>
