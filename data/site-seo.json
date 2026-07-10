@@ -56,8 +56,61 @@
     "aggregateRating": {
       "ratingValue": "4.4",
       "reviewCount": "30"
-    }
+    },
+    "reviews": [
+      {
+        "author": "Al Gregg",
+        "ratingValue": "5",
+        "name": "Exceptional Knowledge & Workmanship",
+        "reviewBody": "We recently in January of 24 Had a total roof redo. Robert and his crew were exceptional with their knowledge and workmanship. They went above and beyond our expectations. Price quality and a timely manner were our decision to contract their services. Professional all the way!! Thank you Robert and crew y'all are the only roofers for us."
+      },
+      {
+        "author": "John Weston",
+        "ratingValue": "5",
+        "name": "Exceptional Service and Quality",
+        "reviewBody": "I have done business with Terrance McKeever roofing/Roof Monsters for years. They have always done excellent work with fair prices. I have referred them to family and friends for over 30 years. We have never had a bad experience."
+      },
+      {
+        "author": "Diana Andonian",
+        "ratingValue": "5",
+        "name": "Reliable and Professional",
+        "reviewBody": "Rob came out the same day as my call. He found my issue immediately. Even though it wasn't a roof issue, he helped with a temporary fix and recommended someone to help me. I would definitely recommend him to anyone. Quick to respond, friendly and fair. Thank you!"
+      },
+      {
+        "author": "Sue Hoover",
+        "ratingValue": "5",
+        "name": "Great Experience and Excellent Results",
+        "reviewBody": "Terrance McKeever Roofing/Roof Monsters replaced my roof, soffits and facia. Rob Lewis and crew were absolutely fabulous! Rob is one of the best communicators there is and kept me apprised every step of the way. I highly recommend Rob and his crew!"
+      },
+      {
+        "author": "Michael T.",
+        "ratingValue": "5",
+        "name": "Fast Response After Storm Damage",
+        "reviewBody": "After the storm tore through and damaged a section of my roof, Roof Monsters responded within hours. They tarped the damage the same evening and had a full repair crew out within two days. The repair looks perfect and the crew kept us updated the whole way. Truly outstanding service."
+      },
+      {
+        "author": "Karen M.",
+        "ratingValue": "5",
+        "name": "Best Decision We Made For Our Home",
+        "reviewBody": "We got three quotes for our full roof replacement and Roof Monsters came in competitive with the best price and the best warranty. The crew was professional, clean, and finished the entire roof in one day. The Atlas shingles look beautiful. Our neighbors have already asked for their number!"
+      }
+    ]
   },
+  "galleryImages": [
+    {"file": "installation-01.webp", "name": "Atlas shingle roof installation in Clearwater, FL"},
+    {"file": "project-02.webp", "name": "Steep-slope roof repair in Dunedin, FL"},
+    {"file": "atlas-install-01.webp", "name": "Atlas roof installation in Palm Harbor, FL"},
+    {"file": "completed-03.webp", "name": "Completed residential re-roof in Pinellas County, FL"},
+    {"file": "atlas-install-02.webp", "name": "Atlas shingle installation in St. Petersburg, FL"},
+    {"file": "installation-04.webp", "name": "Roof installation project in Largo, FL"},
+    {"file": "pinellas-new-roof.webp", "name": "New roof installation in Seminole, FL"},
+    {"file": "project-09.webp", "name": "Storm damage roof repair in Tampa, FL"},
+    {"file": "replacement-08.webp", "name": "Full roof replacement in New Port Richey, FL"},
+    {"file": "installation-07.webp", "name": "Roof installation in Safety Harbor, FL"},
+    {"file": "completed-06.webp", "name": "Completed re-roof in Hillsborough County, FL"},
+    {"file": "quality-work.webp", "name": "Quality roofing craftsmanship in Clearwater, FL"},
+    {"file": "tampa-bay-project.webp", "name": "Tampa Bay roofing project — residential re-roof"}
+  ],
   "services": [
     {
       "slug": "comprehensive-roof-installations",

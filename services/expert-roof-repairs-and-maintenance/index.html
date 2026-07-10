@@ -60,109 +60,404 @@
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Service",
-  "@id": "https://roofmonsters.co/services/expert-roof-repairs-and-maintenance/#service",
-  "name": "Expert Roof Repairs and Maintenance",
-  "description": "Roof leak repair, flashing fixes, and preventative maintenance for Tampa Bay properties.",
-  "serviceType": "Roofing",
-  "provider": {
-    "@id": "https://roofmonsters.co/#roofingcontractor"
-  },
-  "areaServed": [
-    "Pasco County, FL",
-    "Pinellas County, FL",
-    "Hernando County, FL",
-    "Hillsborough County, FL",
-    "Manatee County, FL"
-  ],
-  "url": "https://roofmonsters.co/services/expert-roof-repairs-and-maintenance/",
-  "image": "https://roofmonsters.co/assets/images/gallery/quality-work.webp"
-}
-  </script>
-  <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebPage",
-  "@id": "https://roofmonsters.co/services/expert-roof-repairs-and-maintenance/#webpage",
-  "url": "https://roofmonsters.co/services/expert-roof-repairs-and-maintenance/",
-  "name": "Roof Repair & Maintenance | Roof Monsters — Tampa Bay",
-  "description": "Expert roof repair and maintenance services in Tampa Bay. From minor leaks to major damage — Roof Monsters restores your roof's integrity fast.",
-  "isPartOf": {
-    "@id": "https://roofmonsters.co/#website"
-  },
-  "about": {
-    "@id": "https://roofmonsters.co/#roofingcontractor"
-  },
-  "publisher": {
-    "@id": "https://roofmonsters.co/#roofingcontractor"
-  },
-  "inLanguage": "en-US"
-}
-  </script>
-  <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
+  "@graph": [
     {
-      "@type": "Question",
-      "name": "Can you repair a roof without replacing it?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Often yes — if the system has life left and damage is localized. We document conditions with photos so you can plan repair now and replacement later if needed."
+      "@type": "Organization",
+      "@id": "https://roofmonsters.co/#organization",
+      "name": "Roof Monsters",
+      "legalName": "Terrance McKeever Enterprises, Inc.",
+      "url": "https://roofmonsters.co",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://roofmonsters.co/assets/images/brand/logo-bg.webp"
+      },
+      "image": "https://roofmonsters.co/assets/images/gallery/pinellas-new-roof.webp",
+      "telephone": "+1-727-439-3869",
+      "email": "info@roofmonsters.co",
+      "sameAs": [
+        "https://www.google.com/maps/place/Roof+Monsters/@27.843303,-82.538186,17z/data=!3m1!4b1!4m6!3m5!1s0x2dae46cd46b614c1:0xd2d3fedf6c783ea2!8m2!3d27.843303!4d-82.538186!16s%2Fg%2F11b75qcj8f",
+        "https://www.facebook.com/profile.php?id=61559872716214",
+        "https://www.instagram.com/roof_monsters/",
+        "https://www.linkedin.com/company/roof-monsters/",
+        "https://x.com/RoofMonsters",
+        "https://nextdoor.com/page/roof-monsters-dunedin-fl"
+      ],
+      "foundingDate": "1988"
+    },
+    {
+      "@type": [
+        "RoofingContractor",
+        "LocalBusiness"
+      ],
+      "@id": "https://roofmonsters.co/#roofingcontractor",
+      "name": "Roof Monsters",
+      "legalName": "Terrance McKeever Enterprises, Inc.",
+      "url": "https://roofmonsters.co",
+      "telephone": "+1-727-439-3869",
+      "email": "info@roofmonsters.co",
+      "description": "Family-owned Tampa Bay roofing contractor since 1988. Roof repair, replacement, inspections, storm damage, gutters, and skylights across Pasco, Pinellas, Hernando, Hillsborough, and Manatee County, FL.",
+      "foundingDate": "1988",
+      "priceRange": "$$",
+      "image": "https://roofmonsters.co/assets/images/gallery/pinellas-new-roof.webp",
+      "logo": "https://roofmonsters.co/assets/images/brand/logo-bg.webp",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "1391 Robin Hood Ln",
+        "addressLocality": "Dunedin",
+        "addressRegion": "FL",
+        "postalCode": "34698",
+        "addressCountry": "US"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 28.0197,
+        "longitude": -82.7718
+      },
+      "areaServed": [
+        "Pasco County, FL",
+        "Pinellas County, FL",
+        "Hernando County, FL",
+        "Hillsborough County, FL",
+        "Manatee County, FL"
+      ],
+      "sameAs": [
+        "https://www.google.com/maps/place/Roof+Monsters/@27.843303,-82.538186,17z/data=!3m1!4b1!4m6!3m5!1s0x2dae46cd46b614c1:0xd2d3fedf6c783ea2!8m2!3d27.843303!4d-82.538186!16s%2Fg%2F11b75qcj8f",
+        "https://www.facebook.com/profile.php?id=61559872716214",
+        "https://www.instagram.com/roof_monsters/",
+        "https://www.linkedin.com/company/roof-monsters/",
+        "https://x.com/RoofMonsters",
+        "https://nextdoor.com/page/roof-monsters-dunedin-fl"
+      ],
+      "parentOrganization": {
+        "@id": "https://roofmonsters.co/#organization"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+1-727-439-3869",
+        "email": "info@roofmonsters.co",
+        "contactType": "customer service",
+        "areaServed": "US-FL",
+        "availableLanguage": [
+          "English"
+        ]
+      },
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "name": "Florida Roofing License",
+          "value": "CCC1335398"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Florida Roofing License",
+          "value": "CCC052490"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Florida Building License",
+          "value": "CBC015719"
+        }
+      ],
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.4",
+        "reviewCount": "30",
+        "bestRating": "5",
+        "worstRating": "1"
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday"
+          ],
+          "opens": "07:00",
+          "closes": "19:00"
+        }
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Roofing Services",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Comprehensive Roof Installations",
+              "url": "https://roofmonsters.co/services/comprehensive-roof-installations/"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Expert Roof Repairs and Maintenance",
+              "url": "https://roofmonsters.co/services/expert-roof-repairs-and-maintenance/"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Free Roof Inspections and Consultations",
+              "url": "https://roofmonsters.co/services/free-roof-inspections-and-consultations/"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Storm Damage Repair Specialists",
+              "url": "https://roofmonsters.co/services/storm-damage-repair-specialists/"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Gutter Installation and Cleaning",
+              "url": "https://roofmonsters.co/services/gutter-installation-and-cleaning/"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Skylight Installation and Repair",
+              "url": "https://roofmonsters.co/services/skylight-installation-and-repair/"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Roof Replacement",
+              "url": "https://roofmonsters.co/services/roof-replacement/"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Roof Repair",
+              "url": "https://roofmonsters.co/services/roof-repair/"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Emergency Roof Repair",
+              "url": "https://roofmonsters.co/services/emergency-roof-repair/"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Roof Leak Repair",
+              "url": "https://roofmonsters.co/services/roof-leak-repair/"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Residential Roofing",
+              "url": "https://roofmonsters.co/services/residential-roofing/"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Commercial Roofing",
+              "url": "https://roofmonsters.co/services/commercial-roofing/"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Shingle Roofing",
+              "url": "https://roofmonsters.co/services/shingle-roofing/"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Metal Roofing",
+              "url": "https://roofmonsters.co/services/metal-roofing/"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Tile Roofing",
+              "url": "https://roofmonsters.co/services/tile-roofing/"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Flat Roofing",
+              "url": "https://roofmonsters.co/services/flat-roofing/"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "TPO Roofing",
+              "url": "https://roofmonsters.co/services/tpo-roofing/"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Roof Maintenance",
+              "url": "https://roofmonsters.co/services/roof-maintenance/"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Roof Ventilation",
+              "url": "https://roofmonsters.co/services/roof-ventilation/"
+            }
+          }
+        ]
       }
     },
     {
-      "@type": "Question",
-      "name": "Do you repair roofs other companies installed?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. We evaluate existing work and fix deficiencies to Florida code regardless of who installed the original roof."
+      "@type": "WebSite",
+      "@id": "https://roofmonsters.co/#website",
+      "name": "Roof Monsters",
+      "url": "https://roofmonsters.co",
+      "publisher": {
+        "@id": "https://roofmonsters.co/#roofingcontractor"
+      },
+      "inLanguage": "en-US"
+    },
+    {
+      "@type": "Service",
+      "@id": "https://roofmonsters.co/services/expert-roof-repairs-and-maintenance/#service",
+      "name": "Expert Roof Repairs and Maintenance",
+      "description": "Roof leak repair, flashing fixes, and preventative maintenance for Tampa Bay properties.",
+      "serviceType": "Roofing",
+      "provider": {
+        "@id": "https://roofmonsters.co/#roofingcontractor"
+      },
+      "areaServed": [
+        "Pasco County, FL",
+        "Pinellas County, FL",
+        "Hernando County, FL",
+        "Hillsborough County, FL",
+        "Manatee County, FL"
+      ],
+      "url": "https://roofmonsters.co/services/expert-roof-repairs-and-maintenance/",
+      "image": "https://roofmonsters.co/assets/images/gallery/quality-work.webp",
+      "offers": {
+        "@type": "Offer",
+        "availability": "https://schema.org/InStock",
+        "url": "https://roofmonsters.co/services/expert-roof-repairs-and-maintenance/",
+        "priceCurrency": "USD",
+        "description": "Free written estimate — pricing based on inspection scope"
       }
     },
     {
-      "@type": "Question",
-      "name": "How fast can you schedule a roof repair?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Many repairs schedule within days. Active leaks and storm openings are prioritized for private-pay emergency response."
+      "@type": "WebPage",
+      "@id": "https://roofmonsters.co/services/expert-roof-repairs-and-maintenance/#webpage",
+      "url": "https://roofmonsters.co/services/expert-roof-repairs-and-maintenance/",
+      "name": "Roof Repair & Maintenance | Roof Monsters — Tampa Bay",
+      "description": "Expert roof repair and maintenance services in Tampa Bay. From minor leaks to major damage — Roof Monsters restores your roof's integrity fast.",
+      "isPartOf": {
+        "@id": "https://roofmonsters.co/#website"
+      },
+      "about": {
+        "@id": "https://roofmonsters.co/#roofingcontractor"
+      },
+      "publisher": {
+        "@id": "https://roofmonsters.co/#roofingcontractor"
+      },
+      "inLanguage": "en-US",
+      "breadcrumb": {
+        "@id": "https://roofmonsters.co/services/expert-roof-repairs-and-maintenance/#breadcrumb"
       }
     },
     {
-      "@type": "Question",
-      "name": "What does preventative maintenance include?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Typical visits cover leak tracing, flashing and pipe-boot checks, shingle or tile repairs, and recommendations for ventilation or gutter issues that shorten roof life in Florida humidity."
-      }
+      "@type": "FAQPage",
+      "@id": "https://roofmonsters.co/services/expert-roof-repairs-and-maintenance/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Can you repair a roof without replacing it?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Often yes — if the system has life left and damage is localized. We document conditions with photos so you can plan repair now and replacement later if needed."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you repair roofs other companies installed?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. We evaluate existing work and fix deficiencies to Florida code regardless of who installed the original roof."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How fast can you schedule a roof repair?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Many repairs schedule within days. Active leaks and storm openings are prioritized for private-pay emergency response."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What does preventative maintenance include?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Typical visits cover leak tracing, flashing and pipe-boot checks, shingle or tile repairs, and recommendations for ventilation or gutter issues that shorten roof life in Florida humidity."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How much does roof repair cost?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Simple flashing or shingle repairs differ widely from structural decking work. We inspect first and provide a clear written estimate before any paid work begins."
+          }
+        }
+      ]
     },
     {
-      "@type": "Question",
-      "name": "How much does roof repair cost?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Simple flashing or shingle repairs differ widely from structural decking work. We inspect first and provide a clear written estimate before any paid work begins."
-      }
-    }
-  ]
-}
-  </script>
-  <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position": 1,
-      "name": "Home",
-      "item": "https://roofmonsters.co/"
-    },
-    {
-      "@type": "ListItem",
-      "position": 2,
-      "name": "Expert Roof Repair &amp; Maintenance",
-      "item": "https://roofmonsters.co/services/expert-roof-repairs-and-maintenance/"
+      "@type": "BreadcrumbList",
+      "@id": "https://roofmonsters.co/services/expert-roof-repairs-and-maintenance/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://roofmonsters.co/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Expert Roof Repair &amp; Maintenance",
+          "item": "https://roofmonsters.co/services/expert-roof-repairs-and-maintenance/"
+        }
+      ]
     }
   ]
 }

@@ -60,42 +60,409 @@
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": [
-    "WebPage",
-    "CollectionPage"
-  ],
-  "@id": "https://roofmonsters.co/blog/#webpage",
-  "url": "https://roofmonsters.co/blog/",
-  "name": "Roofing Blog | Tips & News | Roof Monsters Tampa Bay",
-  "description": "Expert roofing tips, storm prep guides, and Tampa Bay industry insights from Roof Monsters — family-owned since 1988.",
-  "isPartOf": {
-    "@id": "https://roofmonsters.co/#website"
-  },
-  "about": {
-    "@id": "https://roofmonsters.co/#roofingcontractor"
-  },
-  "publisher": {
-    "@id": "https://roofmonsters.co/#roofingcontractor"
-  },
-  "inLanguage": "en-US"
-}
-  </script>
-  <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
+  "@graph": [
     {
-      "@type": "ListItem",
-      "position": 1,
-      "name": "Home",
-      "item": "https://roofmonsters.co/"
+      "@type": "Organization",
+      "@id": "https://roofmonsters.co/#organization",
+      "name": "Roof Monsters",
+      "legalName": "Terrance McKeever Enterprises, Inc.",
+      "url": "https://roofmonsters.co",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://roofmonsters.co/assets/images/brand/logo-bg.webp"
+      },
+      "image": "https://roofmonsters.co/assets/images/gallery/pinellas-new-roof.webp",
+      "telephone": "+1-727-439-3869",
+      "email": "info@roofmonsters.co",
+      "sameAs": [
+        "https://www.google.com/maps/place/Roof+Monsters/@27.843303,-82.538186,17z/data=!3m1!4b1!4m6!3m5!1s0x2dae46cd46b614c1:0xd2d3fedf6c783ea2!8m2!3d27.843303!4d-82.538186!16s%2Fg%2F11b75qcj8f",
+        "https://www.facebook.com/profile.php?id=61559872716214",
+        "https://www.instagram.com/roof_monsters/",
+        "https://www.linkedin.com/company/roof-monsters/",
+        "https://x.com/RoofMonsters",
+        "https://nextdoor.com/page/roof-monsters-dunedin-fl"
+      ],
+      "foundingDate": "1988"
     },
     {
-      "@type": "ListItem",
-      "position": 2,
-      "name": "Blog",
-      "item": "https://roofmonsters.co/blog/"
+      "@type": [
+        "RoofingContractor",
+        "LocalBusiness"
+      ],
+      "@id": "https://roofmonsters.co/#roofingcontractor",
+      "name": "Roof Monsters",
+      "legalName": "Terrance McKeever Enterprises, Inc.",
+      "url": "https://roofmonsters.co",
+      "telephone": "+1-727-439-3869",
+      "email": "info@roofmonsters.co",
+      "description": "Family-owned Tampa Bay roofing contractor since 1988. Roof repair, replacement, inspections, storm damage, gutters, and skylights across Pasco, Pinellas, Hernando, Hillsborough, and Manatee County, FL.",
+      "foundingDate": "1988",
+      "priceRange": "$$",
+      "image": "https://roofmonsters.co/assets/images/gallery/pinellas-new-roof.webp",
+      "logo": "https://roofmonsters.co/assets/images/brand/logo-bg.webp",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "1391 Robin Hood Ln",
+        "addressLocality": "Dunedin",
+        "addressRegion": "FL",
+        "postalCode": "34698",
+        "addressCountry": "US"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 28.0197,
+        "longitude": -82.7718
+      },
+      "areaServed": [
+        "Pasco County, FL",
+        "Pinellas County, FL",
+        "Hernando County, FL",
+        "Hillsborough County, FL",
+        "Manatee County, FL"
+      ],
+      "sameAs": [
+        "https://www.google.com/maps/place/Roof+Monsters/@27.843303,-82.538186,17z/data=!3m1!4b1!4m6!3m5!1s0x2dae46cd46b614c1:0xd2d3fedf6c783ea2!8m2!3d27.843303!4d-82.538186!16s%2Fg%2F11b75qcj8f",
+        "https://www.facebook.com/profile.php?id=61559872716214",
+        "https://www.instagram.com/roof_monsters/",
+        "https://www.linkedin.com/company/roof-monsters/",
+        "https://x.com/RoofMonsters",
+        "https://nextdoor.com/page/roof-monsters-dunedin-fl"
+      ],
+      "parentOrganization": {
+        "@id": "https://roofmonsters.co/#organization"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+1-727-439-3869",
+        "email": "info@roofmonsters.co",
+        "contactType": "customer service",
+        "areaServed": "US-FL",
+        "availableLanguage": [
+          "English"
+        ]
+      },
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "name": "Florida Roofing License",
+          "value": "CCC1335398"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Florida Roofing License",
+          "value": "CCC052490"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Florida Building License",
+          "value": "CBC015719"
+        }
+      ],
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.4",
+        "reviewCount": "30",
+        "bestRating": "5",
+        "worstRating": "1"
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday"
+          ],
+          "opens": "07:00",
+          "closes": "19:00"
+        }
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Roofing Services",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Comprehensive Roof Installations",
+              "url": "https://roofmonsters.co/services/comprehensive-roof-installations/"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Expert Roof Repairs and Maintenance",
+              "url": "https://roofmonsters.co/services/expert-roof-repairs-and-maintenance/"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Free Roof Inspections and Consultations",
+              "url": "https://roofmonsters.co/services/free-roof-inspections-and-consultations/"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Storm Damage Repair Specialists",
+              "url": "https://roofmonsters.co/services/storm-damage-repair-specialists/"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Gutter Installation and Cleaning",
+              "url": "https://roofmonsters.co/services/gutter-installation-and-cleaning/"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Skylight Installation and Repair",
+              "url": "https://roofmonsters.co/services/skylight-installation-and-repair/"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Roof Replacement",
+              "url": "https://roofmonsters.co/services/roof-replacement/"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Roof Repair",
+              "url": "https://roofmonsters.co/services/roof-repair/"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Emergency Roof Repair",
+              "url": "https://roofmonsters.co/services/emergency-roof-repair/"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Roof Leak Repair",
+              "url": "https://roofmonsters.co/services/roof-leak-repair/"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Residential Roofing",
+              "url": "https://roofmonsters.co/services/residential-roofing/"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Commercial Roofing",
+              "url": "https://roofmonsters.co/services/commercial-roofing/"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Shingle Roofing",
+              "url": "https://roofmonsters.co/services/shingle-roofing/"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Metal Roofing",
+              "url": "https://roofmonsters.co/services/metal-roofing/"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Tile Roofing",
+              "url": "https://roofmonsters.co/services/tile-roofing/"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Flat Roofing",
+              "url": "https://roofmonsters.co/services/flat-roofing/"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "TPO Roofing",
+              "url": "https://roofmonsters.co/services/tpo-roofing/"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Roof Maintenance",
+              "url": "https://roofmonsters.co/services/roof-maintenance/"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Roof Ventilation",
+              "url": "https://roofmonsters.co/services/roof-ventilation/"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://roofmonsters.co/#website",
+      "name": "Roof Monsters",
+      "url": "https://roofmonsters.co",
+      "publisher": {
+        "@id": "https://roofmonsters.co/#roofingcontractor"
+      },
+      "inLanguage": "en-US"
+    },
+    {
+      "@type": [
+        "WebPage",
+        "CollectionPage"
+      ],
+      "@id": "https://roofmonsters.co/blog/#webpage",
+      "url": "https://roofmonsters.co/blog/",
+      "name": "Roofing Blog | Tips & News | Roof Monsters Tampa Bay",
+      "description": "Expert roofing tips, storm prep guides, and Tampa Bay industry insights from Roof Monsters — family-owned in Dunedin since 1988.",
+      "isPartOf": {
+        "@id": "https://roofmonsters.co/#website"
+      },
+      "about": {
+        "@id": "https://roofmonsters.co/#roofingcontractor"
+      },
+      "publisher": {
+        "@id": "https://roofmonsters.co/#roofingcontractor"
+      },
+      "inLanguage": "en-US",
+      "breadcrumb": {
+        "@id": "https://roofmonsters.co/blog/#breadcrumb"
+      }
+    },
+    {
+      "@type": "ItemList",
+      "@id": "https://roofmonsters.co/blog/#itemlist",
+      "name": "Roof Monsters Blog Posts",
+      "numberOfItems": 11,
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "October Roofing Season in Tampa Bay: Why Fall Is the Best Time to Schedule Your Roof Work",
+          "url": "https://roofmonsters.co/october-roofing-season-in-tampa-bay-why-fall-is-the-best-time-to-schedule-your-roof-work/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "The Roof Monsters Way: What Sets Our Roofing Company Apart",
+          "url": "https://roofmonsters.co/the-roof-monsters-way-what-sets-our-roofing-company-apart/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "How to Prepare Your Roof for Florida's Hurricane Season",
+          "url": "https://roofmonsters.co/how-to-prepare-your-roof-for-floridas-hurricane-season/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "name": "What Is TPO Roofing? And Why It's Perfect for Florida Commercial Buildings",
+          "url": "https://roofmonsters.co/what-is-tpo-roofing-and-why-its-perfect-for-florida-commercial-buildings/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 5,
+          "name": "5 Signs It's Time to Replace Your Roof in Florida",
+          "url": "https://roofmonsters.co/5-signs-its-time-to-replace-your-roof-in-florida/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 6,
+          "name": "How to Choose the Right Roofing Contractor",
+          "url": "https://roofmonsters.co/how-to-choose-the-right-roofing-contractor/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 7,
+          "name": "How to Prepare Your Roof for Storm Season",
+          "url": "https://roofmonsters.co/how-to-prepare-your-roof-for-storm-season/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 8,
+          "name": "The Benefits of Eco-Friendly Roofing Solutions",
+          "url": "https://roofmonsters.co/the-benefits-of-eco-friendly-roofing-solutions/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 9,
+          "name": "Advancements in Roofing Technology: What Homeowners Need to Know",
+          "url": "https://roofmonsters.co/advancements-in-roofing-technology-what-homeowners-need-to-know/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 10,
+          "name": "Choosing the Right Roofing Material for Your Home",
+          "url": "https://roofmonsters.co/choosing-the-right-roofing-material-for-your-home/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 11,
+          "name": "The Importance of Regular Roof Maintenance",
+          "url": "https://roofmonsters.co/the-importance-of-regular-roof-maintenance/"
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://roofmonsters.co/blog/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://roofmonsters.co/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://roofmonsters.co/blog/"
+        }
+      ]
     }
   ]
 }

@@ -60,115 +60,410 @@
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Service",
-  "@id": "https://roofmonsters.co/services/residential-roofing/#service",
-  "name": "Residential Roofing",
-  "description": "Family-owned residential roofing — installations, repairs, and inspections for Tampa Bay homeowners since 1988.",
-  "serviceType": "Roofing",
-  "provider": {
-    "@id": "https://roofmonsters.co/#roofingcontractor"
-  },
-  "areaServed": [
-    "Pasco County, FL",
-    "Pinellas County, FL",
-    "Hernando County, FL",
-    "Hillsborough County, FL",
-    "Manatee County, FL"
-  ],
-  "url": "https://roofmonsters.co/services/residential-roofing/",
-  "image": "https://roofmonsters.co/assets/images/gallery/quality-work.webp"
-}
-  </script>
-  <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebPage",
-  "@id": "https://roofmonsters.co/services/residential-roofing/#webpage",
-  "url": "https://roofmonsters.co/services/residential-roofing/",
-  "name": "Residential Roofing | Roof Monsters — Tampa Bay",
-  "description": "Residential roofing for Tampa Bay homeowners — Atlas installs, repairs, inspections, and storm response since 1988.",
-  "isPartOf": {
-    "@id": "https://roofmonsters.co/#website"
-  },
-  "about": {
-    "@id": "https://roofmonsters.co/#roofingcontractor"
-  },
-  "publisher": {
-    "@id": "https://roofmonsters.co/#roofingcontractor"
-  },
-  "inLanguage": "en-US"
-}
-  </script>
-  <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
+  "@graph": [
     {
-      "@type": "Question",
-      "name": "Do you work on single-family homes and townhomes?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes — we serve residential properties across our published Tampa Bay counties."
+      "@type": "Organization",
+      "@id": "https://roofmonsters.co/#organization",
+      "name": "Roof Monsters",
+      "legalName": "Terrance McKeever Enterprises, Inc.",
+      "url": "https://roofmonsters.co",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://roofmonsters.co/assets/images/brand/logo-bg.webp"
+      },
+      "image": "https://roofmonsters.co/assets/images/gallery/pinellas-new-roof.webp",
+      "telephone": "+1-727-439-3869",
+      "email": "info@roofmonsters.co",
+      "sameAs": [
+        "https://www.google.com/maps/place/Roof+Monsters/@27.843303,-82.538186,17z/data=!3m1!4b1!4m6!3m5!1s0x2dae46cd46b614c1:0xd2d3fedf6c783ea2!8m2!3d27.843303!4d-82.538186!16s%2Fg%2F11b75qcj8f",
+        "https://www.facebook.com/profile.php?id=61559872716214",
+        "https://www.instagram.com/roof_monsters/",
+        "https://www.linkedin.com/company/roof-monsters/",
+        "https://x.com/RoofMonsters",
+        "https://nextdoor.com/page/roof-monsters-dunedin-fl"
+      ],
+      "foundingDate": "1988"
+    },
+    {
+      "@type": [
+        "RoofingContractor",
+        "LocalBusiness"
+      ],
+      "@id": "https://roofmonsters.co/#roofingcontractor",
+      "name": "Roof Monsters",
+      "legalName": "Terrance McKeever Enterprises, Inc.",
+      "url": "https://roofmonsters.co",
+      "telephone": "+1-727-439-3869",
+      "email": "info@roofmonsters.co",
+      "description": "Family-owned Tampa Bay roofing contractor since 1988. Roof repair, replacement, inspections, storm damage, gutters, and skylights across Pasco, Pinellas, Hernando, Hillsborough, and Manatee County, FL.",
+      "foundingDate": "1988",
+      "priceRange": "$$",
+      "image": "https://roofmonsters.co/assets/images/gallery/pinellas-new-roof.webp",
+      "logo": "https://roofmonsters.co/assets/images/brand/logo-bg.webp",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "1391 Robin Hood Ln",
+        "addressLocality": "Dunedin",
+        "addressRegion": "FL",
+        "postalCode": "34698",
+        "addressCountry": "US"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 28.0197,
+        "longitude": -82.7718
+      },
+      "areaServed": [
+        "Pasco County, FL",
+        "Pinellas County, FL",
+        "Hernando County, FL",
+        "Hillsborough County, FL",
+        "Manatee County, FL"
+      ],
+      "sameAs": [
+        "https://www.google.com/maps/place/Roof+Monsters/@27.843303,-82.538186,17z/data=!3m1!4b1!4m6!3m5!1s0x2dae46cd46b614c1:0xd2d3fedf6c783ea2!8m2!3d27.843303!4d-82.538186!16s%2Fg%2F11b75qcj8f",
+        "https://www.facebook.com/profile.php?id=61559872716214",
+        "https://www.instagram.com/roof_monsters/",
+        "https://www.linkedin.com/company/roof-monsters/",
+        "https://x.com/RoofMonsters",
+        "https://nextdoor.com/page/roof-monsters-dunedin-fl"
+      ],
+      "parentOrganization": {
+        "@id": "https://roofmonsters.co/#organization"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+1-727-439-3869",
+        "email": "info@roofmonsters.co",
+        "contactType": "customer service",
+        "areaServed": "US-FL",
+        "availableLanguage": [
+          "English"
+        ]
+      },
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "name": "Florida Roofing License",
+          "value": "CCC1335398"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Florida Roofing License",
+          "value": "CCC052490"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Florida Building License",
+          "value": "CBC015719"
+        }
+      ],
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.4",
+        "reviewCount": "30",
+        "bestRating": "5",
+        "worstRating": "1"
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday"
+          ],
+          "opens": "07:00",
+          "closes": "19:00"
+        }
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Roofing Services",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Comprehensive Roof Installations",
+              "url": "https://roofmonsters.co/services/comprehensive-roof-installations/"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Expert Roof Repairs and Maintenance",
+              "url": "https://roofmonsters.co/services/expert-roof-repairs-and-maintenance/"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Free Roof Inspections and Consultations",
+              "url": "https://roofmonsters.co/services/free-roof-inspections-and-consultations/"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Storm Damage Repair Specialists",
+              "url": "https://roofmonsters.co/services/storm-damage-repair-specialists/"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Gutter Installation and Cleaning",
+              "url": "https://roofmonsters.co/services/gutter-installation-and-cleaning/"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Skylight Installation and Repair",
+              "url": "https://roofmonsters.co/services/skylight-installation-and-repair/"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Roof Replacement",
+              "url": "https://roofmonsters.co/services/roof-replacement/"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Roof Repair",
+              "url": "https://roofmonsters.co/services/roof-repair/"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Emergency Roof Repair",
+              "url": "https://roofmonsters.co/services/emergency-roof-repair/"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Roof Leak Repair",
+              "url": "https://roofmonsters.co/services/roof-leak-repair/"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Residential Roofing",
+              "url": "https://roofmonsters.co/services/residential-roofing/"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Commercial Roofing",
+              "url": "https://roofmonsters.co/services/commercial-roofing/"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Shingle Roofing",
+              "url": "https://roofmonsters.co/services/shingle-roofing/"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Metal Roofing",
+              "url": "https://roofmonsters.co/services/metal-roofing/"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Tile Roofing",
+              "url": "https://roofmonsters.co/services/tile-roofing/"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Flat Roofing",
+              "url": "https://roofmonsters.co/services/flat-roofing/"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "TPO Roofing",
+              "url": "https://roofmonsters.co/services/tpo-roofing/"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Roof Maintenance",
+              "url": "https://roofmonsters.co/services/roof-maintenance/"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Roof Ventilation",
+              "url": "https://roofmonsters.co/services/roof-ventilation/"
+            }
+          }
+        ]
       }
     },
     {
-      "@type": "Question",
-      "name": "Can you help with HOA roof requirements?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "We document materials and colors and select Atlas profiles that meet many HOA guidelines."
-      }
+      "@type": "WebSite",
+      "@id": "https://roofmonsters.co/#website",
+      "name": "Roof Monsters",
+      "url": "https://roofmonsters.co",
+      "publisher": {
+        "@id": "https://roofmonsters.co/#roofingcontractor"
+      },
+      "inLanguage": "en-US"
     },
     {
-      "@type": "Question",
-      "name": "Do you offer roof inspections before buying a home?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes — free inspections for qualifying inquiries help buyers understand near-term roof needs."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How do I know if I need repair or replacement?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "We inspect decking, shingle age, and leak history, then explain both paths in writing."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Are you family-owned?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes — Terrance McKeever Enterprises, Inc. DBA Roof Monsters, serving Tampa Bay since 1988."
-      }
-    }
-  ]
-}
-  </script>
-  <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position": 1,
-      "name": "Home",
-      "item": "https://roofmonsters.co/"
-    },
-    {
-      "@type": "ListItem",
-      "position": 2,
-      "name": "Services",
-      "item": "https://roofmonsters.co/services/"
-    },
-    {
-      "@type": "ListItem",
-      "position": 3,
+      "@type": "Service",
+      "@id": "https://roofmonsters.co/services/residential-roofing/#service",
       "name": "Residential Roofing",
-      "item": "https://roofmonsters.co/services/residential-roofing/"
+      "description": "Family-owned residential roofing — installations, repairs, and inspections for Tampa Bay homeowners since 1988.",
+      "serviceType": "Roofing",
+      "provider": {
+        "@id": "https://roofmonsters.co/#roofingcontractor"
+      },
+      "areaServed": [
+        "Pasco County, FL",
+        "Pinellas County, FL",
+        "Hernando County, FL",
+        "Hillsborough County, FL",
+        "Manatee County, FL"
+      ],
+      "url": "https://roofmonsters.co/services/residential-roofing/",
+      "image": "https://roofmonsters.co/assets/images/gallery/quality-work.webp",
+      "offers": {
+        "@type": "Offer",
+        "availability": "https://schema.org/InStock",
+        "url": "https://roofmonsters.co/services/residential-roofing/",
+        "priceCurrency": "USD",
+        "description": "Free written estimate — pricing based on inspection scope"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://roofmonsters.co/services/residential-roofing/#webpage",
+      "url": "https://roofmonsters.co/services/residential-roofing/",
+      "name": "Residential Roofing | Roof Monsters — Tampa Bay",
+      "description": "Residential roofing for Tampa Bay homeowners — Atlas installs, repairs, inspections, and storm response from Roof Monsters since 1988.",
+      "isPartOf": {
+        "@id": "https://roofmonsters.co/#website"
+      },
+      "about": {
+        "@id": "https://roofmonsters.co/#roofingcontractor"
+      },
+      "publisher": {
+        "@id": "https://roofmonsters.co/#roofingcontractor"
+      },
+      "inLanguage": "en-US",
+      "breadcrumb": {
+        "@id": "https://roofmonsters.co/services/residential-roofing/#breadcrumb"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://roofmonsters.co/services/residential-roofing/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Do you work on single-family homes and townhomes?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes — we serve residential properties across our published Tampa Bay counties."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can you help with HOA roof requirements?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We document materials and colors and select Atlas profiles that meet many HOA guidelines."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you offer roof inspections before buying a home?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes — free inspections for qualifying inquiries help buyers understand near-term roof needs."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I know if I need repair or replacement?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We inspect decking, shingle age, and leak history, then explain both paths in writing."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Are you family-owned?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes — Terrance McKeever Enterprises, Inc. DBA Roof Monsters, serving Tampa Bay since 1988."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://roofmonsters.co/services/residential-roofing/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://roofmonsters.co/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Services",
+          "item": "https://roofmonsters.co/services/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Residential Roofing",
+          "item": "https://roofmonsters.co/services/residential-roofing/"
+        }
+      ]
     }
   ]
 }
