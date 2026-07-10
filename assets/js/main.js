@@ -1145,6 +1145,27 @@ function initLazyMaps() {
   frames.forEach((frame) => observer.observe(frame));
 }
 
+function initSeoGuideExpand() {
+  document.querySelectorAll('[data-rm-seo-expand]').forEach((root) => {
+    const toggle = root.querySelector('.rm-seo-toggle');
+    const remainder = root.querySelector('.rm-seo-remainder');
+    const label = toggle && toggle.querySelector('.rm-seo-toggle__label');
+    if (!toggle || !remainder || !label) return;
+
+    root.classList.add('is-collapsible');
+    toggle.hidden = false;
+    root.classList.remove('is-open');
+    toggle.setAttribute('aria-expanded', 'false');
+    label.textContent = 'Read More';
+
+    toggle.addEventListener('click', () => {
+      const open = root.classList.toggle('is-open');
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      label.textContent = open ? 'Read Less' : 'Read More';
+    });
+  });
+}
+
 function initSiteChrome() {
   initCurrentYear();
   initHeaderScroll();
@@ -1162,6 +1183,7 @@ function initPageFeatures() {
     initRmLiveReviewCounts();
     initCountUp();
     initLazyMaps();
+    initSeoGuideExpand();
   } catch (error) {
     console.error('Roof Monsters page feature init error:', error);
   } finally {

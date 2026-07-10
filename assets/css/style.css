@@ -4933,62 +4933,67 @@ html.rm-js [data-rm-reveal].is-visible {
   font-size: 1.05rem;
 }
 
-.rm-seo-details {
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  border-radius: 12px;
-  background: #f7f7f7;
-  padding: 0;
-  overflow: hidden;
+.rm-seo-expandable {
+  margin-top: 8px;
 }
 
-.rm-seo-summary {
-  cursor: pointer;
-  list-style: none;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  padding: 16px 20px;
-  font-family: 'Roboto Slab', serif;
-  font-size: 1.02rem;
-  font-weight: 700;
-  color: var(--dark);
-  background: #f0f0f0;
-  user-select: none;
+.rm-seo-teaser h3:first-child {
+  margin-top: 0;
 }
 
-.rm-seo-summary::-webkit-details-marker {
+.rm-seo-teaser p,
+.rm-seo-remainder p,
+.rm-seo-remainder li {
+  color: #2f2f2f;
+}
+
+.rm-seo-expandable.is-collapsible:not(.is-open) .rm-seo-remainder {
   display: none;
 }
 
-.rm-seo-summary::after {
-  content: '+';
-  flex-shrink: 0;
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
+.rm-seo-toggle {
+  display: none;
+  margin-top: 8px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.125rem;
+  font-weight: 800;
+  color: #8f7006;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  -webkit-text-stroke: 0.35px rgba(0, 0, 0, 0.5);
+  text-shadow:
+    0 0 1px rgba(0, 0, 0, 0.35),
+    0.5px 0.5px 0 rgba(0, 0, 0, 0.3);
+  transition: color var(--transition), gap var(--transition);
+}
+
+.rm-seo-expandable.is-collapsible .rm-seo-toggle {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  background: var(--gold);
-  color: #000;
-  font-size: 1.1rem;
-  font-weight: 800;
-  line-height: 1;
+  gap: 8px;
 }
 
-.rm-seo-details[open] .rm-seo-summary::after {
-  content: '\2212';
+.rm-seo-toggle:hover,
+.rm-seo-toggle:focus-visible {
+  color: #6b5400;
 }
 
-.rm-seo-details__body {
-  padding: 8px 20px 24px;
-  background: #fafafa;
+.rm-seo-toggle::after {
+  content: '';
+  width: 0.55em;
+  height: 0.55em;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(45deg) translateY(-2px);
+  transition: transform var(--transition);
 }
 
-.rm-seo-details__body p,
-.rm-seo-details__body li {
-  color: #2f2f2f;
+.rm-seo-expandable.is-open .rm-seo-toggle::after {
+  transform: rotate(225deg) translateY(-2px);
 }
 
 .form-hint {

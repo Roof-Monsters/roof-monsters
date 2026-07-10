@@ -5,11 +5,13 @@
           <h2>Licensed Roof Repair &amp; Replacement From Dunedin Since 1988</h2>
           <p class="section-desc">Family-owned Roof Monsters serves Pasco, Pinellas, Hernando, Hillsborough, and Manatee County with Atlas installs, clear written estimates, and referral-trusted crews.</p>
         </div>
-        <details class="rm-seo-details">
-          <summary class="rm-seo-summary">Read the full Tampa Bay roofing guide</summary>
-          <div class="rm-seo-details__body">
+        <!-- Teaser visible; full guide stays in HTML for crawlers. JS adds collapse when available. -->
+        <div class="rm-seo-expandable" data-rm-seo-expand>
+          <div class="rm-seo-teaser">
             <h3>What We Do Across the Bay Area</h3>
             <p>Roof Monsters is a DBA of Terrance McKeever Enterprises, Inc., headquartered at 1391 Robin Hood Ln in Dunedin, Florida. We provide residential and commercial roofing — including <a href="/services/roof-replacement/">full roof replacement</a>, <a href="/services/roof-repair/">targeted roof repair</a>, <a href="/services/free-roof-inspections-and-consultations/">free inspections</a>, <a href="/services/emergency-roof-repair/">emergency tarping</a>, <a href="/services/shingle-roofing/">Atlas shingle roofing</a>, gutters, and skylights. Licenses CCC1335398, CCC052490, and CBC015719 apply on every job.</p>
+          </div>
+          <div class="rm-seo-remainder" id="rm-seo-remainder">
             <p>Gulf Coast heat, afternoon thunderstorms, and salt air near the bay age roofs faster than many homeowners expect. We walk the roof and attic when accessible, photograph conditions, and explain repair versus replacement in plain language before you commit. Most of our work still comes from neighbors who recommend us — not cold outreach.</p>
             <h3>Atlas Materials and Workmanship Warranty</h3>
             <p>On qualifying steep-slope projects we install Atlas Designer Shingles, including Scotchgard™ protection on qualifying products for algae resistance common in Florida humidity. Manufacturer coverage follows Atlas terms and registration. Our 15-year workmanship warranty covers qualifying installation labor. See our <a href="warranty-guarantee/">warranty &amp; guarantee</a> page for what to keep after the final walkthrough.</p>
@@ -34,6 +36,9 @@
             <h3>Why Referral Trust Still Matters Online</h3>
             <p>Search results can surface many roofing companies after a storm. What search cannot show is who will still answer the phone in five years when a flashing detail needs attention. Roof Monsters has built a referral-driven calendar because clean job sites, clear private-pay scopes, and local warranty follow-up keep neighbors recommending us. Browse our <a href="faqs/">FAQs</a>, <a href="testimonials/">testimonials</a>, and <a href="blog/">roofing guides</a> for deeper reading, then schedule the free inspection that turns general advice into a written plan for your roof.</p>
           </div>
-        </details>
+          <button type="button" class="rm-seo-toggle" aria-expanded="true" aria-controls="rm-seo-remainder" hidden>
+            <span class="rm-seo-toggle__label">Read More</span>
+          </button>
+        </div>
       </div>
     </section>
