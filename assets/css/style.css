@@ -5068,14 +5068,6 @@ html.rm-js [data-rm-reveal].is-visible {
   color: var(--gold);
 }
 
-.form-hint {
-  font-size: 0.85em;
-  font-weight: 500;
-  letter-spacing: 0;
-  text-transform: none;
-  color: var(--text-mid);
-}
-
 .location-guide .section-header {
   text-align: left;
   margin-bottom: 28px;
@@ -5824,6 +5816,10 @@ html.rm-js [data-rm-reveal].is-visible {
   color: var(--orange);
 }
 
+.form-required--either[hidden] {
+  display: none;
+}
+
 .form-note {
   font-size: 14px;
   color: var(--text-mid);
@@ -6058,11 +6054,6 @@ html.rm-js .home-static-intro {
   border: 0;
 }
 
-
-.hero-estimate-form .form-hint {
-  color: rgba(255, 255, 255, 0.85);
-  font-size: 0.85em;
-}
 
 .hero-estimate-form .form-required {
   color: #ffe9a0;

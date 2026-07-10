@@ -1008,6 +1008,16 @@ function validateEstimateContact(form) {
   return { ok: true, name, email: emailOk ? email : '', phone: phoneOk ? phone : '' };
 }
 
+/** Hide email/phone asterisks once either contact method is valid. */
+function syncContactRequiredMarkers(form) {
+  const email = readEstimateField(form, 'email', 'input[type="email"]');
+  const phone = readEstimateField(form, 'phone', 'input[type="tel"]');
+  const satisfied = isValidEmail(email) || isValidPhone(phone);
+  form.querySelectorAll('.form-required--either').forEach((marker) => {
+    marker.hidden = satisfied;
+  });
+}
+
 async function submitEstimateForm(form) {
   if (form.dataset.rmSubmitting === 'true' || form.dataset.rmSubmitting === 'success') {
     return;
@@ -1113,6 +1123,13 @@ function initEstimateForms() {
       e.preventDefault();
       void submitEstimateForm(form);
     });
+
+    const contactInputs = form.querySelectorAll('input[type="email"], input[type="tel"], input[name="email"], input[name="phone"]');
+    contactInputs.forEach((input) => {
+      input.addEventListener('input', () => syncContactRequiredMarkers(form));
+      input.addEventListener('change', () => syncContactRequiredMarkers(form));
+    });
+    syncContactRequiredMarkers(form);
   });
 }
 
