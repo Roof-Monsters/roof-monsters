@@ -16,3 +16,6 @@ Disallow: /license.txt
 # https://roofmonsters.co/llms.txt
 
 Sitemap: https://roofmonsters.co/sitemap.xml
+
+# IndexNow key (Bing / Yandex instant indexing)
+# https://roofmonsters.co/d193b4a3582a4acd84f114d1cb7ec53f.txt
