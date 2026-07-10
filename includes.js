@@ -113,7 +113,7 @@ function applyNavActive() {
   });
 }
 
-const INCLUDE_VERSION = '20260710b';
+const INCLUDE_VERSION = '20260710c';
 
 async function fetchInclude(path) {
   const url = path.startsWith('http')

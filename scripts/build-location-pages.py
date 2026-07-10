@@ -291,8 +291,8 @@ def city_page(area: dict, config: dict) -> str:
     guide = guide_for(area)
     title = f"Roofing Company in {name} | Roof Monsters"
     description = (
-        f"Roof Monsters provides roof repair, replacement, inspections, and storm damage "
-        f"services in {name}. Dunedin-based, family owned Tampa Bay roofing since 1988."
+        f"Roof repair, replacement, inspections, and storm damage in {name}. "
+        f"Family-owned Roof Monsters serving Tampa Bay since 1988."
     )
 
     hq_note = ""
@@ -354,8 +354,8 @@ def county_page(area: dict, config: dict) -> str:
     guide = guide_for(area)
     title = f"Roofing Company in {name} | Roof Monsters"
     description = (
-        f"Roof Monsters serves all of {name} with roof repair, replacement, inspections, and storm damage services. "
-        f"Headquartered in {hq['city']}, FL. Family owned since 1988."
+        f"Roof repair, replacement, inspections, and storm damage services in {name}. "
+        f"Dunedin-based Roof Monsters — family owned since 1988."
     )
     intro_img = guide["intro_image"]
 

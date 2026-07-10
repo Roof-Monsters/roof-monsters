@@ -15,7 +15,7 @@ HERO = HERO.replace(
       <div class="hero-overlay"></div>
     </div>""",
     """    <div class="hero-slide active">
-      <img class="hero-slide-bg ken-burns hero-lcp-img" src="/assets/images/gallery/atlas-install-01.webp" alt="" width="1600" height="1067" fetchpriority="high" decoding="async" />
+      <img class="hero-slide-bg ken-burns hero-lcp-img" src="/assets/images/gallery/atlas-install-01.webp" alt="Atlas shingle roof installation by Roof Monsters in Tampa Bay" width="1600" height="1067" fetchpriority="high" decoding="async" />
       <div class="hero-overlay"></div>
     </div>""",
 )
