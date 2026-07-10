@@ -4996,6 +4996,42 @@ html.rm-js [data-rm-reveal].is-visible {
   transform: rotate(225deg) translateY(-2px);
 }
 
+/* Homepage SEO guide sits on charcoal like other home sections */
+.home-page .rm-seo-guide .rm-seo-teaser h3,
+.home-page .rm-seo-guide .rm-seo-remainder h3 {
+  color: var(--white);
+}
+
+.home-page .rm-seo-guide .rm-seo-teaser p,
+.home-page .rm-seo-guide .rm-seo-remainder p,
+.home-page .rm-seo-guide .rm-seo-remainder li {
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.home-page .rm-seo-guide .service-rich-content .section-header .section-desc {
+  color: rgba(255, 255, 255, 0.76);
+}
+
+.home-page .rm-seo-guide .content-page a {
+  color: var(--gold-light);
+}
+
+.home-page .rm-seo-guide .content-page a:hover,
+.home-page .rm-seo-guide .content-page a:focus-visible {
+  color: var(--gold);
+}
+
+.home-page .rm-seo-guide .rm-seo-toggle {
+  color: var(--gold-light);
+  -webkit-text-stroke: 0;
+  text-shadow: none;
+}
+
+.home-page .rm-seo-guide .rm-seo-toggle:hover,
+.home-page .rm-seo-guide .rm-seo-toggle:focus-visible {
+  color: var(--gold);
+}
+
 .form-hint {
   font-size: 0.85em;
   font-weight: 500;
