@@ -4,6 +4,8 @@ from __future__ import annotations
 
 from pathlib import Path
 
+from analytics_snippet import ANALYTICS_HEAD_HTML
+
 ROOT = Path(__file__).resolve().parents[1]
 
 # Old public WP aliases -> canonical rebuild paths (root-relative on custom domain).
@@ -49,6 +51,7 @@ def redirect_html(dest: str) -> str:
   <link rel="canonical" href="https://roofmonsters.co{dest}" />
   <title>Moved — Roof Monsters</title>
   <script>location.replace({dest!r});</script>
+{ANALYTICS_HEAD_HTML}
 </head>
 <body>
   <p>This page has moved to <a href="{dest}">https://roofmonsters.co{dest}</a>.</p>

@@ -15,6 +15,7 @@ from seo_lib import (
     inject_seo,
     load_config,
 )
+from analytics_snippet import inject_analytics
 
 SKIP_DIRS = {"partials", "scripts", "assets", "data"}
 SKIP_FILES = {"GROWTH-ROADMAP-PROPOSAL.html"}
@@ -158,6 +159,7 @@ def main() -> None:
         text = patch_cross_links(text, path)
         seo = build_seo_head(path, text, config)
         text = inject_seo(text, seo)
+        text = inject_analytics(text)
         if text != original:
             path.write_text(text, encoding="utf-8")
             changed += 1

@@ -11,6 +11,7 @@ from base_head_script import BASE_HEAD_SCRIPT
 from form_snippet import estimate_form_compact
 from icon_snippet import icon_head_html
 from location_content import guide_for
+from analytics_snippet import ANALYTICS_HEAD_HTML
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data" / "service-areas.json"
@@ -32,6 +33,7 @@ HEAD = """<!DOCTYPE html>
   <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" as="style" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link rel="stylesheet" href="assets/css/style.css" />
+{analytics_head}
 </head>
 <body>
   <div id="site-header-include"></div>
@@ -312,7 +314,7 @@ def city_page(area: dict, config: dict) -> str:
     local_para = f"<p>{esc(local_detail)}</p>" if local_detail else ""
     intro_img = guide["intro_image"]
 
-    return HEAD.format(title=esc(title), description=esc(description), icon_head=icon_head_html(), base_head=BASE_HEAD_SCRIPT) + f"""
+    return HEAD.format(title=esc(title), description=esc(description), icon_head=icon_head_html(), base_head=BASE_HEAD_SCRIPT, analytics_head=ANALYTICS_HEAD_HTML) + f"""
   <section class="page-hero">
     <div class="container">
       <h1>Roofing in <span class="accent">{esc(short)}</span></h1>
@@ -357,7 +359,7 @@ def county_page(area: dict, config: dict) -> str:
     )
     intro_img = guide["intro_image"]
 
-    return HEAD.format(title=esc(title), description=esc(description), icon_head=icon_head_html(), base_head=BASE_HEAD_SCRIPT) + f"""
+    return HEAD.format(title=esc(title), description=esc(description), icon_head=icon_head_html(), base_head=BASE_HEAD_SCRIPT, analytics_head=ANALYTICS_HEAD_HTML) + f"""
   <section class="page-hero">
     <div class="container">
       <h1>Roofing in <span class="accent">{esc(short)}</span></h1>
@@ -421,7 +423,7 @@ def hub_page(config: dict, cities: list[dict], counties: list[dict]) -> str:
             "Hernando, Hillsborough, and Manatee County with expert roofing services."
         ),
         icon_head=icon_head_html(),
-        base_head=BASE_HEAD_SCRIPT,
+        base_head=BASE_HEAD_SCRIPT, analytics_head=ANALYTICS_HEAD_HTML,
     ) + f"""
   <section class="page-hero">
     <div class="container">
