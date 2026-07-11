@@ -3,6 +3,7 @@
 
 from __future__ import annotations
 
+import base64
 import json
 from io import BytesIO
 from pathlib import Path
@@ -74,26 +75,36 @@ def save_ico(sizes: list[int], master: Image.Image, path: Path) -> None:
     )
 
 
-def write_svg(path: Path) -> None:
-    # Lightweight SVG favicon — gold badge silhouette on dark field.
+def write_svg(path: Path, master: Image.Image) -> None:
+    """Embed the composited logo raster so SVG favicons match the PNG set."""
+    flat = Image.new("RGBA", master.size, THEME)
+    flat.alpha_composite(master)
+    buf = BytesIO()
+    flat.save(buf, format="PNG", optimize=True)
+    b64 = base64.standard_b64encode(buf.getvalue()).decode("ascii")
     path.write_text(
-        """<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Roof Monsters">
-  <rect width="512" height="512" rx="96" fill="#1a1a1a"/>
-  <path fill="#c9a227" d="M96 352V192l160-96 160 96v160l-160 96-160-96zm64-32 96 56 96-56V208l-96-56-96 56v112z"/>
-  <circle cx="256" cy="248" r="52" fill="#f0f0f0"/>
-  <circle cx="240" cy="236" r="8" fill="#1a1a1a"/>
-  <circle cx="272" cy="236" r="8" fill="#1a1a1a"/>
-  <path fill="#1a1a1a" d="M236 262c12 16 28 16 40 0" stroke="#1a1a1a" stroke-width="4" stroke-linecap="round"/>
+        f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Roof Monsters">
+  <image width="512" height="512" href="data:image/png;base64,{b64}"/>
 </svg>
 """,
         encoding="utf-8",
     )
 
 
-def write_mask_svg(path: Path) -> None:
+def write_mask_svg(path: Path, master: Image.Image) -> None:
+    """Safari pinned-tab mask from logo alpha silhouette."""
+    size = 128
+    small = master.resize((size, size), Image.Resampling.LANCZOS)
+    alpha = small.split()[3]
+    pixels = alpha.load()
+    rects: list[str] = []
+    for y in range(size):
+        for x in range(size):
+            if pixels[x, y] > 32:
+                rects.append(f'<rect x="{x}" y="{y}" width="1" height="1"/>')
     path.write_text(
-        """<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-  <path fill="#000" d="M96 352V192l160-96 160 96v160l-160 96-160-96zm64-32 96 56 96-56V208l-96-56-96 56v112z"/>
+        f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {size} {size}">
+  <g fill="#000">{"".join(rects)}</g>
 </svg>
 """,
         encoding="utf-8",
@@ -204,8 +215,8 @@ def main() -> None:
     save_ico([16, 32, 48], master, ROOT / "favicon.ico")
     print("wrote favicon.ico (root + assets/icons)")
 
-    write_svg(OUT / "favicon.svg")
-    write_mask_svg(OUT / "safari-pinned-tab.svg")
+    write_svg(OUT / "favicon.svg", master)
+    write_mask_svg(OUT / "safari-pinned-tab.svg", master)
     write_manifest()
     write_browserconfig()
     print("wrote site.webmanifest, browserconfig.xml, svg icons")
