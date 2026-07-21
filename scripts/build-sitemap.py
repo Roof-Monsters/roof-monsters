@@ -49,7 +49,8 @@ def write_sitemap_index(base: str) -> None:
     index = ET.Element("sitemapindex", xmlns=SITEMAP_NS)
     entry = ET.SubElement(index, "sitemap")
     ET.SubElement(entry, "loc").text = f"{base}/sitemap.xml"
-    ET.SubElement(entry, "lastmod").text = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%S+00:00")
+    # Date precision keeps consecutive generator runs byte-for-byte stable.
+    ET.SubElement(entry, "lastmod").text = datetime.now(timezone.utc).date().isoformat()
 
     tree = ET.ElementTree(index)
     ET.indent(tree, space="  ")
