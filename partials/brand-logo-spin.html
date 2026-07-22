@@ -1,0 +1,31 @@
+<!--
+  PRESERVED SPINNING LOGO (client feedback Jul 2026 — switched live site to static official logo).
+  To revert: replace the static .rm-brand-logo--static markup in header.html / footer.html /
+  partials/home/team.html with this block, and remove the `rm-brand-logo--static` class so the
+  existing .rm-brand-logo spin CSS in assets/css/style.css takes effect again.
+  Size modifier classes: rm-brand-logo--header | --drawer | --footer | --team
+-->
+<span class="rm-brand-logo rm-brand-logo--SIZE">
+  <picture>
+    <source srcset="/assets/images/brand/logo-bg.webp" type="image/webp" />
+    <img class="rm-brand-logo__bg" src="/assets/images/brand/logo-bg.png" alt="" width="120" height="138" decoding="async" />
+  </picture>
+  <span class="rm-brand-logo__monster" aria-hidden="true">
+    <span class="rm-brand-logo__scene">
+      <span class="rm-brand-logo__spinner">
+        <span class="rm-brand-logo__face rm-brand-logo__face--front">
+          <picture>
+            <source srcset="/assets/images/brand/logo-monster.webp" type="image/webp" />
+            <img src="/assets/images/brand/logo-monster.png" alt="" width="80" height="104" decoding="async" />
+          </picture>
+        </span>
+        <span class="rm-brand-logo__face rm-brand-logo__face--back">
+          <picture>
+            <source srcset="/assets/images/brand/logo-monster.webp" type="image/webp" />
+            <img src="/assets/images/brand/logo-monster.png" alt="" width="80" height="104" decoding="async" />
+          </picture>
+        </span>
+      </span>
+    </span>
+  </span>
+</span>
