@@ -53,7 +53,7 @@ def esc(text: str) -> str:
 
 
 def area_url(slug: str) -> str:
-    return f"about-us/locations-we-serve/{slug}/"
+    return f"/about-us/locations-we-serve/{slug}/"
 
 
 def cta_block(short: str) -> str:

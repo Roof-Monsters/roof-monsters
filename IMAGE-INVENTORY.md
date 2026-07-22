@@ -58,3 +58,9 @@ Re-apply URL map after HTML edits: `scripts/apply-local-assets.ps1`
 
 - Testimonial/review avatars now use `default-avatar.svg` instead of the logo PNG
 - `service-skylights.html` uses `services/skylights.webp` (copy of repairs photo until a dedicated skylight shot is supplied)
+
+## Jul 2026 client feedback (captions / brand)
+
+- Homepage + `/gallery/` captions neutralized to Tampa Bay / project-type labels until client supplies verified descriptions
+- Official static logo: `assets/images/brand/logo-official.webp` (+ `.png`); spinning assets retained for revert — see `docs/client-feedback-jul-2026.md`
+- Brand accent shifted from metallic gold to logo orange `#FD982A`

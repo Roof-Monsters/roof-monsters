@@ -1,12 +1,15 @@
 /* =============================================
    ROOF MONSTERS — Custom Coded Clone Demo
-   Color Palette (black & gold):
-     Gold:      #D4AF37
-     Gold dark: #B8962E
-     Black:     #000000
-     Near-white:#fdfdfd
-     Light gray:#f9f9f9
-     Text:      #333333
+   Color Palette (aligned to official logo / yard sign):
+     Brand orange:  #FD982A  (ROOF wordmark)
+     Orange dark:   #E07E14
+     Orange light:  #FFB65C
+     Brand blue:    #01A1F3  (logo glow)
+     Brand purple:  #9F119D  (monster)
+     Black:         #000000
+     Near-white:    #fdfdfd
+     Light gray:    #f9f9f9
+     Text:          #333333
    Fonts: Roboto, Roboto Slab
 ============================================= */
 
@@ -17,12 +20,16 @@
 }
 
 :root {
-  --gold:      #D4AF37;
-  --gold-dk:   #B8962E;
-  --gold-light:#F5D76E;
-  --gold-rgb:  212, 175, 55;
+  /* Brand accent — sampled from official ROOF wordmark (#FD982A), not metallic yellow */
+  --gold:      #FD982A;
+  --gold-dk:   #E07E14;
+  --gold-light:#FFB65C;
+  --gold-rgb:  253, 152, 42;
   --orange:    var(--gold);
   --orange-dk: var(--gold-dk);
+  --brand-blue: #01A1F3;
+  --brand-blue-rgb: 1, 161, 243;
+  --brand-purple: #9F119D;
   --dark:      #000000;
   --dark2:     #0a0a0a;
   --white:     #ffffff;
@@ -142,11 +149,7 @@ ul {
   text-transform: uppercase;
   color: var(--gold-light);
   margin-bottom: 12px;
-  -webkit-text-stroke: 0.4px rgba(0, 0, 0, 0.65);
-  text-shadow:
-    0 0 1px rgba(0, 0, 0, 0.55),
-    0.5px 0.5px 0 rgba(0, 0, 0, 0.4),
-    -0.4px -0.4px 0 rgba(0, 0, 0, 0.25);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.55);
 }
 
 .section-header {
@@ -324,11 +327,11 @@ ul {
   }
 }
 
-/* Split logo: static badge + 3D monster overlay
-   Position math from logo-bg.png + logo-monster.png pixel analysis:
-   ROOF text top ≈ 72.83% of badge height; cropped monster feet sit on PNG bottom.
-   Max height = roof_line − top margin so house peak + monster stay fully in view.
-   Width tracks monster aspect (495×641) in badge coords (640×736). */
+/* Brand logo
+   Default (Jul 2026 client feedback): static official composite — no stretch.
+   Spinning split logo preserved in partials/brand-logo-spin.html + CSS below.
+   Position math (spin only) from logo-bg.png + logo-monster.png:
+   ROOF text top ≈ 72.83% of badge height; cropped monster feet sit on PNG bottom. */
 .rm-brand-logo {
   position: relative;
   display: inline-block;
@@ -344,6 +347,28 @@ ul {
   --rm-monster-h: calc(var(--rm-roof-line) - var(--rm-top-margin));
   --rm-monster-w: calc(var(--rm-monster-h) * 495 / 641 * 736 / 640);
   --rm-monster-top: calc(var(--rm-roof-line) - var(--rm-monster-h) * var(--rm-feet-ratio));
+}
+
+/* Static official logo (preferred) */
+.rm-brand-logo--static {
+  overflow: visible;
+}
+
+.rm-brand-logo--static > picture {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.rm-brand-logo__official {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  object-position: center bottom;
+  image-rendering: auto;
 }
 
 .rm-brand-logo__bg {
@@ -432,11 +457,15 @@ ul {
   isolation: isolate;
 }
 
-.rm-brand-logo--header .rm-brand-logo__bg {
+.rm-brand-logo--header:not(.rm-brand-logo--static) .rm-brand-logo__bg {
   animation: rmLogoPurpleGlow 10s ease-in-out infinite;
 }
 
 .rm-brand-logo--header .rm-brand-logo__face img {
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.35));
+}
+
+.rm-brand-logo--header.rm-brand-logo--static .rm-brand-logo__official {
   filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.35));
 }
 
@@ -1700,7 +1729,7 @@ ul {
 /* Ken Burns background layer — sits inside .hero-slide */
 .hero-slide-bg {
   position: absolute;
-  inset: -8%;           /* oversized so zoom doesn't reveal edges */
+  inset: -4%;           /* slight oversize so subtle zoom doesn't reveal edges */
   background-size: cover;
   background-position: center;
   transform: scale(1);
@@ -1708,11 +1737,11 @@ ul {
 
 /* Real <img> LCP candidate (same visual as CSS background slides) */
 img.hero-slide-bg.hero-lcp-img {
-  width: calc(100% + 16%);
-  height: calc(100% + 16%);
+  width: calc(100% + 8%);
+  height: calc(100% + 8%);
   object-fit: cover;
   object-position: center;
-  inset: -8%;
+  inset: -4%;
   border: 0;
   max-width: none;
 }
@@ -1758,7 +1787,7 @@ img.hero-slide-bg.hero-lcp-img {
 }
 
 @keyframes kenBurns {
-  from { transform: scale(1.12); }
+  from { transform: scale(1.04); }
   to   { transform: scale(1); }
 }
 
@@ -1767,9 +1796,9 @@ img.hero-slide-bg.hero-lcp-img {
   inset: 0;
   background: linear-gradient(
     90deg,
-    rgba(0, 0, 0, 0.82) 0%,
-    rgba(0, 0, 0, 0.55) 45%,
-    rgba(0, 0, 0, 0.68) 100%
+    rgba(0, 0, 0, 0.72) 0%,
+    rgba(0, 0, 0, 0.42) 45%,
+    rgba(0, 0, 0, 0.55) 100%
   );
 }
 
@@ -1866,7 +1895,7 @@ img.hero-slide-bg.hero-lcp-img {
   }
 
   88%, 94% {
-    color: #ffe8cc;
+    color: #FFE2C2;
     text-shadow:
       0 0 10px rgba(var(--gold-rgb), 0.9),
       0 0 22px rgba(var(--gold-rgb), 0.45);
@@ -1916,7 +1945,7 @@ img.hero-slide-bg.hero-lcp-img {
   border-radius: 999px;
   background: rgba(var(--gold-rgb), 0.22);
   border: 1px solid rgba(var(--gold-rgb), 0.45);
-  color: #ffe9a0;
+  color: #FFD9A8;
   font-size: 0.875rem;
   font-weight: 700;
   letter-spacing: 0.08em;
@@ -2443,7 +2472,7 @@ html.rm-js .hero-license-bar.is-visible {
 .btn-about-call:hover {
   background: rgba(var(--gold-rgb), 0.14);
   border-color: rgba(var(--gold-rgb), 0.55);
-  color: #ffe8cc;
+  color: #FFE2C2;
 }
 
 .home-page .about-highlights--panel {
@@ -3122,7 +3151,7 @@ html.rm-js [data-rm-reveal].is-visible {
 }
 
 .rm-google-stars-display {
-  color: #ffe9a0;
+  color: #FFD9A8;
   letter-spacing: 0.08em;
   font-size: 1.15rem;
   line-height: 1;
@@ -3200,7 +3229,7 @@ html.rm-js [data-rm-reveal].is-visible {
   font-weight: 800;
   font-size: 0.9rem;
   color: #0a0a0a;
-  background: #f5e6a8;
+  background: #FFE0B0;
   border: 1px solid rgba(0, 0, 0, 0.35);
   flex-shrink: 0;
 }
@@ -3363,7 +3392,7 @@ html.rm-js [data-rm-reveal].is-visible {
 }
 
 .rm-map-rating {
-  color: #ffe9a0 !important;
+  color: #FFD9A8 !important;
   font-weight: 700;
   font-size: 0.95rem;
   letter-spacing: 0.04em;
@@ -3561,7 +3590,7 @@ html.rm-js [data-rm-reveal].is-visible {
   font-weight: 900;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #ffe9a0;
+  color: #FFD9A8;
   box-sizing: border-box;
   margin-top: 0.15rem;
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.78);
@@ -4089,7 +4118,7 @@ html.rm-js [data-rm-reveal].is-visible {
   font-size: 0.95rem;
   font-weight: 800;
   letter-spacing: 0.04em;
-  color: #ffe9a0;
+  color: #FFD9A8;
   -webkit-text-stroke: 0.35px rgba(0, 0, 0, 0.55);
   text-shadow:
     0 0 1px rgba(0, 0, 0, 0.45),
@@ -4755,7 +4784,7 @@ html.rm-js [data-rm-reveal].is-visible {
   color: rgba(255, 255, 255, 0.9);
 }
 .breadcrumb a {
-  color: #ffe9a0;
+  color: #FFD9A8;
   font-weight: 700;
 }
 .breadcrumb a:hover { text-decoration: underline; }
@@ -5159,7 +5188,7 @@ html.rm-js [data-rm-reveal].is-visible {
   font-family: 'Roboto Slab', serif;
   font-size: 44px;
   font-weight: 900;
-  color: #ffe9a0;
+  color: #FFD9A8;
   line-height: 1;
   margin-bottom: 8px;
 }
@@ -5404,9 +5433,9 @@ html.rm-js [data-rm-reveal].is-visible {
 }
 
 /* ── Local image backgrounds ───────────────── */
-.bg-hero-slide-1 { background-image: url('../images/gallery/atlas-install-01.webp'); }
-.bg-hero-slide-2 { background-image: url('../images/gallery/installation-04.webp'); }
-.bg-hero-slide-3 { background-image: url('../images/gallery/installation-01.webp'); }
+.bg-hero-slide-1 { background-image: url('../images/gallery/tampa-bay-project.webp'); }
+.bg-hero-slide-2 { background-image: url('../images/gallery/atlas-install-01.webp'); }
+.bg-hero-slide-3 { background-image: url('../images/gallery/pinellas-new-roof.webp'); }
 .bg-stats-section {
   background-image: url('../images/backgrounds/stats-section.webp');
 }
@@ -5428,7 +5457,7 @@ html.rm-js [data-rm-reveal].is-visible {
 .bg-about-home {
   background-image: url('../images/gallery/tampa-bay-project.webp');
 }
-.bg-atlas-banner-roof { background-image: url('../images/gallery/installation-04.webp'); }
+.bg-atlas-banner-roof { background-image: url('../images/gallery/pinellas-new-roof.webp'); }
 .bg-atlas-banner-shingles { background-image: url('../images/brand/atlas-shingles-banner.webp'); }
 .bg-atlas-banner-parallax {
   background-image: url('../images/gallery/atlas-install-01.webp');
@@ -5456,7 +5485,7 @@ html.rm-js [data-rm-reveal].is-visible {
 }
 
 .bg-service-intro-detail {
-  background-image: url('../images/gallery/installation-04.webp');
+  background-image: url('../images/gallery/completed-06.webp');
   background-position: center 40%;
 }
 .section-bg-light { background: var(--bg-light); }
@@ -5907,7 +5936,7 @@ html.rm-js [data-rm-reveal].is-visible {
 }
 
 .blog-article-meta .blog-cat {
-  color: #ffe9a0;
+  color: #FFD9A8;
   font-weight: 800;
 }
 
@@ -6056,7 +6085,7 @@ html.rm-js .home-static-intro {
 
 
 .hero-estimate-form .form-required {
-  color: #ffe9a0;
+  color: #FFD9A8;
 }
 
 .rm-map-overlay,
@@ -6066,12 +6095,12 @@ html.rm-js .home-static-intro {
 
 .rm-map-overlay a,
 .rm-map-card a {
-  color: #ffe9a0;
+  color: #FFD9A8;
 }
 
 /* ── Sitewide contrast harmonization (inner pages) ── */
 .page-hero h1 .accent {
-  color: #ffe9a0;
+  color: #FFD9A8;
 }
 
 .section-bg-white .section-eyebrow,
