@@ -839,6 +839,64 @@ def build_seo_head(path: Path, text: str, config: dict) -> str:
 {SEO_MARKER_END}"""
 
 
+def _strip_orphan_seo_artifacts(text: str) -> str:
+    """Remove SEO meta/schema left outside rm-seo markers from older injections.
+
+    FAQPage / BreadcrumbList / LocalBusiness already live in the @graph block, so
+    stripping all application/ld+json before re-inject is safe and required to
+    clear GSC 'multiple AggregateRating' on location pages.
+    """
+    text = re.sub(
+        r"\s*<script\s+type=[\"']application/ld\+json[\"']\s*>.*?</script>\s*",
+        "\n",
+        text,
+        flags=re.S | re.I,
+    )
+    text = re.sub(
+        r"\s*<link\s+rel=[\"']canonical[\"'][^>]*>\s*",
+        "\n",
+        text,
+        flags=re.I,
+    )
+    # Meta names the SEO block re-injects
+    for name in (
+        "robots",
+        "geo.region",
+        "geo.placename",
+        "geo.position",
+        "ICBM",
+        "twitter:card",
+        "twitter:title",
+        "twitter:description",
+        "twitter:image",
+    ):
+        text = re.sub(
+            rf"\s*<meta\s+name=[\"']{re.escape(name)}[\"'][^>]*>\s*",
+            "\n",
+            text,
+            flags=re.I,
+        )
+    # Open Graph properties the SEO block re-injects
+    for prop in (
+        "og:type",
+        "og:site_name",
+        "og:title",
+        "og:description",
+        "og:url",
+        "og:image",
+        "og:locale",
+    ):
+        text = re.sub(
+            rf"\s*<meta\s+property=[\"']{re.escape(prop)}[\"'][^>]*>\s*",
+            "\n",
+            text,
+            flags=re.I,
+        )
+    # Collapse runs of blank lines left by stripping
+    text = re.sub(r"\n{3,}", "\n\n", text)
+    return text
+
+
 def inject_seo(text: str, seo_block: str) -> str:
     """Replace any existing SEO block, including orphaned start/end markers."""
     # Remove balanced blocks
@@ -851,8 +909,8 @@ def inject_seo(text: str, seo_block: str) -> str:
     # Remove orphan markers left by prior bad injections
     text = text.replace(SEO_MARKER_START, "")
     text = text.replace(SEO_MARKER_END, "")
-    # Drop leftover JSON-LD that sat between orphaned markers (best-effort cleanup
-    # of duplicate schema scripts immediately after description meta)
+    # Clear leftover SEO meta + JSON-LD that sat outside markers
+    text = _strip_orphan_seo_artifacts(text)
     if 'name="description"' in text:
         return re.sub(
             r'(<meta\s+name="description"\s+content="[^"]*"\s*/>)',
