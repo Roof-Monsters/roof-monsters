@@ -53,13 +53,22 @@ def main() -> int:
     type_counts: dict[str, int] = {}
     failures: list[str] = []
     marker_issues: list[str] = []
+    duplicate_issues: list[str] = []
 
     for path in pages:
         html = path.read_text(encoding="utf-8")
+        rel = path.relative_to(ROOT)
         starts = html.count("<!-- rm-seo:start -->")
         ends = html.count("<!-- rm-seo:end -->")
         if starts != 1 or ends != 1:
-            marker_issues.append(f"{path.relative_to(ROOT)} start={starts} end={ends}")
+            marker_issues.append(f"{rel} start={starts} end={ends}")
+
+        ld_scripts = len(re.findall(r'type=["\']application/ld\+json["\']', html, flags=re.I))
+        agg_count = html.count('"aggregateRating"')
+        if ld_scripts != 1:
+            duplicate_issues.append(f"{rel}: expected 1 ld+json script, found {ld_scripts}")
+        if agg_count > 1:
+            duplicate_issues.append(f"{rel}: expected at most 1 aggregateRating, found {agg_count}")
 
         found = collect_types(html)
         for t in found:
@@ -70,17 +79,23 @@ def main() -> int:
         if required:
             missing = required - found
             if missing:
-                failures.append(f"{path.relative_to(ROOT)} ({page_type}): missing {sorted(missing)}")
+                failures.append(f"{rel} ({page_type}): missing {sorted(missing)}")
 
     print("Schema types:", dict(sorted(type_counts.items())))
     if marker_issues:
         print(f"Marker issues ({len(marker_issues)}):")
         for row in marker_issues[:10]:
             print(" ", row)
+    if duplicate_issues:
+        print(f"Duplicate schema issues ({len(duplicate_issues)}):")
+        for row in duplicate_issues[:20]:
+            print(" ", row)
     if failures:
         print(f"Coverage failures ({len(failures)}):")
         for row in failures[:20]:
             print(" ", row)
+        return 1
+    if marker_issues or duplicate_issues:
         return 1
     print("Coverage: OK")
     return 0

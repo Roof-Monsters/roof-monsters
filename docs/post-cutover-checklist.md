@@ -11,10 +11,11 @@ Do these **after** `roofmonsters.co` points at this GitHub Pages rebuild (not wh
 
 ## Google Search Console
 
-- [ ] Property mapped (`sc-domain:roofmonsters.co` preferred)
-- [ ] Submit `https://roofmonsters.co/sitemap.xml`
-- [ ] Run GSC Auditer full audit: `node E:\GSC Auditer\tools\audit.mjs --full` (site config `localRoot` already set)
-- [ ] Priority URL inspection for importantPages in `E:\GSC Auditer\sites\roofmonsters.co.json`
+- [x] Property mapped (`sc-domain:roofmonsters.co` preferred)
+- [ ] Submit `https://roofmonsters.co/sitemap.xml` (in progress — Jul 23 schema/indexing pass)
+- [ ] Run full GSC audit: `node E:\Website Audit\GSC\tools\audit.mjs --site roofmonsters.co --ui`
+- [ ] Priority URL inspection / Request indexing for importantPages in `E:\Website Audit\GSC\sites\roofmonsters.co.json`
+- [ ] Validate Fix on AggregateRating enhancement after duplicate LocalBusiness schema deploy
 
 ## Google Business Profile
 
