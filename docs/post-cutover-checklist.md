@@ -16,7 +16,10 @@ Do these **after** `roofmonsters.co` points at this GitHub Pages rebuild (not wh
 - [x] Full GSC audit run 2026-07-23 (`E:\Website Audit\GSC\runs\2026-07-23\roofmonsters.co` + `gsc-audit/2026-07-23/`)
 - [x] Priority URL inspection: all 10 importantPages PASS / Submitted and indexed
 - [ ] Request indexing quota exhausted for today (Screen Team batch earlier) — retry tomorrow for location pages after AggregateRating fix
-- [ ] Validate Fix on AggregateRating / review-snippet enhancement (224 invalid items; schema dedupe deployed 2026-07-23)
+- [x] Validate Fix on AggregateRating / review-snippet enhancement (224 invalid items; schema dedupe deployed 2026-07-23)
+- [x] Soft redirect stubs set to `noindex,follow` without JSON-LD (2026-07-27) so alias URLs stop emitting AggregateRating
+- [x] Homepage FAQ visible section + FAQPage schema (2026-07-27)
+- [x] Legacy `.html` redirect stubs for contact/about/locations/blog/faqs/gallery/services/testimonials (2026-07-27)
 - [x] IndexNow ping 2026-07-23 (79 URLs, HTTP 200)
 
 ### Indexing snapshot (2026-07-23 Pages report)

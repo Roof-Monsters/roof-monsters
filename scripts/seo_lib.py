@@ -782,6 +782,7 @@ def build_seo_head(path: Path, text: str, config: dict) -> str:
 
     # FAQ schema from visible Q&A content (never invent FAQs)
     if page_type in {
+        "home",
         "faq",
         "service",
         "location",
