@@ -5097,6 +5097,54 @@ html.rm-js [data-rm-reveal].is-visible {
   color: var(--gold);
 }
 
+/*
+ * Homepage charcoal forces dark section backgrounds. Light-page content-page /
+ * FAQ rules (dark text, muted brown links) would fail contrast — override here.
+ * Keep theme gold accents for links / eyebrows.
+ */
+.home-page .content-page h2,
+.home-page .content-page h3 {
+  color: var(--white);
+}
+
+.home-page .content-page p,
+.home-page .content-page li,
+.home-page .content-page .section-desc {
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.home-page .content-page a:not(.btn),
+.home-page .faq-list a {
+  color: var(--gold-light);
+  font-weight: 600;
+}
+
+.home-page .content-page a:not(.btn):hover,
+.home-page .content-page a:not(.btn):focus-visible,
+.home-page .faq-list a:hover,
+.home-page .faq-list a:focus-visible {
+  color: var(--gold);
+}
+
+.home-page .content-page .section-eyebrow,
+.home-page .section-header .section-eyebrow {
+  color: var(--gold-light);
+  -webkit-text-stroke: 0;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.55);
+}
+
+.home-page .faq-item {
+  border-bottom-color: rgba(255, 255, 255, 0.14);
+}
+
+.home-page .faq-item h2 {
+  color: var(--white);
+}
+
+.home-page .faq-item p {
+  color: rgba(255, 255, 255, 0.82);
+}
+
 .location-guide .section-header {
   text-align: left;
   margin-bottom: 28px;
