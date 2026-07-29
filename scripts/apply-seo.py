@@ -65,6 +65,16 @@ CROSS_LINK_START = "<!-- rm-cross-links:start -->"
 CROSS_LINK_END = "<!-- rm-cross-links:end -->"
 
 
+def is_redirect_stub(text: str) -> bool:
+    """Skip soft-redirect alias pages — they must stay noindex without JSON-LD."""
+    lower = text.lower()
+    if 'http-equiv="refresh"' in lower or "http-equiv='refresh'" in lower:
+        return True
+    if "<title>moved — roof monsters</title>" in lower:
+        return True
+    return False
+
+
 def collect_pages() -> list[Path]:
     pages = []
     for index in sorted(ROOT.rglob("index.html")):
@@ -152,8 +162,12 @@ def fix_blog_links(text: str) -> str:
 def main() -> None:
     config = load_config()
     changed = 0
+    skipped_stubs = 0
     for path in collect_pages():
         original = path.read_text(encoding="utf-8", errors="replace")
+        if is_redirect_stub(original):
+            skipped_stubs += 1
+            continue
         text = fix_encoding(original)
         text = fix_blog_links(text)
         text = patch_cross_links(text, path)
@@ -164,7 +178,7 @@ def main() -> None:
             path.write_text(text, encoding="utf-8")
             changed += 1
             print(f"Updated: {path.relative_to(ROOT)}")
-    print(f"Done. Updated {changed} pages.")
+    print(f"Done. Updated {changed} pages. Skipped {skipped_stubs} redirect stub(s).")
 
 
 if __name__ == "__main__":

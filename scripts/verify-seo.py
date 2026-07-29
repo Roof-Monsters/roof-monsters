@@ -13,7 +13,15 @@ from seo_lib import ROOT, classify_page
 SKIP = {"partials", "scripts", "assets", "data"}
 
 REQUIRED: dict[str, set[str]] = {
-    "home": {"Organization", "RoofingContractor", "LocalBusiness", "WebSite", "WebPage", "BreadcrumbList"},
+    "home": {
+        "Organization",
+        "RoofingContractor",
+        "LocalBusiness",
+        "WebSite",
+        "WebPage",
+        "BreadcrumbList",
+        "FAQPage",
+    },
     "services-hub": {"Organization", "RoofingContractor", "ItemList", "BreadcrumbList"},
     "service": {"Organization", "RoofingContractor", "Service", "BreadcrumbList"},
     "locations-hub": {"Organization", "ItemList", "BreadcrumbList"},
@@ -26,6 +34,11 @@ REQUIRED: dict[str, set[str]] = {
     "contact": {"RoofingContractor", "LocalBusiness", "ContactPage", "BreadcrumbList"},
     "about": {"AboutPage", "RoofingContractor", "BreadcrumbList"},
 }
+
+
+def is_redirect_stub(html: str) -> bool:
+    lower = html.lower()
+    return 'http-equiv="refresh"' in lower or "<title>moved — roof monsters</title>" in lower
 
 
 def collect_types(html: str) -> set[str]:
@@ -54,10 +67,19 @@ def main() -> int:
     failures: list[str] = []
     marker_issues: list[str] = []
     duplicate_issues: list[str] = []
+    stub_count = 0
 
     for path in pages:
         html = path.read_text(encoding="utf-8")
         rel = path.relative_to(ROOT)
+        if is_redirect_stub(html):
+            stub_count += 1
+            if "noindex" not in html.lower():
+                failures.append(f"{rel} (redirect stub): missing noindex")
+            if re.search(r'type=["\']application/ld\+json["\']', html, flags=re.I):
+                failures.append(f"{rel} (redirect stub): must not include JSON-LD")
+            continue
+
         starts = html.count("<!-- rm-seo:start -->")
         ends = html.count("<!-- rm-seo:end -->")
         if starts != 1 or ends != 1:
@@ -81,6 +103,7 @@ def main() -> int:
             if missing:
                 failures.append(f"{rel} ({page_type}): missing {sorted(missing)}")
 
+    print(f"Redirect stubs skipped: {stub_count}")
     print("Schema types:", dict(sorted(type_counts.items())))
     if marker_issues:
         print(f"Marker issues ({len(marker_issues)}):")
