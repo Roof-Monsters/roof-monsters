@@ -289,10 +289,12 @@ def city_page(area: dict, config: dict) -> str:
     short = area["shortName"]
     hq = config["headquarters"]
     guide = guide_for(area)
-    title = f"Roofing Company in {name} | Roof Monsters"
+    title = f"{short} Roofing | Repair & Replacement — Roof Monsters"
+    if len(title) > 60:
+        title = f"{short} Roofing | Free Estimates — Roof Monsters"
     description = (
-        f"Roof repair, replacement, inspections, and storm damage in {name}. "
-        f"Family-owned Roof Monsters serving Tampa Bay since 1988."
+        f"Roof repair, replacement, free inspections & storm damage in {name}. "
+        f"Family-owned Roof Monsters since 1988 — free estimate: (727) 439-3869."
     )
 
     hq_note = ""
@@ -352,10 +354,12 @@ def county_page(area: dict, config: dict) -> str:
     short = area["shortName"]
     hq = config["headquarters"]
     guide = guide_for(area)
-    title = f"Roofing Company in {name} | Roof Monsters"
+    title = f"{short} Roofing | Repair & Replacement — Roof Monsters"
+    if len(title) > 60:
+        title = f"{short} Roofing | Free Estimates — Roof Monsters"
     description = (
-        f"Roof repair, replacement, inspections, and storm damage services in {name}. "
-        f"Dunedin-based Roof Monsters — family owned since 1988."
+        f"Roof repair, replacement, free inspections & storm damage in {name}. "
+        f"Dunedin-based Roof Monsters since 1988 — free estimate: (727) 439-3869."
     )
     intro_img = guide["intro_image"]
 

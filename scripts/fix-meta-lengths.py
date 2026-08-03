@@ -13,12 +13,12 @@ TITLE_MAX = 60
 
 # Explicit rewrites for pages flagged in the latest Ahrefs crawl
 META_OVERRIDES: dict[str, str] = {
-    ".": "Expert roof repair, replacement, and Atlas shingle roofing in Pasco, Pinellas & Hillsborough County, FL. Free estimates from Roof Monsters.",
-    "services": "Roof installations, repairs, free inspections, gutters, skylights, and storm damage repair from Roof Monsters across Tampa Bay.",
+    ".": "Family-owned since 1988. Roof repair, replacement & Atlas shingles across Tampa Bay. 4.4★ Google reviews — free estimates: (727) 439-3869.",
+    "services": "Roof repair, full replacement, free inspections, storm response, gutters & skylights. Licensed Roof Monsters crews — free estimate: (727) 439-3869.",
     "contact-us": "Request a free roofing estimate from Roof Monsters. Call (727) 439-3869. Serving Pasco, Pinellas, Hernando, Hillsborough & Manatee, FL.",
-    "testimonials": "Read Tampa Bay homeowner reviews of Roof Monsters — 5-star feedback on roof installs, repairs, and maintenance across three counties.",
-    "about-us": "Family-owned Florida roofing experts since 1988. Meet Roof Monsters — mission, values, and the Dunedin team Tampa Bay trusts.",
-    "services/storm-damage-repair-specialists": "24/7 storm damage roof repair in Tampa Bay. Emergency tarping and private-pay restoration from Roof Monsters' licensed crews.",
+    "testimonials": "Read Roof Monsters reviews from Tampa Bay homeowners — 4.4★ from 30+ Google reviews. Roof repair, replacement & storm response. Call (727) 439-3869.",
+    "about-us": "Meet Terrance McKeever Enterprises / Roof Monsters — family-owned Tampa Bay roofing since 1988. Dunedin HQ, licensed crews, free estimates: (727) 439-3869.",
+    "services/storm-damage-repair-specialists": "24/7 storm damage roof repair in Tampa Bay. Emergency tarping and private-pay restoration from Roof Monsters licensed crews — (727) 439-3869.",
     "services/skylight-installation-and-repair": "Skylight installation and repair in Tampa Bay. Proper sealing and maintenance for natural light without leaks — Roof Monsters.",
     "category/roof-monsters-news": "Company updates, contractor tips, and Tampa Bay roofing insights from Roof Monsters — family-owned since 1988 in Dunedin, FL.",
     "category/roof-installation": "Roof replacement guides, material comparisons, and Florida installation best practices from Roof Monsters — Dunedin crews since 1988.",
@@ -31,21 +31,41 @@ META_OVERRIDES: dict[str, str] = {
     "services/residential-roofing": "Residential roofing for Tampa Bay homeowners — Atlas installs, repairs, inspections, and storm response from Roof Monsters since 1988.",
     "services/shingle-roofing": "Atlas Designer Shingle roofing with Scotchgard protection on qualifying Tampa Bay installs — installed by Roof Monsters since 1988.",
     "services/tile-roofing": "Tile roof repair and replacement for Tampa Bay properties that need durable, coastal-ready tile systems from Roof Monsters.",
-    "services/tpo-roofing": "TPO roofing for Florida commercial and low-slope buildings — reflective, durable systems installed by Roof Monsters in Tampa Bay.",
+    "services/tpo-roofing": "TPO roofing for Tampa Bay commercial & low-slope buildings. Reflective flat-roof systems, clear scopes, licensed crews. Call (727) 439-3869.",
+    "services/emergency-roof-repair": "Need emergency roof repair in Tampa Bay? Same-day triage & tarping when weather allows. Private-pay storm response — call Roof Monsters (727) 439-3869.",
+    "services/roof-repair": "Fast roof repair for leaks, missing shingles & storm wear across Tampa Bay. Clear written estimates from licensed Roof Monsters — (727) 439-3869.",
+    "services/free-roof-inspections-and-consultations": "Free roof inspections across Tampa Bay. Honest repair-or-replace guidance from licensed Roof Monsters crews — schedule now: (727) 439-3869.",
+    "services/roof-replacement": "Full roof replacement across Tampa Bay with Atlas shingles, clear estimates & 15-year workmanship warranty. Free quote: (727) 439-3869.",
     "the-importance-of-regular-roof-maintenance": "Why annual roof maintenance extends roof life in Florida heat and storms — catch small issues early with Roof Monsters in Tampa Bay.",
+    "special-offers": "Current Roof Monsters specials for Tampa Bay roof repair & replacement. Ask about seasonal savings — free estimate: (727) 439-3869.",
+    "the-roof-monsters-way-what-sets-our-roofing-company-apart": "What sets Roof Monsters apart — family ownership since 1988, Atlas warranties, same-crew quality, and Tampa Bay local expertise. Call (727) 439-3869.",
+    "what-is-tpo-roofing-and-why-its-perfect-for-florida-commercial-buildings": "What is TPO roofing and when does it fit Tampa Bay commercial buildings? Reflective flat-roof systems from Roof Monsters — clear scopes, licensed crews.",
 }
 
 COUNTY_META = (
-    "Roof repair, replacement, inspections, and storm damage services in {place}, FL. "
-    "Dunedin-based Roof Monsters — family owned since 1988."
+    "Roof repair, replacement, free inspections & storm damage in {place}, FL. "
+    "Family-owned Roof Monsters since 1988 — free estimate: (727) 439-3869."
 )
 CITY_META = (
-    "Roof repair, replacement, inspections, and storm damage in {place}, FL. "
-    "Family-owned Roof Monsters serving Tampa Bay since 1988."
+    "Roof repair, replacement, free inspections & storm damage in {place}, FL. "
+    "Family-owned Roof Monsters since 1988 — free estimate: (727) 439-3869."
 )
 
 TITLE_OVERRIDES: dict[str, str] = {
-    ".": "Roof Monsters | Roof Repair & Replacement in Tampa Bay, FL",
+    ".": "Roof Monsters | Tampa Bay Roof Repair &amp; Replacement",
+    "testimonials": "Roof Monsters Reviews (4.4★) | Real Tampa Bay Customers",
+    "about-us": "About Terrance McKeever &amp; Roof Monsters | Since 1988",
+    "services": "Roofing Services Tampa Bay | Repair, Replace, Inspect",
+    "services/emergency-roof-repair": "Emergency Roof Repair Tampa | 24/7 Tarping Response",
+    "services/tpo-roofing": "TPO Roofing Tampa | Commercial Flat Roof Specialists",
+    "services/roof-repair": "Roof Repair Tampa Bay | Leaks, Shingles &amp; Storm Wear",
+    "services/free-roof-inspections-and-consultations": "Free Roof Inspection Tampa Bay | No-Cost Assessment",
+    "services/storm-damage-repair-specialists": "Storm Damage Roof Repair Tampa Bay | Emergency Tarping",
+    "services/roof-replacement": "Roof Replacement Tampa Bay | Atlas Shingles, Free Quote",
+    "contact-us": "Contact Roof Monsters | Free Roofing Estimate Tampa Bay",
+    "special-offers": "Roofing Special Offers Tampa Bay | Roof Monsters Deals",
+    "the-roof-monsters-way-what-sets-our-roofing-company-apart": "Why Choose Roof Monsters | Tampa Bay Since 1988",
+    "what-is-tpo-roofing-and-why-its-perfect-for-florida-commercial-buildings": "TPO Roofing in Tampa Bay | Florida Commercial Flat Roofs",
 }
 
 

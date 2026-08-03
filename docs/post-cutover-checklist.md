@@ -22,11 +22,21 @@ Do these **after** `roofmonsters.co` points at this GitHub Pages rebuild (not wh
 - [x] Legacy `.html` redirect stubs for contact/about/locations/blog/faqs/gallery/services/testimonials (2026-07-27)
 - [x] IndexNow ping 2026-07-23 (79 URLs, HTTP 200)
 
-### Indexing snapshot (2026-07-23 Pages report)
+### Indexing snapshot
 
-- Indexed: **39**
-- Not indexed: **65** (404×8, redirect×3, other 4xx×1, duplicate canonical×1, robots×1, crawled-not-indexed×29, discovered-not-indexed×22)
-- Money URLs inspected are already indexed; remaining not-indexed is mostly legacy WP paths + Google “currently not indexed” queue
+| Date | Indexed | Not indexed | Notes |
+| --- | ---: | ---: | --- |
+| 2026-07-23 | **39** | **65** | 404×8, redirect×3, other 4xx×1, duplicate×1, robots×1, crawled-not-indexed×29, discovered-not-indexed×22 |
+| 2026-08-03 | **64** | **38** | 404×9, crawled-not-indexed×24, discovered×2, other 4xx×1, duplicate×1, robots×1 — sitemap still 79 discovered |
+
+Money URLs inspected are already indexed; remaining not-indexed is mostly “crawled not indexed” + leftover 404s. Full CTR/indexing narrative: `docs/seo-performance-log.md`.
+
+### CTR package (2026-08-03)
+
+- [x] Baseline logged (Jul 29 API + Aug 3 UI) in `docs/seo-performance-log.md`
+- [x] Title/meta CTR rewrites on reviews, about/McKeever, money services, all location pages (`scripts/apply-ctr-titles.py`)
+- [ ] Deploy to production + request indexing on `/testimonials/`, `/about-us/`, top location URLs
+- [ ] Fresh GSC API audit after ~14 days (`E:\Website Audit\GSC`) — append row to performance log
 
 ## Google Business Profile
 
