@@ -97,6 +97,12 @@ Homepage was already the only strong converter (~3.7% CTR @ pos ~12.6).
 
 **Deploy required:** Push to production GitHub Pages so live HTML matches this repo.
 
+**Deploy status (2026-08-03):** ✅ Pushed to `main` (`6d16d94`). Live verified — e.g. `/testimonials/` title updated on production.
+
+**IndexNow (2026-08-03):** ✅ Submitted all 45 CTR-updated URLs (HTTP 200).
+
+**GSC indexing requests:** ⏳ Blocked on expired OAuth token — `npm run auth` is waiting for a one-time Google consent click (cannot be automated without your Google account). After that, indexing submit + API audits run unattended.
+
 ---
 
 ### Indexing gap (79 sitemap / 64 indexed) — open work

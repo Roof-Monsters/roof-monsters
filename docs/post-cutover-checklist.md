@@ -35,7 +35,9 @@ Money URLs inspected are already indexed; remaining not-indexed is mostly “cra
 
 - [x] Baseline logged (Jul 29 API + Aug 3 UI) in `docs/seo-performance-log.md`
 - [x] Title/meta CTR rewrites on reviews, about/McKeever, money services, all location pages (`scripts/apply-ctr-titles.py`)
-- [ ] Deploy to production + request indexing on `/testimonials/`, `/about-us/`, top location URLs
+- [x] Deploy to production (`6d16d94` on `main`; live titles verified)
+- [x] IndexNow ping for all 45 CTR-updated URLs (2026-08-03, HTTP 200)
+- [ ] GSC OAuth re-auth (token expired) — then request indexing on `/testimonials/`, `/about-us/`, top location URLs
 - [ ] Fresh GSC API audit after ~14 days (`E:\Website Audit\GSC`) — append row to performance log
 
 ## Google Business Profile
