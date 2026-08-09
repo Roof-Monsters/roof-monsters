@@ -3,6 +3,18 @@
   "brand": "rm",
   "projects": [
     {
+      "id": "before-process-after-roof-patch-repair-1d457d38",
+      "title": "Roof Patch Repairs",
+      "summary": "Before, process, and after project proof from Roof Monsters.",
+      "image": "assets/images/gallery/before-process-after-roof-patch-repair-1d457d38.webp",
+      "social_image": "assets/images/gallery/before-process-after-roof-patch-repair-1d457d38-social.jpg",
+      "gbp_image": "assets/images/gallery/before-process-after-roof-patch-repair-1d457d38-gbp.jpg",
+      "detail_url": "gallery/before-process-after-roof-patch-repair-1d457d38.html",
+      "city": "",
+      "meta": "Before · Process · After",
+      "published_at": "2026-08-09T21:07:25.684072+00:00"
+    },
+    {
       "id": "before-process-after-repair-roof-8601fd43",
       "title": "Repair Roof Flashing",
       "summary": "Before, process, and after project proof from Roof Monsters.",
