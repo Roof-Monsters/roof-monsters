@@ -5,6 +5,11 @@
   "business": {
     "name": "Roof Monsters",
     "legalName": "Terrance McKeever Enterprises, Inc.",
+    "alternateName": [
+      "McKeever Roofing",
+      "Terrance McKeever Roofing",
+      "Roof Monster"
+    ],
     "description": "Family-owned Tampa Bay roofing contractor since 1988. Roof repair, replacement, inspections, storm damage, gutters, and skylights across Pasco, Pinellas, Hernando, Hillsborough, and Manatee County, FL.",
     "telephone": "+1-727-439-3869",
     "email": "info@roofmonsters.co",

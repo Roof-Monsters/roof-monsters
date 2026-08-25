@@ -269,7 +269,7 @@ def review_nodes(config: dict) -> list[dict]:
 def organization_schema(config: dict) -> dict:
     b = config["business"]
     base = config["canonicalBase"].rstrip("/")
-    return {
+    org = {
         "@type": "Organization",
         "@id": f"{base}/#organization",
         "name": b["name"],
@@ -282,6 +282,9 @@ def organization_schema(config: dict) -> dict:
         "sameAs": b["sameAs"],
         "foundingDate": b["foundingDate"],
     }
+    if b.get("alternateName"):
+        org["alternateName"] = b["alternateName"]
+    return org
 
 
 def roofing_contractor_schema(config: dict, *, include_reviews: bool = False) -> dict:
@@ -343,6 +346,8 @@ def roofing_contractor_schema(config: dict, *, include_reviews: bool = False) ->
             "worstRating": "1",
         },
     }
+    if b.get("alternateName"):
+        schema["alternateName"] = b["alternateName"]
     hours = b.get("openingHoursSpecification") or []
     if hours:
         schema["openingHoursSpecification"] = [

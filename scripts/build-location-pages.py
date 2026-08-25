@@ -289,10 +289,10 @@ def city_page(area: dict, config: dict) -> str:
     short = area["shortName"]
     hq = config["headquarters"]
     guide = guide_for(area)
-    title = f"{short} Roofing | Repair & Replacement — Roof Monsters"
-    if len(title) > 60:
+    title = area.get("seoTitle") or f"{short} Roofing | Repair & Replacement — Roof Monsters"
+    if not area.get("seoTitle") and len(title) > 60:
         title = f"{short} Roofing | Free Estimates — Roof Monsters"
-    description = (
+    description = area.get("seoDescription") or (
         f"Roof repair, replacement, free inspections & storm damage in {name}. "
         f"Family-owned Roof Monsters since 1988 — free estimate: (727) 439-3869."
     )
@@ -319,7 +319,7 @@ def city_page(area: dict, config: dict) -> str:
     return HEAD.format(title=esc(title), description=esc(description), icon_head=icon_head_html(), base_head=BASE_HEAD_SCRIPT, analytics_head=ANALYTICS_HEAD_HTML) + f"""
   <section class="page-hero">
     <div class="container">
-      <h1>Roofing in <span class="accent">{esc(short)}</span></h1>
+      <h1>{esc(area.get("h1Lead", "Roofing in"))} <span class="accent">{esc(short)}</span></h1>
       <nav class="breadcrumb" aria-label="breadcrumb">
         <a href="/">Home</a>
         <i class="fa-solid fa-chevron-right"></i>
