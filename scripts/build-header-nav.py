@@ -41,6 +41,8 @@ def desktop_group(county: dict, cities: list[dict]) -> str:
         label = city["shortName"]
         if city.get("isHeadquarters"):
             label += " (HQ)"
+        elif city.get("coverageTier") == "extended":
+            label += " (extended)"
         lines.append(
             f'              <a href="{area_href(city["slug"])}" role="menuitem">{esc(label)}</a>'
         )
@@ -72,6 +74,8 @@ def mobile_group(county: dict, cities: list[dict]) -> str:
         label = city["shortName"]
         if city.get("isHeadquarters"):
             label += " (HQ)"
+        elif city.get("coverageTier") == "extended":
+            label += " (extended)"
         lines.append(f'        <a href="{area_href(city["slug"])}">{esc(label)}</a>')
     lines.extend(["      </div>"])
     return "\n".join(lines)
@@ -98,7 +102,13 @@ def build_nav(config: dict) -> tuple[str, str]:
     for county in ordered:
         county_key = county["name"].replace(", FL", "")
         county_cities = [c for c in cities if c.get("county") == county_key]
-        county_cities.sort(key=lambda c: (not c.get("isHeadquarters", False), c["shortName"]))
+        county_cities.sort(
+            key=lambda c: (
+                {"core": 0, "nearby": 1, "extended": 2}.get(c.get("coverageTier"), 9),
+                not c.get("isHeadquarters", False),
+                c["shortName"],
+            )
+        )
         if county_cities:
             desktop.append(desktop_group(county, county_cities))
             mobile.append(mobile_group(county, county_cities))

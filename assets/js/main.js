@@ -893,7 +893,7 @@ function showEstimateFormSuccess(form) {
   const existingSuccess = form.querySelector('.form-success');
   const status = ensureFormStatus(form);
   const message = existingSuccess?.textContent?.trim()
-    || 'Thank you — we received your request and will respond soon.';
+    || 'Got it — we will call you at the number you provided. Keep (727) 439-3869 handy if it is a leak or storm.';
 
   form.classList.remove('is-sending');
   form.classList.add('is-submitted');
@@ -1102,6 +1102,29 @@ async function submitEstimateForm(form) {
   }
 }
 
+function bindCoverageHint(form) {
+  const address = form.querySelector('[name="address"]');
+  if (!address) return;
+  let warn = form.querySelector('.form-geo-warn');
+  if (!warn) {
+    warn = document.createElement('p');
+    warn.className = 'form-geo-warn';
+    warn.hidden = true;
+    address.closest('.form-group')?.insertAdjacentElement('afterend', warn)
+      || address.insertAdjacentElement('afterend', warn);
+  }
+  const far = /\b(jacksonville|orlando|miami|fort lauderdale|tallahassee|gainesville|daytona)\b/i;
+  const update = () => {
+    const farAway = far.test(address.value || '');
+    warn.hidden = !farAway;
+    warn.textContent = farAway
+      ? 'We dispatch from Dunedin and serve Tampa Bay only. Jacksonville, Orlando, and Miami are outside our territory — please call a local contractor there.'
+      : '';
+  };
+  address.addEventListener('input', update);
+  address.addEventListener('change', update);
+}
+
 function initEstimateForms() {
   document.querySelectorAll('.estimate-form').forEach((form) => {
     const formNotes = form.querySelectorAll('.form-note');
@@ -1123,6 +1146,8 @@ function initEstimateForms() {
       e.preventDefault();
       void submitEstimateForm(form);
     });
+
+    bindCoverageHint(form);
 
     const contactInputs = form.querySelectorAll('input[type="email"], input[type="tel"], input[name="email"], input[name="phone"]');
     contactInputs.forEach((input) => {

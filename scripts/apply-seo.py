@@ -20,45 +20,41 @@ from analytics_snippet import inject_analytics
 SKIP_DIRS = {"partials", "scripts", "assets", "data"}
 SKIP_FILES = {"GROWTH-ROADMAP-PROPOSAL.html"}
 
+PINELLAS_CORE = [
+    ("Dunedin", "about-us/locations-we-serve/roofing-company-dunedin-florida/"),
+    ("Clearwater", "about-us/locations-we-serve/roofing-company-clearwater-florida/"),
+    ("Palm Harbor", "about-us/locations-we-serve/roofing-company-palm-harbor-florida/"),
+    ("Largo", "about-us/locations-we-serve/roofing-company-largo-florida/"),
+    ("St. Petersburg", "about-us/locations-we-serve/roofing-company-st-petersburg-florida/"),
+]
+
 SERVICE_LOCATIONS = {
-    "comprehensive-roof-installations": [
-        ("Pinellas County", "about-us/locations-we-serve/roofing-company-pinellas-county-florida/"),
-        ("Hillsborough County", "about-us/locations-we-serve/roofing-company-hillsborough-county-florida/"),
-        ("Tampa", "about-us/locations-we-serve/roofing-company-tampa-florida/"),
-        ("Clearwater", "about-us/locations-we-serve/roofing-company-clearwater-florida/"),
-    ],
-    "expert-roof-repairs-and-maintenance": [
-        ("Dunedin", "about-us/locations-we-serve/roofing-company-dunedin-florida/"),
-        ("St. Petersburg", "about-us/locations-we-serve/roofing-company-st-petersburg-florida/"),
-        ("Largo", "about-us/locations-we-serve/roofing-company-largo-florida/"),
-    ],
-    "free-roof-inspections-and-consultations": [
-        ("Palm Harbor", "about-us/locations-we-serve/roofing-company-palm-harbor-florida/"),
-        ("Seminole", "about-us/locations-we-serve/roofing-company-seminole-florida/"),
-        ("Pasco County", "about-us/locations-we-serve/roofing-company-pasco-county-florida/"),
-    ],
+    "comprehensive-roof-installations": PINELLAS_CORE,
+    "expert-roof-repairs-and-maintenance": PINELLAS_CORE[:4],
+    "free-roof-inspections-and-consultations": PINELLAS_CORE[:3],
     "storm-damage-repair-specialists": [
-        ("Tampa", "about-us/locations-we-serve/roofing-company-tampa-florida/"),
+        ("Dunedin", "about-us/locations-we-serve/roofing-company-dunedin-florida/"),
         ("Clearwater", "about-us/locations-we-serve/roofing-company-clearwater-florida/"),
-        ("Hillsborough County", "about-us/locations-we-serve/roofing-company-hillsborough-county-florida/"),
+        ("Tampa", "about-us/locations-we-serve/roofing-company-tampa-florida/"),
     ],
-    "gutter-installation-and-cleaning": [
-        ("Safety Harbor", "about-us/locations-we-serve/roofing-company-safety-harbor-florida/"),
-        ("New Port Richey", "about-us/locations-we-serve/roofing-company-new-port-richey-florida/"),
-    ],
-    "skylight-installation-and-repair": [
-        ("Pinellas County", "about-us/locations-we-serve/roofing-company-pinellas-county-florida/"),
-        ("Manatee County", "about-us/locations-we-serve/roofing-company-manatee-county-florida/"),
+    "gutter-installation-and-cleaning": PINELLAS_CORE[:3],
+    "skylight-installation-and-repair": PINELLAS_CORE[:2],
+    "roof-replacement": PINELLAS_CORE,
+    "roof-repair": PINELLAS_CORE,
+    "emergency-roof-repair": [
+        ("Dunedin", "about-us/locations-we-serve/roofing-company-dunedin-florida/"),
+        ("Clearwater", "about-us/locations-we-serve/roofing-company-clearwater-florida/"),
+        ("Tampa", "about-us/locations-we-serve/roofing-company-tampa-florida/"),
     ],
 }
 
 LOCATION_SERVICES = [
-    ("Roof Installation", "services/comprehensive-roof-installations/"),
-    ("Roof Repairs", "services/expert-roof-repairs-and-maintenance/"),
+    ("Roof Replacement — primary", "services/roof-replacement/"),
+    ("Roof Repair — primary", "services/roof-repair/"),
+    ("Emergency Repair — primary", "services/emergency-roof-repair/"),
+    ("Storm Damage — primary", "services/storm-damage-repair-specialists/"),
     ("Free Inspections", "services/free-roof-inspections-and-consultations/"),
-    ("Storm Damage", "services/storm-damage-repair-specialists/"),
-    ("Gutters", "services/gutter-installation-and-cleaning/"),
-    ("Skylights", "services/skylight-installation-and-repair/"),
+    ("Atlas Shingle Roofing", "services/shingle-roofing/"),
 ]
 
 CROSS_LINK_START = "<!-- rm-cross-links:start -->"
@@ -88,7 +84,7 @@ def collect_pages() -> list[Path]:
 
 
 def service_cross_links(slug: str) -> str:
-    links = SERVICE_LOCATIONS.get(slug, [])
+    links = SERVICE_LOCATIONS.get(slug) or PINELLAS_CORE
     if not links:
         return ""
     items = "\n".join(
@@ -101,7 +97,7 @@ def service_cross_links(slug: str) -> str:
       <div class="section-header">
         <span class="section-eyebrow">Service Areas</span>
         <h2>Roofing Service Areas for This Work</h2>
-        <p class="section-desc">Roof Monsters serves Tampa Bay from our Dunedin headquarters. Explore local pages related to this service.</p>
+        <p class="section-desc">Roof Monsters serves Pinellas first from Dunedin. These pages are the cities we want most for this work — not Jacksonville.</p>
       </div>
       <ul class="rm-cross-links-list">
 {items}
@@ -139,8 +135,13 @@ def patch_cross_links(text: str, path: Path) -> str:
     )
     slug = path.parent.name
     block = service_cross_links(slug)
-    if block and "<!-- MINI STATS -->" in text:
+    if not block:
+        return text
+    if "<!-- MINI STATS -->" in text:
         return text.replace("  <!-- MINI STATS -->", block + "\n\n  <!-- MINI STATS -->", 1)
+    footer = '  <div id="site-footer-include"></div>'
+    if footer in text:
+        return text.replace(footer, block + "\n" + footer, 1)
     return text
 
 

@@ -1,21 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MRDB8975');</script>
+<!-- End Google Tag Manager -->
   <script>
 (function () {
   var path = location.pathname;
-  var marker = '/roof-monsters/';
+  var marker = '/roof-monsters';
   var idx = path.indexOf(marker);
-  window.__RM_BASE__ = idx >= 0 ? path.slice(0, idx + marker.length) : '/';
-  document.write('<base href="' + window.__RM_BASE__ + '">');
+  var base = idx >= 0 ? path.slice(0, idx + marker.length) + '/' : '/';
+  window.__RM_BASE__ = base;
+  document.write(
+    '<base href="' + base + '">' +
+    '<link rel="icon" href="' + base + 'favicon.ico" sizes="48x48" />' +
+    '<link rel="icon" type="image/png" sizes="32x32" href="' + base + 'assets/icons/favicon-32x32.png" />' +
+    '<link rel="icon" type="image/png" sizes="16x16" href="' + base + 'assets/icons/favicon-16x16.png" />' +
+    '<link rel="apple-touch-icon" sizes="180x180" href="' + base + 'assets/icons/apple-touch-icon.png" />'
+  );
 })();
   </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<!-- rm-icons:start -->
+  <link rel="icon" href="/favicon.ico" sizes="48x48" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16x16.png" />
+  <link rel="icon" type="image/svg+xml" href="/assets/icons/favicon.svg" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-touch-icon.png" />
+  <link rel="apple-touch-icon" sizes="167x167" href="/assets/icons/apple-touch-icon-167x167.png" />
+  <link rel="apple-touch-icon" sizes="152x152" href="/assets/icons/apple-touch-icon-152x152.png" />
+  <link rel="apple-touch-icon" sizes="144x144" href="/assets/icons/apple-touch-icon-144x144.png" />
+  <link rel="apple-touch-icon" sizes="120x120" href="/assets/icons/apple-touch-icon-120x120.png" />
+  <link rel="apple-touch-icon" sizes="76x76" href="/assets/icons/apple-touch-icon-76x76.png" />
+  <link rel="apple-touch-icon" sizes="57x57" href="/assets/icons/apple-touch-icon-57x57.png" />
+  <link rel="mask-icon" href="/assets/icons/safari-pinned-tab.svg" color="#c9a227" />
+  <link rel="manifest" href="/assets/icons/site.webmanifest" />
+  <meta name="theme-color" content="#1a1a1a" />
+  <meta name="msapplication-TileColor" content="#1a1a1a" />
+  <meta name="msapplication-config" content="/assets/icons/browserconfig.xml" />
+<!-- rm-icons:end -->
   <title>Project Gallery | Roof Monsters — Tampa Bay Roofing</title>
   <meta name="description" content="Browse Roof Monsters' project gallery — exceptional roofing installations, repairs, and custom solutions across Pasco, Pinellas, and Hillsborough County, FL." />
 <!-- rm-seo:start -->
   <link rel="canonical" href="https://roofmonsters.co/gallery/" />
+  <link rel="alternate" type="text/plain" href="https://roofmonsters.co/llms.txt" title="LLM site summary" />
+  <link rel="alternate" type="text/plain" href="https://roofmonsters.co/ai.txt" title="AI facts" />
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large" />
   <meta name="geo.region" content="US-FL" />
   <meta name="geo.placename" content="Dunedin, FL" />
@@ -67,6 +101,7 @@
     {
       "@type": [
         "RoofingContractor",
+        "HomeAndConstructionBusiness",
         "LocalBusiness"
       ],
       "@id": "https://roofmonsters.co/#roofingcontractor",
@@ -75,7 +110,7 @@
       "url": "https://roofmonsters.co",
       "telephone": "+1-727-439-3869",
       "email": "info@roofmonsters.co",
-      "description": "Family-owned Tampa Bay roofing contractor since 1988. Roof repair, replacement, inspections, storm damage, gutters, and skylights across Pasco, Pinellas, Hernando, Hillsborough, and Manatee County, FL.",
+      "description": "Family-owned Dunedin roofing contractor since 1988 (Terrance McKeever Enterprises DBA Roof Monsters). Primary work: roof replacement, paid repair, and storm dry-in across Pinellas. Also serves Tampa, west Pasco, and larger jobs in Land O' Lakes / Manatee. Does not serve Jacksonville, Orlando, or Miami.",
       "foundingDate": "1988",
       "priceRange": "$$",
       "image": "https://roofmonsters.co/assets/images/gallery/pinellas-new-roof.webp",
@@ -94,11 +129,50 @@
         "longitude": -82.7718
       },
       "areaServed": [
-        "Pasco County, FL",
-        "Pinellas County, FL",
-        "Hernando County, FL",
-        "Hillsborough County, FL",
-        "Manatee County, FL"
+        {
+          "@type": "City",
+          "name": "Dunedin, FL"
+        },
+        {
+          "@type": "City",
+          "name": "Clearwater, FL"
+        },
+        {
+          "@type": "City",
+          "name": "Palm Harbor, FL"
+        },
+        {
+          "@type": "City",
+          "name": "Largo, FL"
+        },
+        {
+          "@type": "City",
+          "name": "St. Petersburg, FL"
+        },
+        {
+          "@type": "City",
+          "name": "Tampa, FL"
+        },
+        {
+          "@type": "AdministrativeArea",
+          "name": "Pinellas County, FL"
+        },
+        {
+          "@type": "AdministrativeArea",
+          "name": "Hillsborough County, FL"
+        },
+        {
+          "@type": "AdministrativeArea",
+          "name": "Pasco County, FL"
+        },
+        {
+          "@type": "AdministrativeArea",
+          "name": "Hernando County, FL"
+        },
+        {
+          "@type": "AdministrativeArea",
+          "name": "Manatee County, FL"
+        }
       ],
       "sameAs": [
         "https://www.google.com/maps/place/Roof+Monsters/@27.843303,-82.538186,17z/data=!3m1!4b1!4m6!3m5!1s0x2dae46cd46b614c1:0xd2d3fedf6c783ea2!8m2!3d27.843303!4d-82.538186!16s%2Fg%2F11b75qcj8f",
@@ -111,6 +185,15 @@
       "parentOrganization": {
         "@id": "https://roofmonsters.co/#organization"
       },
+      "knowsAbout": [
+        "Roof replacement",
+        "Roof repair",
+        "Emergency roof repair",
+        "Storm damage repair",
+        "Atlas shingle roofing",
+        "McKeever roofing Dunedin"
+      ],
+      "disambiguatingDescription": "Roof Monsters is the DBA of Terrance McKeever Enterprises, Inc., a Dunedin, Florida roofing contractor. Not a Jacksonville or Orlando roofer.",
       "contactPoint": {
         "@type": "ContactPoint",
         "telephone": "+1-727-439-3869",
@@ -167,56 +250,8 @@
       ],
       "hasOfferCatalog": {
         "@type": "OfferCatalog",
-        "name": "Roofing Services",
+        "name": "Roofing services ranked by work we want — replacement, repair, and storm first",
         "itemListElement": [
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Comprehensive Roof Installations",
-              "url": "https://roofmonsters.co/services/comprehensive-roof-installations/"
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Expert Roof Repairs and Maintenance",
-              "url": "https://roofmonsters.co/services/expert-roof-repairs-and-maintenance/"
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Free Roof Inspections and Consultations",
-              "url": "https://roofmonsters.co/services/free-roof-inspections-and-consultations/"
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Storm Damage Repair Specialists",
-              "url": "https://roofmonsters.co/services/storm-damage-repair-specialists/"
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Gutter Installation and Cleaning",
-              "url": "https://roofmonsters.co/services/gutter-installation-and-cleaning/"
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Skylight Installation and Repair",
-              "url": "https://roofmonsters.co/services/skylight-installation-and-repair/"
-            }
-          },
           {
             "@type": "Offer",
             "itemOffered": {
@@ -245,8 +280,32 @@
             "@type": "Offer",
             "itemOffered": {
               "@type": "Service",
+              "name": "Storm Damage Repair Specialists",
+              "url": "https://roofmonsters.co/services/storm-damage-repair-specialists/"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
               "name": "Roof Leak Repair",
               "url": "https://roofmonsters.co/services/roof-leak-repair/"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Free Roof Inspections and Consultations",
+              "url": "https://roofmonsters.co/services/free-roof-inspections-and-consultations/"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Shingle Roofing",
+              "url": "https://roofmonsters.co/services/shingle-roofing/"
             }
           },
           {
@@ -261,6 +320,22 @@
             "@type": "Offer",
             "itemOffered": {
               "@type": "Service",
+              "name": "Comprehensive Roof Installations",
+              "url": "https://roofmonsters.co/services/comprehensive-roof-installations/"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Expert Roof Repairs and Maintenance",
+              "url": "https://roofmonsters.co/services/expert-roof-repairs-and-maintenance/"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
               "name": "Commercial Roofing",
               "url": "https://roofmonsters.co/services/commercial-roofing/"
             }
@@ -269,8 +344,16 @@
             "@type": "Offer",
             "itemOffered": {
               "@type": "Service",
-              "name": "Shingle Roofing",
-              "url": "https://roofmonsters.co/services/shingle-roofing/"
+              "name": "TPO Roofing",
+              "url": "https://roofmonsters.co/services/tpo-roofing/"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Flat Roofing",
+              "url": "https://roofmonsters.co/services/flat-roofing/"
             }
           },
           {
@@ -293,22 +376,6 @@
             "@type": "Offer",
             "itemOffered": {
               "@type": "Service",
-              "name": "Flat Roofing",
-              "url": "https://roofmonsters.co/services/flat-roofing/"
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "TPO Roofing",
-              "url": "https://roofmonsters.co/services/tpo-roofing/"
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
               "name": "Roof Maintenance",
               "url": "https://roofmonsters.co/services/roof-maintenance/"
             }
@@ -319,6 +386,22 @@
               "@type": "Service",
               "name": "Roof Ventilation",
               "url": "https://roofmonsters.co/services/roof-ventilation/"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Gutter Installation and Cleaning",
+              "url": "https://roofmonsters.co/services/gutter-installation-and-cleaning/"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Skylight Installation and Repair",
+              "url": "https://roofmonsters.co/services/skylight-installation-and-repair/"
             }
           }
         ]
@@ -559,6 +642,10 @@
 <!-- rm-analytics:end -->
 </head>
 <body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MRDB8975"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
     <div id="site-header-include"></div>
 
 <!-- PAGE HERO -->
@@ -583,24 +670,6 @@
       </div>
       <div class="gallery-page-grid">
 
-        <figure class="gallery-page-item">
-          <a href="/gallery/before-process-after-new-scope-1d457d38.html">
-            <img src="/assets/images/gallery/before-process-after-new-scope-1d457d38.webp" alt="Roof Flashing" loading="lazy" />
-          </a>
-          <figcaption class="gallery-caption"><span class="gallery-caption-city">Tampa Bay</span><span class="gallery-caption-meta">Before · Process · After</span></figcaption>
-        </figure>
-        <figure class="gallery-page-item">
-          <a href="/gallery/before-process-after-roof-patch-repair-1d457d38.html">
-            <img src="/assets/images/gallery/before-process-after-roof-patch-repair-1d457d38.webp" alt="Roof Patch Repairs" loading="lazy" />
-          </a>
-          <figcaption class="gallery-caption"><span class="gallery-caption-city">Tampa Bay</span><span class="gallery-caption-meta">Before · Process · After</span></figcaption>
-        </figure>
-        <figure class="gallery-page-item">
-          <a href="/gallery/before-process-after-repair-roof-8601fd43.html">
-            <img src="/assets/images/gallery/before-process-after-repair-roof-8601fd43.webp" alt="Repair Roof Flashing" loading="lazy" />
-          </a>
-          <figcaption class="gallery-caption"><span class="gallery-caption-city">Tampa Bay</span><span class="gallery-caption-meta">Before · Process · After</span></figcaption>
-        </figure>
         <figure class="gallery-page-item tall">
           <img src="/assets/images/gallery/installation-01.webp" alt="Atlas shingle roof installation in Clearwater, FL" loading="lazy" />
           <figcaption class="gallery-caption"><span class="gallery-caption-city">Clearwater</span><span class="gallery-caption-meta">Atlas Designer Shingles · Full Replacement</span></figcaption>

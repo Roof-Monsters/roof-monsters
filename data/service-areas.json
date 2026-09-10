@@ -3,7 +3,7 @@
     "city": "Dunedin",
     "state": "FL",
     "county": "Pinellas County",
-    "label": "Dunedin, Florida — company headquarters"
+    "label": "Dunedin, Florida \u2014 company headquarters"
   },
   "serviceCounties": [
     "Pasco County",
@@ -12,7 +12,7 @@
     "Hillsborough County",
     "Manatee County"
   ],
-  "coverageDisclaimer": "Roof Monsters serves the full Tampa Bay region, including all of Pasco, Pinellas, Hernando, Hillsborough, and Manatee Counties — consistent with the service area published on roofmonsters.co. City pages highlight communities we visit often from our Dunedin base; county pages describe whole-county coverage.",
+  "coverageDisclaimer": "Roof Monsters dispatches from Dunedin. Pinellas is the primary service area. We regularly take Tampa and west Pasco jobs. Extended cities (Land O' Lakes, Wesley Chapel, Brandon, Manatee, Hernando) are a fit mainly for larger replacements. We do not serve Jacksonville, Orlando, or Miami.",
   "areas": [
     {
       "type": "city",
@@ -22,14 +22,15 @@
       "county": "Pinellas County",
       "countySlug": "roofing-company-pinellas-county-florida",
       "isHeadquarters": true,
-      "blurb": "Roof Monsters is headquartered in Dunedin — a Gulf Coast city where salt air, summer storms, and mature neighborhoods demand roofs built for Florida conditions.",
-      "localDetail": "From downtown Dunedin and waterfront properties to HOA communities and commercial buildings along US-19, our crews respond quickly because this is home base — not a distant dispatch market.",
+      "blurb": "Roof Monsters is headquartered in Dunedin \u2014 a Gulf Coast city where salt air, summer storms, and mature neighborhoods demand roofs built for Florida conditions.",
+      "localDetail": "From downtown Dunedin and waterfront properties to HOA communities and commercial buildings along US-19, our crews respond quickly because this is home base \u2014 not a distant dispatch market.",
       "nearbyCities": [
         "Clearwater",
         "Palm Harbor",
         "Safety Harbor",
         "Oldsmar"
-      ]
+      ],
+      "coverageTier": "core"
     },
     {
       "type": "city",
@@ -39,13 +40,14 @@
       "county": "Pinellas County",
       "countySlug": "roofing-company-pinellas-county-florida",
       "blurb": "Clearwater homeowners and property managers count on Roof Monsters for shingle replacement, leak repair, and storm response across beachside and inland neighborhoods.",
-      "localDetail": "We routinely serve Clearwater Beach, Island Estates, Countryside, and central Clearwater — within our full Pinellas County service territory.",
+      "localDetail": "We routinely serve Clearwater Beach, Island Estates, Countryside, and central Clearwater \u2014 within our full Pinellas County service territory.",
       "nearbyCities": [
         "Dunedin",
         "Largo",
         "Safety Harbor",
         "St. Petersburg"
-      ]
+      ],
+      "coverageTier": "core"
     },
     {
       "type": "city",
@@ -61,7 +63,8 @@
         "Pinellas Park",
         "Largo",
         "Seminole"
-      ]
+      ],
+      "coverageTier": "core"
     },
     {
       "type": "city",
@@ -77,7 +80,8 @@
         "Seminole",
         "Pinellas Park",
         "St. Petersburg"
-      ]
+      ],
+      "coverageTier": "core"
     },
     {
       "type": "city",
@@ -93,7 +97,8 @@
         "Tarpon Springs",
         "Oldsmar",
         "Safety Harbor"
-      ]
+      ],
+      "coverageTier": "core"
     },
     {
       "type": "city",
@@ -102,14 +107,15 @@
       "slug": "roofing-company-seminole-florida",
       "county": "Pinellas County",
       "countySlug": "roofing-company-pinellas-county-florida",
-      "blurb": "Residential and commercial roofing for Seminole — from single-family homes to multi-unit properties along the Pinellas coast.",
+      "blurb": "Residential and commercial roofing for Seminole \u2014 from single-family homes to multi-unit properties along the Pinellas coast.",
       "localDetail": "Seminole is within our core Pinellas service radius from Dunedin, with the same licensed crews and warranty-backed installs used county-wide.",
       "nearbyCities": [
         "Largo",
         "St. Petersburg",
         "Pinellas Park",
         "Indian Rocks Beach"
-      ]
+      ],
+      "coverageTier": "core"
     },
     {
       "type": "city",
@@ -125,7 +131,8 @@
         "Clearwater",
         "Oldsmar",
         "Tampa"
-      ]
+      ],
+      "coverageTier": "core"
     },
     {
       "type": "city",
@@ -135,13 +142,14 @@
       "county": "Hillsborough County",
       "countySlug": "roofing-company-hillsborough-county-florida",
       "blurb": "Tampa roofing projects span South Tampa bungalows, Westshore commercial properties, and suburban neighborhoods across Hillsborough County.",
-      "localDetail": "We serve Tampa as part of our full Hillsborough County coverage — not a limited-radius patch. Contact us to confirm timing for your neighborhood.",
+      "localDetail": "We serve Tampa as part of our full Hillsborough County coverage \u2014 not a limited-radius patch. Contact us to confirm timing for your neighborhood.",
       "nearbyCities": [
         "Brandon",
         "Town 'n' Country",
         "Plant City",
         "St. Petersburg"
-      ]
+      ],
+      "coverageTier": "nearby"
     },
     {
       "type": "city",
@@ -150,14 +158,15 @@
       "slug": "roofing-company-new-port-richey-florida",
       "county": "Pasco County",
       "countySlug": "roofing-company-pasco-county-florida",
-      "blurb": "Pasco County's Gulf-side communities — including New Port Richey — need reliable storm response and replacement options after years of sun and seasonal weather.",
+      "blurb": "Pasco County's Gulf-side communities \u2014 including New Port Richey \u2014 need reliable storm response and replacement options after years of sun and seasonal weather.",
       "localDetail": "New Port Richey sits within our published Pasco County service area, with projects scheduled from our Tampa Bay operations.",
       "nearbyCities": [
         "Port Richey",
         "Holiday",
         "Trinity",
         "Tarpon Springs"
-      ]
+      ],
+      "coverageTier": "nearby"
     },
     {
       "type": "city",
@@ -173,7 +182,8 @@
         "Dunedin",
         "New Port Richey",
         "Safety Harbor"
-      ]
+      ],
+      "coverageTier": "core"
     },
     {
       "type": "city",
@@ -182,14 +192,15 @@
       "slug": "roofing-company-oldsmar-florida",
       "county": "Pinellas County",
       "countySlug": "roofing-company-pinellas-county-florida",
-      "blurb": "Oldsmar sits at the Pinellas–Hillsborough edge — Roof Monsters serves the city with full replacements, repairs, and free inspections from Dunedin.",
+      "blurb": "Oldsmar sits at the Pinellas\u2013Hillsborough edge \u2014 Roof Monsters serves the city with full replacements, repairs, and free inspections from Dunedin.",
       "localDetail": "From East Lake corridors to residential subdivisions, Oldsmar is within our core Pinellas service territory with the same licensed crews used county-wide.",
       "nearbyCities": [
         "Safety Harbor",
         "Dunedin",
         "Tampa",
         "Palm Harbor"
-      ]
+      ],
+      "coverageTier": "core"
     },
     {
       "type": "city",
@@ -198,14 +209,15 @@
       "slug": "roofing-company-pinellas-park-florida",
       "county": "Pinellas County",
       "countySlug": "roofing-company-pinellas-county-florida",
-      "blurb": "Central Pinellas Park properties need roofing built for Florida storms — installations, repairs, and emergency tarping from Roof Monsters.",
+      "blurb": "Central Pinellas Park properties need roofing built for Florida storms \u2014 installations, repairs, and emergency tarping from Roof Monsters.",
       "localDetail": "Pinellas Park is a frequent project zone between Clearwater and St. Petersburg, covered under our full Pinellas County service area.",
       "nearbyCities": [
         "Largo",
         "St. Petersburg",
         "Seminole",
         "Clearwater"
-      ]
+      ],
+      "coverageTier": "core"
     },
     {
       "type": "city",
@@ -214,14 +226,15 @@
       "slug": "roofing-company-gulfport-florida",
       "county": "Pinellas County",
       "countySlug": "roofing-company-pinellas-county-florida",
-      "blurb": "Gulfport's bay-side homes need ventilation and materials suited to humidity and wind — Roof Monsters delivers licensed residential roofing nearby.",
+      "blurb": "Gulfport's bay-side homes need ventilation and materials suited to humidity and wind \u2014 Roof Monsters delivers licensed residential roofing nearby.",
       "localDetail": "Neighboring St. Petersburg, Gulfport is part of our complete Pinellas coverage with clear written estimates and Atlas installs.",
       "nearbyCities": [
         "St. Petersburg",
         "Pinellas Park",
         "Seminole",
         "Largo"
-      ]
+      ],
+      "coverageTier": "core"
     },
     {
       "type": "city",
@@ -230,14 +243,15 @@
       "slug": "roofing-company-port-richey-florida",
       "county": "Pasco County",
       "countySlug": "roofing-company-pasco-county-florida",
-      "blurb": "Port Richey Gulf-side roofs take a beating from sun and seasonal storms — Roof Monsters provides repair, replacement, and private-pay emergency response.",
+      "blurb": "Port Richey Gulf-side roofs take a beating from sun and seasonal storms \u2014 Roof Monsters provides repair, replacement, and private-pay emergency response.",
       "localDetail": "Port Richey sits within our published Pasco County territory alongside New Port Richey and Holiday.",
       "nearbyCities": [
         "New Port Richey",
         "Holiday",
         "Trinity",
         "Tarpon Springs"
-      ]
+      ],
+      "coverageTier": "nearby"
     },
     {
       "type": "city",
@@ -247,13 +261,14 @@
       "county": "Pasco County",
       "countySlug": "roofing-company-pasco-county-florida",
       "blurb": "Holiday homeowners call Roof Monsters for leak repair, Atlas replacements, and storm tarping across western Pasco.",
-      "localDetail": "Holiday is a core Pasco market for our Tampa Bay crews — free inspections and clear written estimates.",
+      "localDetail": "Holiday is a core Pasco market for our Tampa Bay crews \u2014 free inspections and clear written estimates.",
       "nearbyCities": [
         "New Port Richey",
         "Port Richey",
         "Trinity",
         "Tarpon Springs"
-      ]
+      ],
+      "coverageTier": "nearby"
     },
     {
       "type": "city",
@@ -262,14 +277,15 @@
       "slug": "roofing-company-trinity-florida",
       "county": "Pasco County",
       "countySlug": "roofing-company-pasco-county-florida",
-      "blurb": "Trinity's growing neighborhoods need reliable residential roofing — Roof Monsters installs Atlas systems and handles repairs across Pasco.",
+      "blurb": "Trinity's growing neighborhoods need reliable residential roofing \u2014 Roof Monsters installs Atlas systems and handles repairs across Pasco.",
       "localDetail": "Trinity projects are scheduled as part of our full Pasco County coverage from Tampa Bay operations.",
       "nearbyCities": [
         "New Port Richey",
         "Holiday",
         "Odessa",
         "Palm Harbor"
-      ]
+      ],
+      "coverageTier": "nearby"
     },
     {
       "type": "city",
@@ -278,14 +294,15 @@
       "slug": "roofing-company-wesley-chapel-florida",
       "county": "Pasco County",
       "countySlug": "roofing-company-pasco-county-florida",
-      "blurb": "Wesley Chapel growth corridors need roofing contractors who show up with clear scopes — Roof Monsters serves eastern Pasco with installs and repairs.",
+      "blurb": "Wesley Chapel growth corridors need roofing contractors who show up with clear scopes \u2014 Roof Monsters serves eastern Pasco with installs and repairs.",
       "localDetail": "From master-planned communities to established subdivisions, Wesley Chapel is within our published Pasco service area.",
       "nearbyCities": [
         "Land O' Lakes",
         "Zephyrhills",
         "Tampa",
         "New Port Richey"
-      ]
+      ],
+      "coverageTier": "extended"
     },
     {
       "type": "city",
@@ -295,16 +312,17 @@
       "county": "Pasco County",
       "countySlug": "roofing-company-pasco-county-florida",
       "blurb": "Land O' Lakes homeowners rely on Roof Monsters for Atlas shingle roofing, leak repair, and storm response in central Pasco.",
-      "localDetail": "Roof repair and installation quotes in Land O' Lakes — Atlas shingles, leak work, and the same 15-year workmanship warranty used Tampa Bay-wide.",
+      "localDetail": "Roof repair and installation quotes in Land O' Lakes \u2014 Atlas shingles, leak work, and the same 15-year workmanship warranty used Tampa Bay-wide.",
       "seoTitle": "Roof Repair Land O' Lakes | Installation & Quotes",
-      "seoDescription": "Roof repair Land O' Lakes plus installation quotes. Atlas shingles, licensed Roof Monsters — (727) 439-3869.",
+      "seoDescription": "Roof repair Land O' Lakes plus installation quotes. Atlas shingles, licensed Roof Monsters \u2014 (727) 439-3869.",
       "h1Lead": "Roof Repair in",
       "nearbyCities": [
         "Wesley Chapel",
         "Odessa",
         "Tampa",
         "New Port Richey"
-      ]
+      ],
+      "coverageTier": "extended"
     },
     {
       "type": "city",
@@ -313,14 +331,15 @@
       "slug": "roofing-company-spring-hill-florida",
       "county": "Hernando County",
       "countySlug": "roofing-company-hernando-county-florida",
-      "blurb": "Spring Hill is Hernando's largest residential market — Roof Monsters provides roof replacement, repair, and free inspections.",
+      "blurb": "Spring Hill is Hernando's largest residential market \u2014 Roof Monsters provides roof replacement, repair, and free inspections.",
       "localDetail": "We serve Spring Hill as part of full Hernando County coverage, not a limited map pin.",
       "nearbyCities": [
         "Brooksville",
         "Weeki Wachee",
         "Hudson",
         "New Port Richey"
-      ]
+      ],
+      "coverageTier": "extended"
     },
     {
       "type": "city",
@@ -329,14 +348,15 @@
       "slug": "roofing-company-brooksville-florida",
       "county": "Hernando County",
       "countySlug": "roofing-company-hernando-county-florida",
-      "blurb": "Brooksville and surrounding Hernando communities get licensed roofing from Roof Monsters — installs, repairs, and storm response.",
+      "blurb": "Brooksville and surrounding Hernando communities get licensed roofing from Roof Monsters \u2014 installs, repairs, and storm response.",
       "localDetail": "County seat projects and rural Hernando properties are welcome; contact us to confirm scheduling.",
       "nearbyCities": [
         "Spring Hill",
         "Weeki Wachee",
         "Dade City",
         "Zephyrhills"
-      ]
+      ],
+      "coverageTier": "extended"
     },
     {
       "type": "city",
@@ -352,7 +372,8 @@
         "Riverview",
         "Plant City",
         "Valrico"
-      ]
+      ],
+      "coverageTier": "extended"
     },
     {
       "type": "city",
@@ -361,14 +382,15 @@
       "slug": "roofing-company-riverview-florida",
       "county": "Hillsborough County",
       "countySlug": "roofing-company-hillsborough-county-florida",
-      "blurb": "Riverview's growing south Hillsborough neighborhoods need durable Florida roofing — Atlas installs and repairs from Roof Monsters.",
+      "blurb": "Riverview's growing south Hillsborough neighborhoods need durable Florida roofing \u2014 Atlas installs and repairs from Roof Monsters.",
       "localDetail": "Riverview projects are scheduled within our full Hillsborough County service territory.",
       "nearbyCities": [
         "Brandon",
         "Tampa",
         "Plant City",
         "Sun City Center"
-      ]
+      ],
+      "coverageTier": "extended"
     },
     {
       "type": "city",
@@ -378,13 +400,14 @@
       "county": "Hillsborough County",
       "countySlug": "roofing-company-hillsborough-county-florida",
       "blurb": "Plant City properties across eastern Hillsborough get clear written estimates and licensed roofing from Roof Monsters.",
-      "localDetail": "We serve Plant City as part of all-Hillsborough coverage — residential and light commercial.",
+      "localDetail": "We serve Plant City as part of all-Hillsborough coverage \u2014 residential and light commercial.",
       "nearbyCities": [
         "Brandon",
         "Tampa",
         "Lakeland",
         "Riverview"
-      ]
+      ],
+      "coverageTier": "extended"
     },
     {
       "type": "city",
@@ -393,14 +416,15 @@
       "slug": "roofing-company-bradenton-florida",
       "county": "Manatee County",
       "countySlug": "roofing-company-manatee-county-florida",
-      "blurb": "Bradenton Gulf Coast homes need roofing built for wind and humidity — Roof Monsters serves Manatee County with Atlas installs and repairs.",
+      "blurb": "Bradenton Gulf Coast homes need roofing built for wind and humidity \u2014 Roof Monsters serves Manatee County with Atlas installs and repairs.",
       "localDetail": "Bradenton is a featured Manatee market within our published Tampa Bay five-county territory.",
       "nearbyCities": [
         "Palmetto",
         "Lakewood Ranch",
         "Sarasota",
         "Ellenton"
-      ]
+      ],
+      "coverageTier": "extended"
     },
     {
       "type": "city",
@@ -410,16 +434,17 @@
       "county": "Manatee County",
       "countySlug": "roofing-company-manatee-county-florida",
       "blurb": "Palmetto homeowners call Roof Monsters for leak repair, storm response, and full roof replacement across northern Manatee.",
-      "localDetail": "Roof inspections and repairs in Palmetto — leak work, replacements, and storm tarping with licensed Florida crews.",
+      "localDetail": "Roof inspections and repairs in Palmetto \u2014 leak work, replacements, and storm tarping with licensed Florida crews.",
       "seoTitle": "Roof Inspection Palmetto FL | Repair & Replacement",
-      "seoDescription": "Roof inspection Palmetto FL plus leak repair and replacement. Licensed Roof Monsters — free estimate: (727) 439-3869.",
+      "seoDescription": "Roof inspection Palmetto FL plus leak repair and replacement. Licensed Roof Monsters \u2014 free estimate: (727) 439-3869.",
       "h1Lead": "Roof Inspection & Repair in",
       "nearbyCities": [
         "Bradenton",
         "Ellenton",
         "Lakewood Ranch",
         "Ruskin"
-      ]
+      ],
+      "coverageTier": "extended"
     },
     {
       "type": "city",
@@ -428,17 +453,18 @@
       "slug": "roofing-company-lakewood-ranch-florida",
       "county": "Manatee County",
       "countySlug": "roofing-company-manatee-county-florida",
-      "blurb": "Lakewood Ranch communities often need HOA-ready documentation and quality materials — Roof Monsters delivers Atlas roofing with clear scopes.",
-      "localDetail": "Free roof inspections, leak repair, and storm tarping in Lakewood Ranch HOAs — licensed private-pay crews from Dunedin, not insurance-claim coordination.",
+      "blurb": "Lakewood Ranch communities often need HOA-ready documentation and quality materials \u2014 Roof Monsters delivers Atlas roofing with clear scopes.",
+      "localDetail": "Free roof inspections, leak repair, and storm tarping in Lakewood Ranch HOAs \u2014 licensed private-pay crews from Dunedin, not insurance-claim coordination.",
       "seoTitle": "Roof Inspection Lakewood Ranch | Tarping & Repair",
-      "seoDescription": "Roof inspection Lakewood Ranch plus tarping and repair. Free estimates from Roof Monsters — licensed, private-pay, (727) 439-3869.",
+      "seoDescription": "Roof inspection Lakewood Ranch plus tarping and repair. Free estimates from Roof Monsters \u2014 licensed, private-pay, (727) 439-3869.",
       "h1Lead": "Roof Inspection in",
       "nearbyCities": [
         "Bradenton",
         "Palmetto",
         "Sarasota",
         "Ellenton"
-      ]
+      ],
+      "coverageTier": "extended"
     },
     {
       "type": "county",
@@ -446,7 +472,7 @@
       "shortName": "Pinellas County",
       "slug": "roofing-company-pinellas-county-florida",
       "fullCounty": true,
-      "blurb": "From the Gulf beaches to inland Pinellas neighborhoods, Roof Monsters delivers full-county roofing — headquartered in Dunedin since 1988.",
+      "blurb": "From the Gulf beaches to inland Pinellas neighborhoods, Roof Monsters delivers full-county roofing \u2014 headquartered in Dunedin since 1988.",
       "coverageStatement": "We serve all of Pinellas County, FL. The cities linked below are frequent project areas near our Dunedin headquarters; we also take on work throughout the county's other municipalities and unincorporated areas.",
       "featuredCities": [
         {
@@ -499,7 +525,8 @@
         "Indian Rocks Beach",
         "Belleair",
         "Kenneth City"
-      ]
+      ],
+      "coverageTier": "core"
     },
     {
       "type": "county",
@@ -507,7 +534,7 @@
       "shortName": "Pasco County",
       "slug": "roofing-company-pasco-county-florida",
       "fullCounty": true,
-      "blurb": "Roof installation, repair, and storm response across Pasco County — from Wesley Chapel growth corridors to Gulf-side New Port Richey.",
+      "blurb": "Roof installation, repair, and storm response across Pasco County \u2014 from Wesley Chapel growth corridors to Gulf-side New Port Richey.",
       "coverageStatement": "Roof Monsters serves all of Pasco County, FL, matching our Tampa Bay service area published on roofmonsters.co. Featured cities reflect common project zones; we welcome inquiries from anywhere in the county.",
       "featuredCities": [
         {
@@ -539,7 +566,8 @@
         "Hudson",
         "Zephyrhills",
         "Dade City"
-      ]
+      ],
+      "coverageTier": "nearby"
     },
     {
       "type": "county",
@@ -548,7 +576,7 @@
       "slug": "roofing-company-hernando-county-florida",
       "fullCounty": true,
       "blurb": "Reliable roof repair, replacement, and storm response for Brooksville, Spring Hill, and communities throughout Hernando County.",
-      "coverageStatement": "We provide roofing services throughout Hernando County, FL — not only the cities listed below. Contact us to schedule an inspection anywhere in the county.",
+      "coverageStatement": "We provide roofing services throughout Hernando County, FL \u2014 not only the cities listed below. Contact us to schedule an inspection anywhere in the county.",
       "featuredCities": [
         {
           "name": "Spring Hill",
@@ -563,7 +591,8 @@
         "Weeki Wachee",
         "Ridge Manor",
         "Masaryktown"
-      ]
+      ],
+      "coverageTier": "extended"
     },
     {
       "type": "county",
@@ -596,7 +625,8 @@
         "Temple Terrace",
         "Sun City Center",
         "Ruskin"
-      ]
+      ],
+      "coverageTier": "nearby"
     },
     {
       "type": "county",
@@ -625,7 +655,17 @@
         "Parrish",
         "Anna Maria Island",
         "Holmes Beach"
-      ]
+      ],
+      "coverageTier": "extended"
     }
+  ],
+  "notServed": [
+    "Jacksonville",
+    "Orlando",
+    "Miami",
+    "Fort Lauderdale",
+    "Gainesville",
+    "Tallahassee",
+    "Daytona Beach"
   ]
 }

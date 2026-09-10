@@ -6182,3 +6182,104 @@ html.rm-js .home-static-intro {
 .rm-map-overlay strong {
   font-size: 0.9rem;
 }
+
+/* Job rank + coverage badges */
+.rm-job-rank {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 10px 14px;
+  margin: 0 0 16px;
+}
+.rm-job-rank__badge {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #1a1a1a;
+  background: #c9a227;
+  padding: 6px 10px;
+  border-radius: 4px;
+}
+.rm-job-rank--nearby .rm-job-rank__badge,
+.area-card-badge--nearby {
+  background: #d4c4a0;
+}
+.rm-job-rank--extended .rm-job-rank__badge,
+.area-card-badge--extended {
+  background: #e8e0d0;
+}
+.rm-job-rank__why {
+  color: #4a4a4a;
+  font-size: 0.95rem;
+  line-height: 1.45;
+  flex: 1 1 220px;
+}
+.area-card-badge {
+  display: inline-block;
+  margin-left: 6px;
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  background: #c9a227;
+  color: #1a1a1a;
+  padding: 3px 7px;
+  border-radius: 3px;
+  vertical-align: middle;
+}
+.rm-job-group {
+  margin-top: 48px;
+}
+.rm-job-group__intro {
+  max-width: 720px;
+  margin: 0 auto 8px;
+  text-align: center;
+  color: #4a4a4a;
+}
+.estimate-form .form-note {
+  margin-top: 12px;
+  font-size: 0.85rem;
+  line-height: 1.45;
+  color: #555;
+}
+.rm-sticky-call {
+  display: none;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 80;
+  background: #1a1a1a;
+  color: #fff;
+  text-align: center;
+  padding: 12px 16px calc(12px + env(safe-area-inset-bottom));
+  text-decoration: none;
+  box-shadow: 0 -4px 18px rgba(0, 0, 0, 0.25);
+}
+.rm-sticky-call__label {
+  display: block;
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #c9a227;
+}
+.rm-sticky-call__number {
+  display: block;
+  font-weight: 800;
+  font-size: 1.1rem;
+}
+@media (max-width: 900px) {
+  .rm-sticky-call { display: block; }
+  body { padding-bottom: 72px; }
+}
+.form-geo-warn {
+  margin: 8px 0 0;
+  padding: 8px 10px;
+  background: #fff6e5;
+  border: 1px solid #c9a227;
+  color: #3a2a00;
+  font-size: 0.88rem;
+  line-height: 1.4;
+}

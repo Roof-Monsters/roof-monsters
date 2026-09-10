@@ -1,13 +1,20 @@
 #!/usr/bin/env python3
-"""Update gallery page with descriptive captions."""
+"""Update gallery page with static projects plus field-app composites."""
 
 from __future__ import annotations
 
+import json
+from html import escape
 from pathlib import Path
+
+from base_head_script import BASE_HEAD_SCRIPT
+from icon_snippet import icon_head_html
 
 ROOT = Path(__file__).resolve().parents[1]
 GALLERY = ROOT / "gallery" / "index.html"
+MANIFEST = ROOT / "gallery" / "job-gallery.json"
 
+# Static showcase photos (non-composite). Field-app composites prepend from job-gallery.json.
 ITEMS = [
     ("installation-01.webp", "tall", "Atlas shingle roof installation in Clearwater, FL", "Clearwater", "Atlas Designer Shingles · Full Replacement"),
     ("project-02.webp", "", "Steep-slope roof repair in Dunedin, FL", "Dunedin", "Architectural Shingles · Repair & Flashing"),
@@ -26,20 +33,20 @@ ITEMS = [
     ("rob-lewis-square.webp", "", "Roof Monsters team at Dunedin headquarters", "Dunedin HQ", "Family Owned · Since 1988"),
 ]
 
-HEAD = """<!DOCTYPE html>
+HEAD = f"""<!DOCTYPE html>
 <html lang="en">
 <head>
-  <script>
-(function () {
-  var path = location.pathname;
-  var marker = '/roof-monsters/';
-  var idx = path.indexOf(marker);
-  window.__RM_BASE__ = idx >= 0 ? path.slice(0, idx + marker.length) : '/';
-  document.write('<base href="' + window.__RM_BASE__ + '">');
-})();
-  </script>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){{w[l]=w[l]||[];w[l].push({{'gtm.start':
+new Date().getTime(),event:'gtm.js'}});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+}})(window,document,'script','dataLayer','GTM-MRDB8975');</script>
+<!-- End Google Tag Manager -->
+{BASE_HEAD_SCRIPT}
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+{icon_head_html()}
   <title>Project Gallery | Roof Monsters — Tampa Bay Roofing</title>
   <meta name="description" content="Browse Roof Monsters' project gallery — exceptional roofing installations, repairs, and custom solutions across Pasco, Pinellas, and Hillsborough County, FL." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -49,6 +56,10 @@ HEAD = """<!DOCTYPE html>
   <link rel="stylesheet" href="/assets/css/style.css" />
 </head>
 <body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MRDB8975"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
     <div id="site-header-include"></div>
 
 <!-- PAGE HERO -->
@@ -105,19 +116,51 @@ FOOT = """
 """
 
 
-def item_html(file: str, size: str, alt: str, city: str, meta: str) -> str:
+def item_html(file: str, size: str, alt: str, city: str, meta: str, *, href: str = "") -> str:
     cls = f'gallery-page-item{" tall" if size else ""}'
     team_files = {"rob-lewis-square.webp", "crew-01.webp"}
     team_path = "/assets/images/team/" if file in team_files else "/assets/images/gallery/"
+    src = f"{team_path}{file}" if not file.startswith("/") and "://" not in file else file
+    if href:
+        return f"""
+        <figure class="{cls}">
+          <a href="{escape(href, quote=True)}">
+            <img src="{escape(src, quote=True)}" alt="{escape(alt)}" loading="lazy" />
+          </a>
+          <figcaption class="gallery-caption"><span class="gallery-caption-city">{escape(city)}</span><span class="gallery-caption-meta">{escape(meta)}</span></figcaption>
+        </figure>"""
     return f"""
         <figure class="{cls}">
-          <img src="{team_path}{file}" alt="{alt}" loading="lazy" />
-          <figcaption class="gallery-caption"><span class="gallery-caption-city">{city}</span><span class="gallery-caption-meta">{meta}</span></figcaption>
+          <img src="{escape(src, quote=True)}" alt="{escape(alt)}" loading="lazy" />
+          <figcaption class="gallery-caption"><span class="gallery-caption-city">{escape(city)}</span><span class="gallery-caption-meta">{escape(meta)}</span></figcaption>
         </figure>"""
 
 
+def job_composite_items() -> list[str]:
+    if not MANIFEST.is_file():
+        return []
+    try:
+        data = json.loads(MANIFEST.read_text(encoding="utf-8-sig"))
+    except json.JSONDecodeError:
+        return []
+    blocks: list[str] = []
+    for project in data.get("projects") or []:
+        image = str(project.get("image") or "").strip()
+        if not image:
+            continue
+        filename = image.rsplit("/", 1)[-1]
+        title = str(project.get("title") or filename)
+        city = str(project.get("city") or "Tampa Bay").strip() or "Tampa Bay"
+        meta = str(project.get("meta") or "Before · Process · After").strip()
+        detail = str(project.get("detail_url") or "").strip()
+        href = f"/{detail}" if detail and not detail.startswith("/") else detail
+        blocks.append(item_html(filename, "", title, city, meta, href=href))
+    return blocks
+
+
 def main() -> None:
-    body = "".join(item_html(*row) for row in ITEMS)
+    body = "".join(job_composite_items())
+    body += "".join(item_html(*row) for row in ITEMS)
     GALLERY.write_text(HEAD + body + FOOT, encoding="utf-8")
     print(f"Wrote {GALLERY}")
 

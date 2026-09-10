@@ -760,11 +760,15 @@ def guide_for(area: dict) -> dict:
     default_faqs = [
         (
             f"Do you serve all of {name}?",
-            f"Yes — {name} is within our published Tampa Bay coverage across Pasco, Pinellas, Hernando, Hillsborough, and Manatee County.",
+            f"Yes — {name} is within our published Tampa Bay coverage across Pasco, Pinellas, Hernando, Hillsborough, and Manatee County. Pinellas jobs from Dunedin are scheduled first; farther cities are a better fit for larger replacements.",
+        ),
+        (
+            "Do you take jobs in Jacksonville or Orlando?",
+            "No. Roof Monsters dispatches from Dunedin and serves Tampa Bay only — Pinellas, Pasco, Hillsborough, Hernando, and Manatee. Jacksonville, Orlando, Miami, and North Florida are outside our territory.",
         ),
         (
             f"How fast can Roof Monsters respond in {short}?",
-            f"We dispatch from Dunedin for {short} inspections and repairs. Emergency tarping is available 24/7 for active leaks; routine estimates typically schedule within a few business days.",
+            f"We dispatch from Dunedin for {short} inspections and repairs. Emergency tarping is available 24/7 for active leaks in our Tampa Bay territory; routine estimates typically schedule within a few business days — faster in Pinellas.",
         ),
         (
             "Are estimates free?",

@@ -56,7 +56,31 @@ def area_url(slug: str) -> str:
     return f"/about-us/locations-we-serve/{slug}/"
 
 
-def cta_block(short: str) -> str:
+TIER_LABEL = {
+    "core": ("Rank 1 coverage", "Primary service area — Dunedin dispatch"),
+    "nearby": ("Rank 2 coverage", "Regular Tampa Bay jobs — still local"),
+    "extended": ("Rank 3 coverage", "Extended radius — larger jobs preferred"),
+}
+
+
+def coverage_banner(area: dict) -> str:
+    tier = area.get("coverageTier") or "extended"
+    rank_label, note = TIER_LABEL.get(tier, TIER_LABEL["extended"])
+    extra = ""
+    if tier == "extended":
+        extra = (
+            " Smaller leak calls here may wait. Jacksonville, Orlando, and Miami are outside our territory."
+        )
+    elif tier == "core":
+        extra = " This is the work and geography we want most."
+    return f"""
+      <p class="rm-job-rank rm-job-rank--{esc(tier)}" data-coverage-tier="{esc(tier)}">
+        <span class="rm-job-rank__badge">{esc(rank_label)}</span>
+        <span class="rm-job-rank__why">{esc(note)}.{extra}</span>
+      </p>"""
+
+
+def cta_block(short: str, form_id: str = "rm") -> str:
     return f"""
   <section class="service-cta-section">
     <div class="container service-cta-grid">
@@ -73,7 +97,7 @@ def cta_block(short: str) -> str:
       </div>
       <div class="cta-form-card">
         <h3>Request a Free Estimate</h3>
-        {estimate_form_compact(address_placeholder=short + " address")}
+        {estimate_form_compact(address_placeholder=short + " address, FL", form_id=form_id)}
       </div>
     </div>
   </section>
@@ -146,16 +170,16 @@ def local_guide_block(area: dict, guide: dict) -> str:
 def services_block(short: str) -> str:
     return f"""
         <!-- rm-cross-links:start -->
-        <h3>Roofing Services in {esc(short)}</h3>
+        <h3>Roofing Services in {esc(short)} (ranked)</h3>
         <ul class="rm-cross-links-inline">
-          <li><a href="/services/roof-replacement/">Roof Replacement</a></li>
-          <li><a href="/services/roof-repair/">Roof Repair</a></li>
-          <li><a href="/services/emergency-roof-repair/">Emergency Roof Repair</a></li>
-          <li><a href="/services/shingle-roofing/">Atlas Shingle Roofing</a></li>
-          <li><a href="/services/storm-damage-repair-specialists/">Storm &amp; Emergency Response</a></li>
-          <li><a href="/services/free-roof-inspections-and-consultations/">Free Roof Inspections</a></li>
-          <li><a href="/services/residential-roofing/">Residential Roofing</a></li>
-          <li><a href="/services/commercial-roofing/">Commercial Roofing</a></li>
+          <li><a href="/services/roof-replacement/">Roof Replacement — Rank 1 primary</a></li>
+          <li><a href="/services/roof-repair/">Roof Repair — Rank 1 primary</a></li>
+          <li><a href="/services/emergency-roof-repair/">Emergency Roof Repair — Rank 1 primary</a></li>
+          <li><a href="/services/storm-damage-repair-specialists/">Storm Damage — Rank 1 primary</a></li>
+          <li><a href="/services/free-roof-inspections-and-consultations/">Free Inspections — Rank 2</a></li>
+          <li><a href="/services/shingle-roofing/">Atlas Shingle Roofing — Rank 2</a></li>
+          <li><a href="/services/residential-roofing/">Residential Roofing — Rank 2</a></li>
+          <li><a href="/services/commercial-roofing/">Commercial Roofing — Rank 3 specialty</a></li>
         </ul>
         <!-- rm-cross-links:end -->
 """
@@ -334,6 +358,7 @@ def city_page(area: dict, config: dict) -> str:
     <div class="container service-intro-grid">
       <div class="service-intro-content">
         <span class="section-eyebrow">{"Headquarters City" if area.get("isHeadquarters") else "Local Roofing Experts"}</span>
+        {coverage_banner(area)}
         <h2>Trusted Roofing Services in {esc(name)}</h2>
         <p>{esc(area["blurb"])} Roof Monsters brings nearly four decades of Florida roofing experience to every project, with clear estimates, quality materials, and crews who know how Gulf Coast weather affects your roof.</p>
         {local_para}
@@ -346,7 +371,7 @@ def city_page(area: dict, config: dict) -> str:
       </div>
     </div>
   </section>
-""" + local_guide_block(area, guide) + why_block(short, name, area["slug"]) + local_faq_block(short, name, guide["faqs"]) + cta_block(short) + FOOT
+""" + local_guide_block(area, guide) + why_block(short, name, area["slug"]) + local_faq_block(short, name, guide["faqs"]) + cta_block(short, area["slug"][-12:]) + FOOT
 
 
 def county_page(area: dict, config: dict) -> str:
@@ -381,6 +406,7 @@ def county_page(area: dict, config: dict) -> str:
     <div class="container service-intro-grid">
       <div class="service-intro-content">
         <span class="section-eyebrow">County-Wide Service</span>
+        {coverage_banner(area)}
         <h2>Trusted Roofing Throughout {esc(name)}</h2>
         <p>{esc(area["blurb"])} Our Dunedin headquarters puts Pinellas and the wider Tampa Bay region within practical reach for inspections, repairs, and full replacements.</p>
         <p class="area-coverage-note area-coverage-note--inline">{esc(area.get("coverageStatement", ""))}</p>
@@ -391,23 +417,37 @@ def county_page(area: dict, config: dict) -> str:
       </div>
     </div>
   </section>
-""" + featured_cities_html(area) + local_guide_block(area, guide) + why_block(short, name, area["slug"]) + local_faq_block(short, name, guide["faqs"]) + cta_block(short) + FOOT
+""" + featured_cities_html(area) + local_guide_block(area, guide) + why_block(short, name, area["slug"]) + local_faq_block(short, name, guide["faqs"]) + cta_block(short, area["slug"][-12:]) + FOOT
 
 
 def hub_page(config: dict, cities: list[dict], counties: list[dict]) -> str:
     hq = config["headquarters"]
     counties_label = ", ".join(config["serviceCounties"])
 
-    city_cards = []
-    for area in cities:
-        badge = ' <span class="area-card-badge">HQ</span>' if area.get("isHeadquarters") else ""
-        city_cards.append(f"""
-        <div class="service-page-card">
+    def cards_for(group: list[dict]) -> str:
+        out = []
+        for area in group:
+            tier = area.get("coverageTier") or "extended"
+            rank_label, _note = TIER_LABEL.get(tier, TIER_LABEL["extended"])
+            badge = ""
+            if area.get("isHeadquarters"):
+                badge += ' <span class="area-card-badge">HQ</span>'
+            badge += f' <span class="area-card-badge area-card-badge--{esc(tier)}">{esc(rank_label)}</span>'
+            out.append(f"""
+        <div class="service-page-card" data-coverage-tier="{esc(tier)}">
           <div class="spc-icon"><i class="fa-solid fa-location-dot"></i></div>
           <h3>{esc(area["name"].replace(", FL", ", Florida"))}{badge}</h3>
           <p>{esc(area["blurb"])}</p>
           <a href="{area_url(area["slug"])}" class="service-link">View {esc(area["shortName"])} <i class="fa-solid fa-arrow-right"></i></a>
         </div>""")
+        return "".join(out)
+
+    core = [c for c in cities if c.get("coverageTier") == "core"]
+    nearby = [c for c in cities if c.get("coverageTier") == "nearby"]
+    extended = [c for c in cities if c.get("coverageTier") not in {"core", "nearby"}]
+    core.sort(key=lambda c: (not c.get("isHeadquarters", False), c["shortName"]))
+    nearby.sort(key=lambda c: c["shortName"])
+    extended.sort(key=lambda c: c["shortName"])
 
     county_cards = []
     for area in counties:
@@ -449,12 +489,12 @@ def hub_page(config: dict, cities: list[dict], counties: list[dict]) -> str:
         <h2>Serving All of Tampa Bay — From Our Home Base in Dunedin</h2>
         <p>Roof Monsters is headquartered in <strong>{esc(hq["city"])}, Florida</strong> and provides roofing across <strong>{esc(counties_label)}</strong> — the same five-county Tampa Bay territory published on roofmonsters.co.</p>
         <p>{esc(config.get("coverageDisclaimer", ""))}</p>
-        <p>City pages focus on high-intent local searches in Pinellas and select neighboring markets. County pages explain whole-county service and link to featured communities within our typical project radius.</p>
+        <p>Pinellas cities are Rank 1 coverage (fastest from Dunedin). Tampa and west Pasco are Rank 2. Land O' Lakes, Wesley Chapel, Brandon, and Manatee cities are Rank 3 — we take them when the job size fits. We do not serve Jacksonville, Orlando, or Miami.</p>
 
         <h3>Why Choose Roof Monsters in Florida?</h3>
         <div class="benefits-list">
           <div class="benefit-item"><i class="fa-solid fa-check-circle"></i><p><strong>Dunedin-Based Operations</strong> — Fast response across Pinellas and the wider bay area from a local headquarters, not a national call center.</p></div>
-          <div class="benefit-item"><i class="fa-solid fa-check-circle"></i><p><strong>County-Wide Coverage</strong> — We serve all of Pasco, Pinellas, Hernando, Hillsborough, and Manatee Counties.</p></div>
+          <div class="benefit-item"><i class="fa-solid fa-check-circle"></i><p><strong>Pinellas First</strong> — Dunedin HQ. Core Pinellas cities are Rank 1. Tampa / west Pasco are Rank 2. Farther cities are Rank 3 (larger jobs). Not Jacksonville.</p></div>
           <div class="benefit-item"><i class="fa-solid fa-check-circle"></i><p><strong>HOA &amp; Property Manager Support</strong> — Documentation, scheduling, and communication tailored for communities and managers (CAM experience on staff).</p></div>
         </div>
       </div>
@@ -467,12 +507,38 @@ def hub_page(config: dict, cities: list[dict], counties: list[dict]) -> str:
   <section class="services-page-section section-pad section-bg-white">
     <div class="container">
       <div class="section-header">
-        <span class="section-eyebrow">Pinellas Cities</span>
-        <h2>City Pages — <span class="accent">Pinellas &amp; Select Markets</span></h2>
-        <p class="section-desc">Local landing pages for communities we serve frequently from Dunedin. Every Pinellas city is part of our full county coverage.</p>
+        <span class="section-eyebrow">Rank 1 coverage</span>
+        <h2>Primary Cities — <span class="accent">Pinellas from Dunedin</span></h2>
+        <p class="section-desc">The jobs we want most. Headquarters in Dunedin; same licensed crews across core Pinellas.</p>
       </div>
       <div class="services-page-grid">
-        {"".join(city_cards)}
+        {cards_for(core)}
+      </div>
+    </div>
+  </section>
+
+  <section class="services-page-section section-pad">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow">Rank 2 coverage</span>
+        <h2>Nearby Tampa Bay — <span class="accent">Still Local</span></h2>
+        <p class="section-desc">Tampa and west Pasco are regular dispatch. Same crews; a bit more drive time than Pinellas.</p>
+      </div>
+      <div class="services-page-grid">
+        {cards_for(nearby)}
+      </div>
+    </div>
+  </section>
+
+  <section class="services-page-section section-pad section-bg-white">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow">Rank 3 coverage</span>
+        <h2>Extended Radius — <span class="accent">Larger Jobs Preferred</span></h2>
+        <p class="section-desc">Land O' Lakes, Wesley Chapel, Brandon, Hernando, and Manatee. We can take the work when the scope fits a Dunedin dispatch. We do not serve Jacksonville.</p>
+      </div>
+      <div class="services-page-grid">
+        {cards_for(extended)}
       </div>
     </div>
   </section>

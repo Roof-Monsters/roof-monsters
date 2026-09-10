@@ -3,6 +3,7 @@
   "formspreeId": "mbdvvbnp",
   "endpoint": "https://formspree.io/f/mbdvvbnp",
   "recipientEmail": "info@roofmonsters.co",
+  "ownerNotifyEmail": "roofmonsters@icloud.com",
   "subjectPrefix": "Roof Monsters website lead",
   "fallbackEmail": "info@roofmonsters.co",
   "fallbackPhone": "(727) 439-3869"

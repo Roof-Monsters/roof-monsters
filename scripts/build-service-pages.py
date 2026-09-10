@@ -23,6 +23,28 @@ SKIP_SLUGS = {
     "skylight-installation-and-repair",
 }
 
+JOB_RANK = {
+    "roof-replacement": (1, "Primary work", "Highest-ticket job we want in Pinellas and Tampa Bay."),
+    "roof-repair": (1, "Primary work", "Paid repairs that keep the calendar full and often lead to replacements."),
+    "emergency-roof-repair": (1, "Primary work", "Storm dry-in and tarping — we call you back the same day when we can."),
+    "roof-leak-repair": (2, "Core pipeline", "Find the leak, stop the water, then decide repair vs replace."),
+    "residential-roofing": (2, "Core pipeline", "Family homes from Dunedin across Pinellas — the bulk of our work."),
+    "shingle-roofing": (2, "Core pipeline", "Atlas Designer Shingles on qualifying steep-slope installs."),
+    "commercial-roofing": (3, "Specialty systems", "Multi-unit and business roofs when the building needs a commercial scope."),
+    "tpo-roofing": (3, "Specialty systems", "Low-slope TPO when the deck calls for it — not our first marketing offer."),
+    "flat-roofing": (3, "Specialty systems", "Low-slope and flat decks, including TPO options."),
+    "metal-roofing": (3, "Specialty systems", "Metal when structure, HOA, and budget support it."),
+    "tile-roofing": (3, "Specialty systems", "Tile repair and replacement for coastal-ready systems."),
+    "roof-maintenance": (4, "Add-on / supporting", "Seasonal checkups that protect a roof we already installed or repaired."),
+    "roof-ventilation": (4, "Add-on / supporting", "Attic airflow upgrades — best bundled with a re-roof or heat complaint."),
+    "storm-damage-repair-specialists": (1, "Primary work", "Storm dry-in that often becomes a replacement — Pinellas and Tampa Bay only."),
+    "comprehensive-roof-installations": (2, "Core pipeline", "Installation hub for new roofs and re-roofs from Dunedin."),
+    "expert-roof-repairs-and-maintenance": (2, "Core pipeline", "Repair and upkeep hub — feeds paid work and replacements."),
+    "free-roof-inspections-and-consultations": (2, "Core pipeline", "Free inspections that convert neighbors into jobs."),
+    "gutter-installation-and-cleaning": (4, "Add-on / supporting", "Best bundled with a repair or replacement, not the main offer."),
+    "skylight-installation-and-repair": (4, "Add-on / supporting", "Watertight skylights — best with a re-roof."),
+}
+
 PAGES = [
     {
         "slug": "roof-replacement",
@@ -1382,6 +1404,16 @@ def related_links(items: list) -> str:
     return "\n          ".join(lis)
 
 
+def job_rank_banner(p: dict) -> str:
+    slug = p["slug"]
+    rank, label, why = JOB_RANK.get(slug, (2, "Roofing service", "Licensed Tampa Bay roofing from Dunedin."))
+    return f"""
+      <p class="rm-job-rank" data-job-rank="{rank}">
+        <span class="rm-job-rank__badge">Rank {rank} · {esc(label)}</span>
+        <span class="rm-job-rank__why">{esc(why)}</span>
+      </p>"""
+
+
 def page_html(p: dict) -> str:
     return f"""<!DOCTYPE html>
 <html lang="en">
@@ -1420,6 +1452,7 @@ def page_html(p: dict) -> str:
     <div class="container service-intro-grid">
       <div class="service-intro-content">
         <span class="section-eyebrow">{esc(p["eyebrow"])}</span>
+        {job_rank_banner(p)}
         <h2>{p["h1"]}</h2>
         <p>{esc(p["lead"])}</p>
         <p>{esc(p["body"])}</p>
@@ -1460,7 +1493,7 @@ def page_html(p: dict) -> str:
       </div>
       <div class="cta-form-card">
         <h3>Request a Free Estimate</h3>
-        {estimate_form_compact()}
+        {estimate_form_compact(form_id=p["slug"][:12])}
       </div>
     </div>
   </section>

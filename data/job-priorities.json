@@ -1,0 +1,195 @@
+{
+  "updated": "2026-09-10",
+  "dispatchFrom": "Dunedin, FL",
+  "phone": "(727) 439-3869",
+  "notServed": [
+    "Jacksonville",
+    "Orlando",
+    "Miami",
+    "Fort Lauderdale",
+    "Gainesville",
+    "Tallahassee",
+    "Daytona Beach"
+  ],
+  "coverageTiers": {
+    "core": {
+      "rank": 1,
+      "label": "Primary service area",
+      "badge": "Core — Dunedin dispatch",
+      "note": "Fastest scheduling from headquarters. Pinellas jobs are the work we want most.",
+      "cities": [
+        "Dunedin",
+        "Clearwater",
+        "Palm Harbor",
+        "Safety Harbor",
+        "Oldsmar",
+        "Largo",
+        "Tarpon Springs",
+        "Pinellas Park",
+        "Seminole",
+        "St. Petersburg",
+        "Gulfport"
+      ]
+    },
+    "nearby": {
+      "rank": 2,
+      "label": "Regular Tampa Bay dispatch",
+      "badge": "Nearby — still local",
+      "note": "We take these jobs routinely. Same licensed crews; allow a bit more drive time than Pinellas.",
+      "cities": [
+        "Tampa",
+        "New Port Richey",
+        "Port Richey",
+        "Holiday",
+        "Trinity"
+      ]
+    },
+    "extended": {
+      "rank": 3,
+      "label": "Extended — larger jobs preferred",
+      "badge": "Extended radius",
+      "note": "We can take work here when the scope fits a Dunedin dispatch (typically full replacements and larger repairs). Smaller leak calls may wait. Land O' Lakes, Wesley Chapel, Brandon, and Manatee cities sit here — not Jacksonville.",
+      "cities": [
+        "Land O' Lakes",
+        "Wesley Chapel",
+        "Spring Hill",
+        "Brooksville",
+        "Brandon",
+        "Riverview",
+        "Plant City",
+        "Bradenton",
+        "Palmetto",
+        "Lakewood Ranch"
+      ]
+    }
+  },
+  "jobs": [
+    {
+      "rank": 1,
+      "tier": "primary",
+      "label": "Primary work",
+      "why": "Highest ticket and the jobs this company is built to win: full re-roofs, paid repairs, and storm dry-in that often become replacements.",
+      "items": [
+        {
+          "slug": "roof-replacement",
+          "name": "Roof Replacement",
+          "href": "/services/roof-replacement/"
+        },
+        {
+          "slug": "roof-repair",
+          "name": "Roof Repair",
+          "href": "/services/roof-repair/"
+        },
+        {
+          "slug": "emergency-roof-repair",
+          "name": "Emergency Roof Repair",
+          "href": "/services/emergency-roof-repair/"
+        },
+        {
+          "slug": "storm-damage-repair-specialists",
+          "name": "Storm Damage Repair",
+          "href": "/services/storm-damage-repair-specialists/"
+        }
+      ]
+    },
+    {
+      "rank": 2,
+      "tier": "core",
+      "label": "Core pipeline",
+      "why": "Feeds the calendar: leak tracing, free inspections that convert, Atlas shingle installs, and residential work from neighbors.",
+      "items": [
+        {
+          "slug": "roof-leak-repair",
+          "name": "Roof Leak Repair",
+          "href": "/services/roof-leak-repair/"
+        },
+        {
+          "slug": "free-roof-inspections-and-consultations",
+          "name": "Free Roof Inspections",
+          "href": "/services/free-roof-inspections-and-consultations/"
+        },
+        {
+          "slug": "shingle-roofing",
+          "name": "Atlas Shingle Roofing",
+          "href": "/services/shingle-roofing/"
+        },
+        {
+          "slug": "residential-roofing",
+          "name": "Residential Roofing",
+          "href": "/services/residential-roofing/"
+        },
+        {
+          "slug": "comprehensive-roof-installations",
+          "name": "Roof Installations",
+          "href": "/services/comprehensive-roof-installations/"
+        },
+        {
+          "slug": "expert-roof-repairs-and-maintenance",
+          "name": "Repairs & Maintenance Hub",
+          "href": "/services/expert-roof-repairs-and-maintenance/"
+        }
+      ]
+    },
+    {
+      "rank": 3,
+      "tier": "specialty",
+      "label": "Specialty systems",
+      "why": "We do this work when the building needs it. Not the first thing we market; still licensed and in-scope.",
+      "items": [
+        {
+          "slug": "commercial-roofing",
+          "name": "Commercial Roofing",
+          "href": "/services/commercial-roofing/"
+        },
+        {
+          "slug": "tpo-roofing",
+          "name": "TPO Roofing",
+          "href": "/services/tpo-roofing/"
+        },
+        {
+          "slug": "flat-roofing",
+          "name": "Flat Roofing",
+          "href": "/services/flat-roofing/"
+        },
+        {
+          "slug": "metal-roofing",
+          "name": "Metal Roofing",
+          "href": "/services/metal-roofing/"
+        },
+        {
+          "slug": "tile-roofing",
+          "name": "Tile Roofing",
+          "href": "/services/tile-roofing/"
+        }
+      ]
+    },
+    {
+      "rank": 4,
+      "tier": "addon",
+      "label": "Add-on / supporting",
+      "why": "Protects the roof edge and attic. Best bundled with a repair or replacement, not as the main marketing offer.",
+      "items": [
+        {
+          "slug": "roof-maintenance",
+          "name": "Roof Maintenance",
+          "href": "/services/roof-maintenance/"
+        },
+        {
+          "slug": "roof-ventilation",
+          "name": "Roof Ventilation",
+          "href": "/services/roof-ventilation/"
+        },
+        {
+          "slug": "gutter-installation-and-cleaning",
+          "name": "Gutters",
+          "href": "/services/gutter-installation-and-cleaning/"
+        },
+        {
+          "slug": "skylight-installation-and-repair",
+          "name": "Skylights",
+          "href": "/services/skylight-installation-and-repair/"
+        }
+      ]
+    }
+  ]
+}

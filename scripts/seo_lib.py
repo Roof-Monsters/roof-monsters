@@ -302,7 +302,7 @@ def roofing_contractor_schema(config: dict, *, include_reviews: bool = False) ->
         for s in config.get("services", [])
     ]
     schema: dict = {
-        "@type": ["RoofingContractor", "LocalBusiness"],
+        "@type": ["RoofingContractor", "HomeAndConstructionBusiness", "LocalBusiness"],
         "@id": f"{base}/#roofingcontractor",
         "name": b["name"],
         "legalName": b["legalName"],
@@ -325,6 +325,15 @@ def roofing_contractor_schema(config: dict, *, include_reviews: bool = False) ->
         "areaServed": b["areaServed"],
         "sameAs": b["sameAs"],
         "parentOrganization": {"@id": f"{base}/#organization"},
+        "knowsAbout": [
+          "Roof replacement",
+          "Roof repair",
+          "Emergency roof repair",
+          "Storm damage repair",
+          "Atlas shingle roofing",
+          "McKeever roofing Dunedin"
+        ],
+        "disambiguatingDescription": "Roof Monsters is the DBA of Terrance McKeever Enterprises, Inc., a Dunedin, Florida roofing contractor. Not a Jacksonville or Orlando roofer.",
         "contactPoint": {
             "@type": "ContactPoint",
             "telephone": b["telephone"],
@@ -356,7 +365,7 @@ def roofing_contractor_schema(config: dict, *, include_reviews: bool = False) ->
     if offer_items:
         schema["hasOfferCatalog"] = {
             "@type": "OfferCatalog",
-            "name": "Roofing Services",
+            "name": "Roofing services ranked by work we want — replacement, repair, and storm first",
             "itemListElement": offer_items,
         }
     if include_reviews:
@@ -808,6 +817,8 @@ def build_seo_head(path: Path, text: str, config: dict) -> str:
     schema_html = graph_block(graph)
     return f"""{SEO_MARKER_START}
   <link rel="canonical" href="{html.escape(page_url, quote=True)}" />
+  <link rel="alternate" type="text/plain" href="{html.escape(base, quote=True)}/llms.txt" title="LLM site summary" />
+  <link rel="alternate" type="text/plain" href="{html.escape(base, quote=True)}/ai.txt" title="AI facts" />
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large" />
 {geo_meta}  <meta property="og:type" content="{'website' if page_type == 'home' else 'article' if page_type == 'blog-post' else 'website'}" />
   <meta property="og:site_name" content="Roof Monsters" />
