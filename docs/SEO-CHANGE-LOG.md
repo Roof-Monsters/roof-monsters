@@ -6,7 +6,9 @@
 
 **Snippet / recrawl:** GSC said **request-indexing, do not rewrite titles**. Seven important URLs were crawled before live Last-Modified 2026-08-25. **No title/meta/H1 pack shipped.** Conversion, coverage tiers, job-rank labels, forms, schema, and AI files only.
 
-**Shipped in source (deploy to go live):**
+**Deployed 2026-09-11:** commit `754bd25` is live (GitHub Pages Last-Modified Fri, 11 Sep 2026 12:34:48 GMT). Indexing requested after this ship. No title/meta rewrite.
+
+**Shipped in source (now live):**
 
 - Ranked job labels (Rank 1 replacement/repair/emergency/storm → Rank 4 gutters/skylights) on services hub, homepage mosaic, generated service pages, and hand hub pages.
 - Coverage tiers on location hub + city pages: Pinellas core, nearby Tampa/west Pasco, extended Land O’ Lakes / Manatee. Explicit: not Jacksonville / Orlando / Miami.
@@ -19,7 +21,9 @@
 
 **Do not treat CTR as a failed experiment** until Google recrawls post-deploy HTML **and** 7 complete GSC days exist.
 
-**Follow-up:** After deploy, `node E:\Website Audit\GSC\tools\submit-indexing.mjs --site roofmonsters.co --stale-crawl` (quota ~10/day).
+**Follow-up hotfix:** Nested service pages had `href="contact-us/"` (404 at `/services/.../contact-us/`). Pointed those CTAs at `/contact-us/` and added the missing blog `roof-monsters-way.webp` so CI validate passes.
+
+**Indexing:** `node E:\Website Audit\GSC\tools\submit-indexing.mjs --site roofmonsters.co --stale-crawl` after this hotfix is live (quota ~10/day).
 
 ## 2026-09-10 — Remove test gallery composites
 
