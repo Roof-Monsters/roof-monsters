@@ -1,5 +1,13 @@
 # Roof Monsters SEO change log
 
+## 2026-09-17 — GA4 click-to-call + form events (next-report wiring)
+
+**Why:** They said they have not noticed more calls. Historical GA4 cannot prove or disprove site `tel:` taps — GTM-MRDB8975 only had GA4 config `G-N5H8R8C170`, Conversion Linker, and Ahrefs. No `phone_click`, `sms_click`, or form events. Google Business Profile **does** have call clicks (12 in 90 days, 11 after Jul 9).
+
+**Shipped 2026-09-17:** `assets/js/main.js` sends `phone_click`, `sms_click`, `form_start`, `form_submit`, `form_success`, and `generate_lead` to dataLayer + gtag on production hosts only. After GitHub Pages is live, mark `phone_click`, `sms_click`, and `generate_lead` as key events in GA4 Admin → Events. Do not mark `form_submit` / `form_start`.
+
+**Not this change:** titles, metas, or recrawl. GA4 property ID `546292072` is now in site JSON so the next audit exports the event table.
+
 ## 2026-09-10 — Conversion + local job ranking (not a title pack)
 
 **Why:** Website-only client. GSC 2026-06-12–2026-09-07: 78 clicks / 28,280 impressions / **0.28% CTR** / pos 21.7. Impressions and clicks are up vs the prior audit, but they say they “haven’t noticed calls.” Forms still hit Formspree → info@ → iCloud. They measure the phone, not the inbox.

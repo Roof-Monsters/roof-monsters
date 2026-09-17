@@ -762,7 +762,69 @@ function initParallaxBanners() {
 }
 
 const RM_FORMSPREE_ENDPOINT = 'https://formspree.io/f/mbdvvbnp';
+const RM_GA4_MEASUREMENT_ID = 'G-N5H8R8C170';
 const HERO_FORM_SUCCESS_RESET_MS = 3000;
+
+function rmIsProductionHost() {
+  const host = (location.hostname || '').toLowerCase();
+  return host === 'roofmonsters.co' || host === 'www.roofmonsters.co';
+}
+
+function rmCtaLocation(el) {
+  if (!el) return 'body';
+  if (el.closest('.rm-sticky-call')) return 'sticky_call';
+  if (el.closest('.site-header, header')) return 'header';
+  if (el.closest('.site-footer, footer')) return 'footer';
+  if (el.closest('.estimate-form')) return 'form';
+  return 'body';
+}
+
+function rmTrack(eventName, details) {
+  if (!rmIsProductionHost()) return;
+  const params = Object.assign(
+    {
+      send_to: RM_GA4_MEASUREMENT_ID,
+      transport_type: 'beacon',
+      page_path: location.pathname || '/',
+      page_title: document.title || '',
+    },
+    details || {},
+  );
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push(Object.assign({ event: eventName }, params));
+  const fire = () => {
+    if (typeof window.gtag !== 'function') return false;
+    window.gtag('event', eventName, params);
+    return true;
+  };
+  if (fire()) return;
+  let tries = 0;
+  const timer = setInterval(() => {
+    tries += 1;
+    if (fire() || tries > 24) clearInterval(timer);
+  }, 250);
+}
+
+function initLeadTracking() {
+  if (document.documentElement.dataset.rmLeadTracking === 'true') return;
+  document.documentElement.dataset.rmLeadTracking = 'true';
+  document.addEventListener(
+    'click',
+    (event) => {
+      const link = event.target?.closest?.('a[href^="tel:"], a[href^="sms:"], a[href^="smsto:"]');
+      if (!link) return;
+      const href = link.getAttribute('href') || '';
+      const isSms = /^sms/i.test(href);
+      rmTrack(isSms ? 'sms_click' : 'phone_click', {
+        link_url: href.slice(0, 80),
+        cta_text: (link.textContent || '').trim().replace(/\s+/g, ' ').slice(0, 120),
+        cta_location: rmCtaLocation(link),
+        lead_source: isSms ? 'sms' : 'phone',
+      });
+    },
+    true,
+  );
+}
 
 const formSuccessResetTimers = new WeakMap();
 
@@ -1040,6 +1102,12 @@ async function submitEstimateForm(form) {
     return;
   }
 
+  rmTrack('form_submit', {
+    form_id: form.id || '',
+    form_type: 'estimate',
+    lead_source: 'form',
+  });
+
   const payload = buildEstimatePayload(form, config);
   // Prefer validated contact values (empty invalid optional field if the other is valid).
   payload.set('name', contact.name);
@@ -1080,6 +1148,16 @@ async function submitEstimateForm(form) {
     }
 
     if (res.ok) {
+      rmTrack('form_success', {
+        form_id: form.id || '',
+        form_type: 'estimate',
+        lead_source: 'form',
+      });
+      rmTrack('generate_lead', {
+        form_id: form.id || '',
+        form_type: 'estimate',
+        lead_source: 'form',
+      });
       showEstimateFormSuccess(form);
       return;
     }
@@ -1141,6 +1219,16 @@ function initEstimateForms() {
     if (!form.getAttribute('method')) {
       form.setAttribute('method', 'POST');
     }
+
+    form.addEventListener('focusin', () => {
+      if (form.dataset.rmStarted === 'true') return;
+      form.dataset.rmStarted = 'true';
+      rmTrack('form_start', {
+        form_id: form.id || '',
+        form_type: 'estimate',
+        lead_source: 'form',
+      });
+    });
 
     form.addEventListener('submit', (e) => {
       e.preventDefault();
@@ -1212,6 +1300,7 @@ function initSiteChrome() {
   initCurrentYear();
   initHeaderScroll();
   initMobileNav();
+  initLeadTracking();
 }
 
 function initPageFeatures() {
@@ -1239,6 +1328,8 @@ function initApp() {
 }
 
 document.addEventListener('site:includes-loaded', initApp, { once: true });
+
+initLeadTracking();
 
 if (document.querySelector('.estimate-form')) {
   initEstimateForms();
